@@ -774,10 +774,10 @@
 
 ```html
 isHost(){
-	console.log("这是简写方式")
+console.log("这是简写方式")
 }
 vm.$watch('isHot',function (){
-	console.log('ishot被监视')
+console.log('ishot被监视')
 })
 </script>
 ```
