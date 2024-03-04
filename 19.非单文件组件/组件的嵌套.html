@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<script src="../vue.js"></script>
+</head>
+<body>
+<div id="root">
+	<!--	<school></school>-->
+</div>
+
+<script>
+	const stu = {
+		name: 'Clouds',
+		template: `
+			<div>
+				<h2>{{ name }}</h2>
+			</div>
+		`,
+		data() {
+			return {
+				name: '123'
+			}
+		},
+	}
+	
+	//定义s组件
+	const s = {
+		name: 'Mirage',
+		template: `
+			<div>
+				<h1>{{ name }}</h1>
+				<stu></stu>
+			</div>
+		`,
+		data() {
+			return {
+				name: 'Mirage'
+			}
+		},
+		components: {
+			stu
+		}
+	}
+	
+	const student = {
+		template: `
+            <div>
+                <h1>hello</h1>
+            </div>
+        `
+	}
+	
+	const app = {
+		template: `
+			<div>
+				<school></school>
+				<student></student>
+			</div>
+		`,
+		components: {
+			school: s,
+			student
+		}
+	}
+	
+	const vm = new Vue({
+		template: `
+			<div>
+				<app></app>
+			</div>
+		`,
+		el: "#root",
+		data: {},
+		methods: {},
+		//组成组件，局部
+		components: {
+			app
+		}
+	})
+</script>
+</body>
+</html>

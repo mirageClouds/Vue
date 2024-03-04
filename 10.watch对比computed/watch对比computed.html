@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<script src="../vue.js"></script>
+</head>
+<body>
+<div id="root">
+	姓：<input type="text" v-model="fristName">
+	名：<input type="text" v-model="lastName">
+	<span>{{ fullName }}</span>
+</div>
+<script>
+	new Vue({
+		el: '#root',
+		data: {
+			fristName: '张',
+			lastName: '三',
+			fullName: '张-三'
+		},
+		watch: {
+			fristName(newValue) {
+				setTimeout(() => {
+					this.fristName = newValue + '-' + this.lastName
+				}, 1234)
+			},
+			lastName(newValue) {
+				this.fullName = this.lastName + '-' + newValue
+			}
+		}
+		
+	})
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<script src="../vue.js"></script>
+</head>
+<body>
+<!--
+	1.data中所有属性，最后都出现在了vm身上
+	2.vm身上的所有属性，包括Vue原型上的所有属性，在Vue模板中都可以直接使用
+-->
+
+<div id="root">
+	<h1>{{ name }}</h1>
+	<h1>{{ address }}</h1>  <!--模板字符串可以读取到vm中的所有东西 -->
+</div>
+
+
+<script>
+	const vm = new Vue({
+		el: '#root',
+		data: {
+			name: '兮心',
+			address: 'Mirage'
+		}
+	})
+	console.log(vm)
+</script>
+
+</body>
+</html>

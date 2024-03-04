@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<script src="../vue.js"></script>
+</head>
+<body>
+<div id="root">
+	<label>
+		<input placeholder="请输入名字" type="text" v-model="keyWord"></input>
+	</label>
+	<button @click="keySort=1">年龄升序</button>
+	<button @click="keySort=2">年龄降序</button>
+	<button @click="keySort=0">原顺序</button>
+	<ul>
+		<!--遍历数组-->
+		<li :key="index" v-for="(p,index) in filePersons">  <!--key是唯一的-->
+			{{ p }}
+			{{ p.name }} - {{ p.id }} - {{ p.sex }}
+		</li>
+	</ul>
+</div>
+<script>
+	//用computed实现
+	new Vue({
+		el: '#root',
+		data: {
+			keyWord: '',
+			keySort: 0,//0 原顺序 1 升序 2 降序
+			persons: [
+				{id: '001', name: '御坂美琴', sex: '女'},
+				{id: '002', name: '结城明日奈', sex: '女'},
+				{id: '003', name: '桐谷和人', sex: '男'},
+				{id: '004', name: '上条当麻', sex: '男'}
+			],
+		},
+		computed: {
+			filePersons() {
+				const arr = this.persons.filter((p) => {
+					return p.name.indexOf(this.keyWord) !== -1
+				})
+				//判断是否需要排序
+				if (this.keySort) {
+					arr.sort((a, b) => {
+						return this.keySort !== 1 ? a.age - b.age : b.age - a.age
+					})
+				}
+				return arr
+			}
+		}
+	})
+</script>
+</body>
+</html>
+

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<script src="../vue.js"></script>
+</head>
+<body>
+<div id="root">
+	姓：<input type="text" v-model="fristName">
+	名：<input type="text" v-model="lastName">
+	<span>{{ fullName() }}</span>
+</div>
+<script>
+	new Vue({
+		el: '#root',
+		data: {
+			fristName: '张',
+			lastName: '三'
+		},
+		methods: {
+			fullName() {
+				return this.fristName + '-' + this.lastName
+			}
+		},
+		computed: {
+			fullName: {
+				//当有人读取full name时，get就会被调用且返回值就作为for name的值。
+				get() {
+					return this.fristName + '-' + this.lastName
+				},
+				set(value) {
+					const arr = value.split('-')
+					this.fristName = arr[0]
+					this.lastName = arr[1]
+				}
+			},
+			// 简写
+			fullName() {
+				return this.fristName + '-' + this.lastName
+			}
+		}
+		
+	})
+</script>
+</body>
+</html>
