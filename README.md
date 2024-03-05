@@ -2591,12 +2591,11 @@ vm.$watch('isHot',function (){
       
       <script>
       import school from "./School.vue";
-      import Student from "./student.vue";
+      import Student from "./Student.vue";
       
       export default {
         name: "app",
-        components: {Student},
-        computed: {
+        components: {
           school,
           student
         }
@@ -2650,3 +2649,83 @@ vm.$watch('isHot',function (){
       vue inspect > output.js
       ~~~
 
+## 脚手架分析文件
+
+* .gitignore：git的忽略文件，哪些文件不想被git管理就在这里配置好
+
+* babel.config.js：babel的配置文件
+  * babel：es6转es5
+  * 官网：https://babel.nodejs.cn/docs/
+  
+* package.json：包的说明书，配置
+  * 配置：
+    * 包的名字
+    * 包的依赖
+    * 包的版本
+    * 常用的命令
+      * serve：开发环境搭建
+      * build：生成环境（html）
+      * lint：进行语法检查
+  
+* package-lock.json：包版本控制文件，包含下载版本、下载链接
+
+* README：对项目进行说明
+
+* SRC文件：
+  * main.js：运作npm run serve 后直接运行这个文件
+  
+    * ~~~vue
+      //引入Vue
+      import Vue from 'vue'
+      // 引入App组件，它是所有组件的父组件
+      import App from './App.vue'
+      // 关闭vue的关闭提示
+      Vue.config.productionTip = false
+      // 创建Vue的实例对象
+      new Vue({
+      	render: h => h(App),
+      }).$mount('#app')
+      ~~~
+  
+    * render配置项：
+  
+      * 
+  
+  * App.Vue：是所有组件的父组件
+  
+    * 在此页面调用子组件
+  
+  * assets：存放静态资源的位置
+  
+  * components：存放组件的位置
+  
+* public：
+
+  * favicon：图标文件
+
+  * index.html： 应用的界面
+
+    * ```html
+      <head>
+          <meta charset="utf-8">
+          <!--针对IE浏览器的一个特殊配置，含义是让IE浏览器以最高渲染级别渲染页面-->
+          <meta content="IE=edge" http-equiv="X-UA-Compatible">
+          <!--开启移动端的理性接口-->
+          <meta content="width=device-width,initial-scale=1.0" name="viewport">
+          <!--配置页签图标，<%= BASE_URL %>在Vue中自动代理位public-->
+          <link href="<%= BASE_URL %>favicon.ico" rel="icon">
+          <!--配置网页标题-->
+          <title><%= htmlWebpackPlugin.options.title %></title>
+      </head>
+      <body>
+      <!--当浏览器不支持js时，noscript中的元素会被渲染-->
+      <noscript>
+          <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled.
+             Please enable it to continue.</strong>
+      </noscript>
+      <!--Vue容器-->
+      <div id="app"></div>
+      <!-- built files will be auto injected -->
+      ```
+
+  
