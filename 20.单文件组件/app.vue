@@ -1,7 +1,7 @@
 <template>
   <div>
     <school/>
-    <Student/>
+    <student/>
   </div>
 </template>
 
@@ -11,7 +11,11 @@ import Student from "./student.vue";
 
 export default {
   name: "app",
-  components: {Student, school},
+  components: {Student},
+  computed: {
+    school,
+    student
+  }
 }
 </script>
 
