@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<script src="../vue.js"></script>
+</head>
+<body>
+<div id="root">
+	<ul>
+		<!--遍历数组-->
+		<li :key="index" v-for="(p,index) in persons">  <!--key是唯一的-->
+			{{ p }}
+			{{ p.name }} - {{ p.id }}
+		</li>
+		<li v-for="p in persons">
+			{{ p }}
+			{{ p.name }} - {{ p.id }}
+		</li>
+		<!--遍历对象-->
+		<li key="key" v-for="(value,key) in car">
+			{{ value }} - {{ key }}
+		</li>
+		m47
+		<!--遍历字符串(少)-->
+		<li key="index" v-for="(char,index) in str">
+			{{ char }} - {{ index }}
+		</li>
+		<!--遍历指定次数(少)-->
+		<li key="a" v-for="(a,b) in 5">
+			{{ a }} - {{ b }}
+		</li>
+		
+		
+		<li :key="key" v-for="(arr,key) in arr ">
+			{{arr.name }} - {{arr.id}} -{{key}}
+		</li>
+	</ul>
+</div>
+
+<script>
+	new Vue({
+		el: '#root',
+		data: {
+			persons: [
+				{id: '001', name: 'mirage', age: '18'},
+				{id: '001', name: 'mirage', age: '18'}
+			],
+			car: {
+				name: 'mirage',
+				color: 'skybule'
+			},
+			str: 'hello',
+			arr: [
+				{id: '003', name: 'fox', age: '15'},
+				{id: '002', name: 'box', age: '17'}
+			]
+		}
+	})
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<script src="vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+	<h1>{{name}}</h1>
+	<p>{{age}}</p>
+</div>
+
+<script>
+	Vue.config.productionTip = false//阻止vue在启动是提示生产版本
+	
+	new Vue({
+		el: '#app',//el用于指定Vue实例为哪个容器服务，通常为css选择字符串
+		data: {  //data中用于存储数据，数据供el所指定容器使用，值暂时写成一个对象
+			name: '兮心',
+			age: '18'
+		}
+	})
+</script>
+</body>
+</html>

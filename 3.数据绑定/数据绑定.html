@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+	<p>单向绑定</p>
+	<input :value="name" type="text"><br>
+	<p>双向绑定</p>
+	<input type="text" v-model="name">
+</div>
+
+<script>
+	new Vue({
+		el: '#app',
+		data: {
+			name: 'Mirage'
+		}
+	})
+</script>
+</body>
+</html>

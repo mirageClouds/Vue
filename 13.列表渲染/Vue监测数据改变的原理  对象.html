@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<script src="../vue.js"></script>
+</head>
+<body>
+<div id="root">
+	<!--	<button @click="addRess">添加一个属性</button>-->
+	<h2>名称:{{ student.name }}</h2>
+	<h2>性别:{{ student.sex }}</h2>
+	<h2>年龄:{{ student.age.rage }}</h2>
+	<h2>年龄:{{ student.age.sage }}</h2>
+	<h2>爱好:</h2>
+	<ul>
+		<li :key="index" v-for="(h,index) in student.hobby">
+			{{ h }}
+		</li>
+	</ul>
+	<h2>{{ undefined }}</h2>    <!--undefined在Vue中默认不显示-->
+</div>
+
+<script !src="">
+	const vm = new Vue({
+		el: '#root',
+		data: {
+			student: {
+				name: 'mirage',
+				sex: '男',
+				age: {
+					rage: '12',
+					sage: '18'
+				}
+			}
+		},
+		methods: {}
+	})
+</script>
+</body>
+</html>

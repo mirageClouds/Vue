@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<script src="../vue.js"></script>
+</head>
+<body>
+<div id="root">
+	<School></School>
+	<hello></hello>
+</div>
+
+<script>
+	const School = Vue.extend({
+		name: 'Mirage_clouds',
+		template: `
+          <div>
+            <h1>{{ name }}</h1>
+          </div>
+        `,
+		data() {
+			return {
+				name: 'Mirage'
+			}
+		}
+	})
+	
+	//简写
+	const hello = {
+		template: `
+          <div>
+            <h2>{{ name }}</h2>
+          </div>
+        `,
+		data() {
+			return {
+				name: 'clouds'
+			}
+		}
+	}
+	
+	const vm = new Vue({
+		el: "#root",
+		data: {},
+		methods: {},
+		components: {
+			School,
+			hello,
+			//多个单词写法
+			'my-school': School,
+			//脚手架中
+			// MySchool:School
+		}
+	})
+</script>
+</body>
+</html>
