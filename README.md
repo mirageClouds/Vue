@@ -46,6 +46,7 @@
 ### **Vue3.js下载**
 
 * 进去后又键保存为本地文件进行导入
+
     * **Staticfile CDN（国内）** : https://cdn.staticfile.org/vue/3.0.5/vue.global.js
     * **unpkg**：https://unpkg.com/vue@next, 会保持和 npm 发布的最新的版本一致。
     * **cdnjs** : https://cdnjs.cloudflare.com/ajax/libs/vue/3.0.5/vue.global.js
@@ -76,7 +77,8 @@
     	<a v-bind:href="school.url.toUpperCase()">点击</a>
     		<button></button>
     </div>
-
+    
+    
     <script>
     	new Vue({
     		el:'#app',
@@ -111,7 +113,7 @@
         <p>单向绑定</p>
         <input type="text" :value="name"><br>
     </div>
-
+    
     <script>
         new Vue({
            el:'#app',
@@ -137,7 +139,7 @@
         <p>双向绑定</p>
         <input type="text" v-model="name">
     </div>
-
+    
     <script>
         new Vue({
            el:'#app',
@@ -182,7 +184,7 @@
     <div id="root">
         <p>{{name}}</p>
     </div>
-
+    
     <script>
         let v = new Vue({
            el:'#root'
@@ -196,7 +198,7 @@
     <div id="root">
         <p>{{name}}</p>
     </div>
-
+    
     <script>
         let v = new Vue({})
         v.$mount('#root')
@@ -211,7 +213,7 @@
     <div id="root">
         <p>{{name}}</p>
     </div>
-
+    
     <script>
         let v = new Vue({
            el:'#root',
@@ -228,7 +230,7 @@
     <div id="root">
         <p>{{name}}</p>
     </div>
-
+    
     <script>
         let v = new Vue({
            data:function (){
@@ -288,11 +290,12 @@
 * **参考代码**
 
     * ~~~html
-      <div id="root">
-        <h1>{{ name }}</h1>
-        <h1>{{ address }}</h1>
+    <div id="root">
+      <h1>{{ name }}</h1>
+      <h1>{{ address }}</h1>
     </div>
-
+    
+    
     <script>
         const vm = new Vue({
            el:'#root',
@@ -353,9 +356,9 @@
 * 参考代码
 
     * ~~~html
-  /*
-  修改obj1.x的值时，obj2.x的值等于obj1.x的值
-  */
+    /*
+    	修改obj1.x的值时，obj2.x的值等于obj1.x的值
+    */
     <script>
         let obj1 = {x:300}
         let obj2 = {y:200}
@@ -431,7 +434,7 @@
 * **prevent**:阻止默认事件(常用)
 
     * ~~~html
-  <a @click.prevent="showInfo" href="https://www.blilblil.com">点击</a>
+    <a @click.prevent="showInfo" href="https://www.blilblil.com">点击</a>
     ~~~
 
 * **stop**:阻止事件冒泡(常用)
@@ -445,7 +448,7 @@
 * **once**：事件只触发一次(常用)
 
     * ~~~html
-  <button @click.once="showInfo">点我提示信息</button>
+    <button @click.once="showInfo">点我提示信息</button>
     ~~~
 
 * **capture**：使用事件的捕获模式
@@ -719,12 +722,12 @@
         * ```VUE
       //第二种，没有确定的属性时写
       vm.$watch('isHot',{
-      //Handler在isHot发生改变时会被调用。
-      handled(newValue,oldValue){
-      console.log(newValue,oldValue)
-      },
-      //当Immediate等于true时使handler立即执行。
-      immediate:true
+          //Handler在isHot发生改变时会被调用。
+          handled(newValue,oldValue){
+             console.log(newValue,oldValue)
+          },
+          //当Immediate等于true时使handler立即执行。
+          immediate:true
       })
       ```
 
@@ -733,13 +736,13 @@
 * Vue中的watch默认不监测对象内部值的改变（一层）
 
     * ~~~
-  watch:{
-  isHost: {
-  handled(newValue,oldValue){
-  console.log(newValue,oldValue)
-  },
-  immediate:true
-  },
+    watch:{
+    	isHost: {
+          	handled(newValue,oldValue){
+          	console.log(newValue,oldValue)
+        },
+        immediate:true
+    },
     ~~~
 
 * 配置deep:true可以监测对象内部值的改变（多层）
@@ -748,21 +751,21 @@
 
         * ~~~html
       'numbers.a':{
-      handled(newValue, oldValue) {
-      console.log('a改变了')
-      }
+      	handled(newValue, oldValue) {
+      		console.log('a改变了')
+      	}
       },
-
+      
       ~~~
 
     * 监视多级结构中所有属性的变化
 
         * ~~~
       numbers: {
-      deep:true,
-      handled(){
-      console.log('number改变了')
-      }
+      	deep:true,
+      	handled(){
+      		console.log('number改变了')
+      	}
       }
       ~~~
 
@@ -774,10 +777,10 @@
 
 ```html
 isHost(){
-	console.log("这是简写方式")
+console.log("这是简写方式")
 }
 vm.$watch('isHot',function (){
-	console.log('ishot被监视')
+console.log('ishot被监视')
 })
 </script>
 ```
@@ -909,29 +912,29 @@ vm.$watch('isHot',function (){
 
     * ~~~html
     <div class="basic" :style="styObj">{{ name }}</div>
-
-  styObj:{
-  fontSize: "40px",
-  color:'red',
-  backgroundColor:'skybule'
-  }
+    
+    styObj:{
+    	fontSize: "40px",
+    	color:'red',
+    	backgroundColor:'skybule'
+    }
     ~~~
 
 * :style="[a,b]"其中a,b是样式对象
 
     * ~~~html
     <div class="basic" :style="[styArr]">{{ name }}</div>
-
-  styArr:[
-  {
-  fontSize: "40px",
-  color:'red',
-  backgroundColor:'skybule'
-  },
-  {
-  border:'1px solid stybule'
-  }
-  ]
+    
+    styArr:[
+    	{
+    		fontSize: "40px",
+    		color:'red',
+    		backgroundColor:'skybule'
+    	},
+    	{
+    		border:'1px solid stybule'
+    	}
+    ]
     ~~~
 
 ### 参考代码
@@ -1082,6 +1085,7 @@ vm.$watch('isHot',function (){
 ### 基本列表渲染
 
 * v-for指令
+
     * 用于展示列表数据
 
     * 语法：v-for="(item，index) in XXX” :key="yyy"
@@ -1151,7 +1155,7 @@ vm.$watch('isHot',function (){
     		</li>
     	</ul>
     </div>
-
+    
     <script>
     	new Vue({
     		el: '#root',
@@ -1185,8 +1189,8 @@ vm.$watch('isHot',function (){
     * **对比规则：**
 
         * 旧虚拟DOM中找到了与新虚拟DOM相同的key
-        * 若虚拟DOM中内容没有变，直接使用之前的真实DOM
-        * 若虚拟DOM中的内容变了，则生成新的真实DOM，随后替换掉页面值之前的真实DOM
+            * 若虚拟DOM中内容没有变，直接使用之前的真实DOM
+            * 若虚拟DOM中的内容变了，则生成新的真实DOM，随后替换掉页面值之前的真实DOM
         * 就虚拟DOM中未找到与新虚拟DOM相同的key
             * 创建新的真实DOM，随后渲染到页面
 
@@ -1223,7 +1227,7 @@ vm.$watch('isHot',function (){
              </li>
           </ul>
       </div>
-
+      
       <script>
           new Vue({
              el: '#root',
@@ -1247,6 +1251,7 @@ vm.$watch('isHot',function (){
 ### 列表过滤
 
 * 使用监视属性watch和计算属性computed两种方式进行过滤
+
 * filter进行过滤，indexOf()功能：返回字符串中匹配子串的第一个字符的下标,indexOf中空字符串为0不为-1
 
 * watch方式
@@ -1264,7 +1269,7 @@ vm.$watch('isHot',function (){
            </li>
         </ul>
     </div>
-
+    
     <script>
         new Vue({
            el: '#root',
@@ -1313,7 +1318,7 @@ vm.$watch('isHot',function (){
            </li>
         </ul>
     </div>
-
+    
     <script>
         new Vue({
            el: '#root',
@@ -1389,6 +1394,7 @@ vm.$watch('isHot',function (){
            }
         })
     </script>
+    ~~~
 
 ### 模拟Vue数据监视
 
@@ -1449,7 +1455,7 @@ vm.$watch('isHot',function (){
         </ul>
         <h2>{{ undefined }}</h2>    <!--undefined在Vue中默认不显示-->
     </div>
-
+    
     <script !src="">
         const vm = new Vue({
            el: '#root',
@@ -1474,7 +1480,7 @@ vm.$watch('isHot',function (){
 * 第一种
 
     * ~~~
-  Vue.set(位置, 添加的属性, 属性的内容)
+    Vue.set(位置, 添加的属性, 属性的内容) 
     ~~~
 
     * 参考代码
@@ -1511,7 +1517,7 @@ vm.$watch('isHot',function (){
 * 第二种
 
     * ~~~
-  this.$set(位置, 添加的属性, 属性的内容)
+    this.$set(位置, 添加的属性, 属性的内容)
     ~~~
 
     * 参考代码
@@ -1548,6 +1554,7 @@ vm.$watch('isHot',function (){
 ### Vue中监测数据改变的原理_数组
 
 * 对于data中的数组，要修改需要调用数组的方法
+
     * pust：往数组后添加东西
     * pop：移除数组最后一个元素
     * shift：在数组头添加东西
@@ -1558,6 +1565,7 @@ vm.$watch('isHot',function (){
     * filter：不会对数组进行修改，要用这个需要将过滤后的数组重新赋值给原数组
 
 * Vue中的数组不是数组中的方法了，是数组原型中的方法
+
     * ![image-20231204190922151](C:\Users\21592\AppData\Roaming\Typora\typora-user-images\image-20231204190922151.png)
 
 * 参考代码
@@ -1577,7 +1585,7 @@ vm.$watch('isHot',function (){
         </ul>
         <h2>{{ undefined }}</h2>    <!--undefined在Vue中默认不显示-->
     </div>
-
+    
     <script !src="">
         const vm = new Vue({
            el: '#root',
@@ -1600,17 +1608,17 @@ vm.$watch('isHot',function (){
 * Vue会监视data中所有层次的数据
 
     * ```
-  data: {
-  student: {
-  name: 'mirage',
-  age: '19',
-  hobby: ['唱', '跳', 'RAP'],
-  friends: [
-  {name: 'Mirage', age: '18'},
-  {name: 'Clouds', age: '17'}
-  ]
-  }
-  }
+    data: {
+        student: {
+           name: 'mirage',
+           age: '19',
+           hobby: ['唱', '跳', 'RAP'],
+           friends: [
+              {name: 'Mirage', age: '18'},
+              {name: 'Clouds', age: '17'}
+           ]
+        }
+    }
     ```
 
 * 如何检测对象中的数据
@@ -1655,7 +1663,8 @@ vm.$watch('isHot',function (){
         <button @click="addHobby">添加一个爱好</button>
         <button @click="updataHobby">修改第一个爱好</button>
         <button @click="removeHobby">过滤一个爱好</button>
-
+        
+        
         <!--   <button @click="addRess">添加一个属性</button>-->
         <h2>名称:{{ student.name }}</h2>
         <h2 v-if="student.sex">性别:{{ student.sex }}</h2>
@@ -1769,7 +1778,7 @@ vm.$watch('isHot',function (){
            <button>点击</button>
         </form>
     </div>
-
+    
     <script>
         const vm = new Vue({
            el: '#root',
@@ -1804,7 +1813,7 @@ vm.$watch('isHot',function (){
         * ```
       //创建全局过滤器
       Vue.filter('mySlice', function (value) {
-      return value.slice(0, 4)
+          return value.slice(0, 4)
       })
       ```
 
@@ -1868,6 +1877,7 @@ vm.$watch('isHot',function (){
 * v-show指令：条件渲染(动态控制节点是否展示)
 
 * v-text指令：向所在的节点中渲染文本内容
+
     * 与插值语法的区别，v-text会替换掉文本中的内容，{{xx}}则不会
 
 * v-html指令：向指定节点中渲染包含html结构的内容
@@ -1904,6 +1914,7 @@ vm.$watch('isHot',function (){
     * 以后数据的改变不会引起v-once所在结构的更新，可以用于优化性能
 
 * v-pre指令：
+
     * 跳过其所在节点的编译过程
     * 可利用它跳过：没有使用指令语法、没有使用插值语法的节点，会加快编译
 
@@ -1915,17 +1926,17 @@ vm.$watch('isHot',function (){
 
         * ~~~
       new Vue({
-      directives:{
-      指令名：配置对象
-      }
+      	directives:{
+      		指令名：配置对象
+      	}
       })
       ~~~
 
         * ~~~
       new Vue({
-      directives(){
-      指令名:回调
-      }
+      	directives(){
+      		指令名:回调
+      	}
       })
       ~~~
 
@@ -1970,7 +1981,7 @@ vm.$watch('isHot',function (){
         const btn = document.querySelector('#btn')
         btn.addEventListener('click', function () {
             const input = document.createElement('input')
-
+    
             //不需要input渲染到页面后才有效,bind区域
             input.value = '99'
             input.className = 'demo'
@@ -2013,7 +2024,7 @@ vm.$watch('isHot',function (){
     </div>
     </body>
     <script>
-
+    
         Vue.directive()
     
         const vm = new Vue({
@@ -2073,7 +2084,7 @@ vm.$watch('isHot',function (){
     <div id="root">
         <h2 :style="{opacity}">111</h2>
     </div>
-
+    
     <script>
         const vm = new Vue({
             el: "#root",
@@ -2108,6 +2119,7 @@ vm.$watch('isHot',function (){
 ### 生命周期总结
 
 * 常用生命周期钩子
+
     * mouted：发送ajax请求、启动定时器、绑定自定义事件、订阅消息等初始化操作
     * beforeDestroy：清除定时器、解绑自定义事件、取消订阅消息等
 
@@ -2132,7 +2144,7 @@ vm.$watch('isHot',function (){
         <h2>n的值为：{{n}}</h2>
         <button @click="add" type="button">点击n+1</button>
     </div>
-
+    
     <script>
         const vm = new Vue({
             el: "#root",
@@ -2231,7 +2243,7 @@ vm.$watch('isHot',function (){
         <student></student>
         <school></school>
     </div>
-
+    
     <script>
         //创建组件
         const student = Vue.extend({
@@ -2309,7 +2321,7 @@ vm.$watch('isHot',function (){
         <School></School>
         <hello></hello>
     </div>
-
+    
     <script>
         const School = Vue.extend({
             name: 'Mirage_clouds',
@@ -2373,7 +2385,7 @@ vm.$watch('isHot',function (){
     <div id="root">
         <school></school>
     </div>
-
+    
     <script>
         const stu = {
             name: 'Clouds',
@@ -2451,7 +2463,9 @@ vm.$watch('isHot',function (){
 ### VueComponent
 
 * 组件本质是一个名为VueComponent的构造函数，且不是程序员定义的，是Vue.extend生产的
+
 * 我们只需要写<组件名/>或<组件名></组件名>，Vue解析时会帮我们创建组件实例对象，即Vue帮我们执行new VueComponent(options)
+
 * 特别注意，每次调用extend时，Vue都会为我们创建一个全新的VueComponent
 
 * 关于this
@@ -2477,9 +2491,9 @@ vm.$watch('isHot',function (){
     </head>
     <body>
     <div id="root">
-
+    
     </div>
-
+    
     <script>
         const name = {
             template: `
@@ -2555,12 +2569,12 @@ vm.$watch('isHot',function (){
       }
     }
     </script>
-
+    
     <template>
       <!--组件的结构-->
       <h2>{{ name }}</h2>
     </template>
-
+    
     <style lang="scss" scoped>
     //组件的样式2
     </style>
@@ -2577,11 +2591,11 @@ vm.$watch('isHot',function (){
           <student/>
         </div>
       </template>
-
+      
       <script>
       import school from "./School.vue";
       import Student from "./student.vue";
-
+      
       export default {
         name: "app",
         components: {Student},
@@ -2591,9 +2605,9 @@ vm.$watch('isHot',function (){
         }
       }
       </script>
-
+      
       <style lang="scss" scoped>
-
+      
       </style>
       ```
 
@@ -2606,23 +2620,23 @@ vm.$watch('isHot',function (){
 * 全局安装脚手架@vue/cil
 
     * ~~~
-  npm install -g @vue/cil
+    npm install -g @vue/cil
     ~~~
 
 * **切换到需要创建项目的目录**，使用命令创建脚手架
 
     * ~~~
-  cd 目录位置
+    cd 目录位置
     ~~~
 
     * ~~~
-  vue create xxx
+    vue create xxx
     ~~~
 
 * 启动项目
 
     * ~~~
-  run npm serve
+    run npm serve
     ~~~
 
 * 备注
@@ -2639,3 +2653,4 @@ vm.$watch('isHot',function (){
       vue inspect > output.js
       ~~~
 
+****
