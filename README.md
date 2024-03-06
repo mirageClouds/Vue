@@ -46,6 +46,7 @@
 ### **Vue3.js下载**
 
 * 进去后又键保存为本地文件进行导入
+
   * **Staticfile CDN（国内）** : https://cdn.staticfile.org/vue/3.0.5/vue.global.js
   * **unpkg**：https://unpkg.com/vue@next, 会保持和 npm 发布的最新的版本一致。
   * **cdnjs** : https://cdnjs.cloudflare.com/ajax/libs/vue/3.0.5/vue.global.js
@@ -289,9 +290,9 @@
 * **参考代码**
 
   * ~~~html
-      <div id="root">
-        <h1>{{ name }}</h1>
-        <h1>{{ address }}</h1>
+    <div id="root">
+      <h1>{{ name }}</h1>
+      <h1>{{ address }}</h1>
     </div>
     
     
@@ -719,9 +720,9 @@
       	})
       </script>
       ~~~
-  
+
   * 通过vm.$watch监视
-  
+
     * ```VUE
       //第二种，没有确定的属性时写
       vm.$watch('isHot',{
@@ -1088,16 +1089,17 @@ vm.$watch('isHot',function (){
 ### 基本列表渲染
 
 * v-for指令
+
   * 用于展示列表数据
-  
+
   * 语法：v-for="(item，index) in XXX” :key="yyy"
-  
+
   * 可遍历：数组、对象、字符串（少）、指定次数
-  
+
   * key是给节点一个标识,当key的值为index时，在dom渲染时会自动干掉，如果不写key，vue自动将key的值设为index，但是vue不知道哪个是唯一的主键
-  
+
   * 遍历数组
-  
+
     * ~~~
       <li v-for="(p,index) in persons" :key="index">
       persons: [
@@ -1105,9 +1107,9 @@ vm.$watch('isHot',function (){
       		{id: '001', name: 'mirage', age: '18'}
       ]
       ~~~
-  
+
   * 遍历对象
-  
+
     * ~~~
       <li v-for="(value,key) in car" key="key">
       car: {
@@ -1115,20 +1117,20 @@ vm.$watch('isHot',function (){
       	color: 'skybule'
       },
       ~~~
-  
+
   * 遍历字符串(少)
-  
+
     * ~~~
       <li v-for="(char,index) in str" key="index">
       str: 'hello'
       ~~~
-  
+
   * 遍历指定次数(少)
-  
+
     * ~~~
       <li v-for="(a,b) in 5" key="a">
       ~~~
-  
+
 * 参考代码
 
   * ~~~html
@@ -1192,10 +1194,10 @@ vm.$watch('isHot',function (){
   * **对比规则：**
 
     *  旧虚拟DOM中找到了与新虚拟DOM相同的key
-      * 若虚拟DOM中内容没有变，直接使用之前的真实DOM
-      * 若虚拟DOM中的内容变了，则生成新的真实DOM，随后替换掉页面值之前的真实DOM
-    * 就虚拟DOM中未找到与新虚拟DOM相同的key
-      * 创建新的真实DOM，随后渲染到页面
+       * 若虚拟DOM中内容没有变，直接使用之前的真实DOM
+       * 若虚拟DOM中的内容变了，则生成新的真实DOM，随后替换掉页面值之前的真实DOM
+    *  就虚拟DOM中未找到与新虚拟DOM相同的key
+       * 创建新的真实DOM，随后渲染到页面
 
   * **用index作为key可能会引发的问题**
 
@@ -1254,6 +1256,7 @@ vm.$watch('isHot',function (){
 ### 列表过滤
 
 * 使用监视属性watch和计算属性computed两种方式进行过滤
+
 * filter进行过滤，indexOf()功能：返回字符串中匹配子串的第一个字符的下标,indexOf中空字符串为0不为-1
 
 * watch方式
@@ -1396,6 +1399,7 @@ vm.$watch('isHot',function (){
            }
         })
     </script>
+    ~~~
 
 ### 模拟Vue数据监视
 
@@ -1555,6 +1559,7 @@ vm.$watch('isHot',function (){
 ### Vue中监测数据改变的原理_数组
 
 * 对于data中的数组，要修改需要调用数组的方法
+
   * pust：往数组后添加东西
   * pop：移除数组最后一个元素
   * shift：在数组头添加东西
@@ -1563,8 +1568,9 @@ vm.$watch('isHot',function (){
   * sort：对数组进行排序，a-b是升序，b-a是降序
   * reverse：反转数组中的元素
   * filter：不会对数组进行修改，要用这个需要将过滤后的数组重新赋值给原数组
-  
+
 * Vue中的数组不是数组中的方法了，是数组原型中的方法
+
   * ![image-20231204190922151](C:\Users\21592\AppData\Roaming\Typora\typora-user-images\image-20231204190922151.png)
 
 * 参考代码
@@ -1876,8 +1882,9 @@ vm.$watch('isHot',function (){
 * v-show指令：条件渲染(动态控制节点是否展示)
 
 * v-text指令：向所在的节点中渲染文本内容
+
   * 与插值语法的区别，v-text会替换掉文本中的内容，{{xx}}则不会
-  
+
 * v-html指令：向指定节点中渲染包含html结构的内容
 
   * 与插值语法区别
@@ -1912,6 +1919,7 @@ vm.$watch('isHot',function (){
   * 以后数据的改变不会引起v-once所在结构的更新，可以用于优化性能
 
 * v-pre指令：
+
   * 跳过其所在节点的编译过程
   * 可利用它跳过：没有使用指令语法、没有使用插值语法的节点，会加快编译
 
@@ -1957,7 +1965,7 @@ vm.$watch('isHot',function (){
 
   * 指令定义时不加v-，但使用时要加v-
   * 指令名如果是多个单词，要使用kebab-case命名方式，不要用camelCase命名
-  
+
 * 参考代码
 
   * ```html
@@ -2118,6 +2126,7 @@ vm.$watch('isHot',function (){
 ### 生命周期总结
 
 * 常用生命周期钩子
+
   * mouted：发送ajax请求、启动定时器、绑定自定义事件、订阅消息等初始化操作
   * beforeDestroy：清除定时器、解绑自定义事件、取消订阅消息等
 
@@ -2461,7 +2470,9 @@ vm.$watch('isHot',function (){
 ### VueComponent
 
 * 组件本质是一个名为VueComponent的构造函数，且不是程序员定义的，是Vue.extend生产的
+
 * 我们只需要写<组件名/>或<组件名></组件名>，Vue解析时会帮我们创建组件实例对象，即Vue帮我们执行new VueComponent(options)
+
 * 特别注意，每次调用extend时，Vue都会为我们创建一个全新的VueComponent
 
 * 关于this
@@ -2591,11 +2602,12 @@ vm.$watch('isHot',function (){
       
       <script>
       import school from "./School.vue";
-      import Student from "./Student.vue";
+      import Student from "./student.vue";
       
       export default {
         name: "app",
-        components: {
+        components: {Student},
+        computed: {
           school,
           student
         }
@@ -2649,62 +2661,43 @@ vm.$watch('isHot',function (){
       vue inspect > output.js
       ~~~
 
-## 脚手架分析文件
+## VueCli文件解析
 
-* .gitignore：git的忽略文件，哪些文件不想被git管理就在这里配置好
+* .gitignore：git忽略文件，不需要上传git仓库的在这个文件里面写好
 
 * babel.config.js：babel的配置文件
-  * babel：es6转es5
-  * 官网：https://babel.nodejs.cn/docs/
+  * babel：es6语法转es5语法
+  * babel的中文文档：https://babel.nodejs.cn/docs
   
-* package.json：包的说明书，配置
-  * 配置：
-    * 包的名字
-    * 包的依赖
-    * 包的版本
-    * 常用的命令
-      * serve：开发环境搭建
-      * build：生成环境（html）
-      * lint：进行语法检查
+* package.json：包含了包名、常用短命令、包的版本
+  * serve：在本地启动项目
+  * build：生产版本，代码完成后执行的编译
+  * lint：代码检查（不常用）
   
-* package-lock.json：包版本控制文件，包含下载版本、下载链接
+* package-lock.json：包含了包的版本信息、包的下载地址、包的node.js版本
+  * version：包的版本
+  * resolved：包的下载地址
+  * integrity：用来验证资源的完整性，即是否是我期望加载的资源，而不是被别人篡改了内容
+  * dependencies：当前包的生产依赖树
+  * devDependencies：当前包的生产依赖
+  * engines：node.js的版本
+  
+* vue.config.js：vue的配置项
+  * 配置项查询连接：https://cli.vuejs.org/zh/config/#pages
+  
+* readme.md：项目的介绍|教程
 
-* README：对项目进行说明
-
-* SRC文件：
-  * main.js：运作npm run serve 后直接运行这个文件
-  
-    * ~~~vue
-      //引入Vue
-      import Vue from 'vue'
-      // 引入App组件，它是所有组件的父组件
-      import App from './App.vue'
-      // 关闭vue的关闭提示
-      Vue.config.productionTip = false
-      // 创建Vue的实例对象
-      new Vue({
-      	render: h => h(App),
-      }).$mount('#app')
-      ~~~
-  
-    * render配置项：
-  
-      * 
-  
-  * App.Vue：是所有组件的父组件
-  
-    * 在此页面调用子组件
-  
+* **src**：
+  * main.js：项目的主入口文件，在这里创建Vue实例对象
+  * App.vue：所有组件的父组件
+  * components：存放子组件的位置
   * assets：存放静态资源的位置
   
-  * components：存放组件的位置
+* **public**：
+  * favicon.ico：网页的图标位置
   
-* public：
-
-  * favicon：图标文件
-
-  * index.html： 应用的界面
-
+  * index.html：项目的主文件，项目最终会运行在这个文件上
+  
     * ```html
       <head>
           <meta charset="utf-8">
@@ -2726,6 +2719,6 @@ vm.$watch('isHot',function (){
       <!--Vue容器-->
       <div id="app"></div>
       <!-- built files will be auto injected -->
+      </body>
       ```
 
-  
