@@ -2758,14 +2758,29 @@ vm.$watch('isHot',function (){
       ```
 
 * node_modules：第三方依赖包
+
 * output.js：被脚手架隐藏的webpack配置项，里面包含了VueCli的webpack配置，在这个文件里面更并不奏效，这个文件只是输出出来给我们看的
+
+  * 使用vue inspect > output.js就可以查看vue脚手架默认配置
+
 * vue脚手架中哪些文件不能更改：
+
   * public文件下的内容不能更改，但是可以被同名文件替换
   * src文件名字不能更改
   * main.js名字不能更改
-* 调整vue脚手架的方式：package同文件下创建vue.config.js
+
+* 对vue脚手架进行个性化定制：package同文件下创建vue.config.js
+
   * vue.config.js(可选择是否使用，如不使用则使用默认配置)：
-    * 配置项查询连接：https://cli.vuejs.org/zh/config/#pages
+
+    * 配置项查询连接：https://cli.vuejs.org/zh/config/#vue-config-js
+
+    * 使用的暴露方式：
+
+      * ```
+        module.exports = defineConfig({
+        })
+        ```
 
 ## Vue默认配置项
 
