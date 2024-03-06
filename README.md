@@ -2682,15 +2682,50 @@ vm.$watch('isHot',function (){
   * devDependencies：当前包的生产依赖
   * engines：node.js的版本
   
-* vue.config.js：vue的配置项
-  * 配置项查询连接：https://cli.vuejs.org/zh/config/#pages
-  
 * readme.md：项目的介绍|教程
 
 * **src**：
   * main.js：项目的主入口文件，在这里创建Vue实例对象
+  
+    * render函数：
+  
+      * 在创建Vue实例的位置没有使用render函数+$mount进行挂着会导致报错
+  
+        * ~~~
+           You are using the runtime-only build of Vue where the template compiler is not available. Either pre-compile the templates into render functions, or use the compiler-included build.
+           翻译为： 您使用的是 Vue 的仅运行时构建，在该构建中模板编译器不可用。要么将模板预编译为render函数，要么使用包含编译器的构建。
+          ~~~
+  
+        * 原因是导入的Vue.js不是完整版的Vue.js而是vue.runtime.esm
+  
+        * 使用es6语法引入Vue的方式只是引用了Vue的文件，具体引用了哪个Vue是靠Vue文件架下面的package包中module的来控制，默认dist/vue.runtime.esm.js
+  
+        * esm指的是在es6语法下默认的模块
+  
+        * vue.runtime.esm.js默认没有模板解析器
+  
+        * 完整版的VUE是vue目录下dist中的vue.js文件
+  
+      * 只要render函数
+  
+        * rander函数传参：
+          * createElement：元素名、元素内容
+        * rander必须要有返回值
+        * rander简写：
+          * render:函数名=>函数名(参数)
+  
+      * vue版本区别：node_modules下vue文件下dist文件
+  
+        * vue.js与vue.runtime.xxx.js的区别
+          * vue.js是完整版本的Vue，包含：核心功能+模板解析器
+          * vue.runtime.xxx.js是运行版的Vue，只包含核心功能，不包含模板解析器
+        * 因为vue.runtime.xxx.js没有模板解析器，所以不能使用template配置项，需要使用render函数接收到的createElement函数去指定具体内容
+        * 只有在main.js中才使用rander函数
+  
   * App.vue：所有组件的父组件
+  
   * components：存放子组件的位置
+  
   * assets：存放静态资源的位置
   
 * **public**：
@@ -2721,4 +2756,16 @@ vm.$watch('isHot',function (){
       <!-- built files will be auto injected -->
       </body>
       ```
+
+* node_modules：第三方依赖包
+* output.js：被脚手架隐藏的webpack配置项，里面包含了VueCli的webpack配置，在这个文件里面更并不奏效，这个文件只是输出出来给我们看的
+* vue脚手架中哪些文件不能更改：
+  * public文件下的内容不能更改，但是可以被同名文件替换
+  * src文件名字不能更改
+  * main.js名字不能更改
+* 调整vue脚手架的方式：package同文件下创建vue.config.js
+  * vue.config.js(可选择是否使用，如不使用则使用默认配置)：
+    * 配置项查询连接：https://cli.vuejs.org/zh/config/#pages
+
+## Vue默认配置项
 

@@ -4,10 +4,14 @@
 //引入Vue
 import Vue from 'vue'
 // 引入App组件，它是所有组件的父组件
-import App from './App.vue'
+import App from "@/App.vue";
 // 关闭vue的开发者提示
 Vue.config.productionTip = false
 // 创建Vue的实例对象
 new Vue({
 	render: h => h(App),
+	// render(createElement, hack) {
+	// 	return createElement('h1', '你好啊')
+	// }
 }).$mount('#app')
+
