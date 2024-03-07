@@ -24,7 +24,7 @@
       (1):a
       (2):a+b
       (3):demo(1)
-      (4)：x===y ? 'a' : 'b'
+      (4):x===y ? 'a' : 'b'
       ~~~
 
   * js代码(语句)
@@ -1213,8 +1213,8 @@ vm.$watch('isHot',function (){
 
   * **图解**
 
-    * ![image-20231125160428733](C:\Users\21592\AppData\Roaming\Typora\typora-user-images\image-20231125160428733.png)
-    * ![image-20231125160821157](C:\Users\21592\AppData\Roaming\Typora\typora-user-images\image-20231125160821157.png)
+    * ![image-20231125160428733](C:\Users\21592\Desktop\Folder\Vue\typora-user-images\image-20231125160428733.png)
+    * ![image-20231125160821157](C:\Users\21592\Desktop\Folder\Vue\typora-user-images\image-20231125160821157.png)
 
   * 参考代码
 
@@ -1440,7 +1440,7 @@ vm.$watch('isHot',function (){
 
 ### Vue中监测数据改变的原理_对象
 
-* ![image-20231204184939920](C:\Users\21592\AppData\Roaming\Typora\typora-user-images\image-20231204184939920.png)
+* ![image-20231204184939920](C:\Users\21592\Desktop\Folder\Vue\typora-user-images\image-20231204184939920.png)
 
 * 参考代码
 
