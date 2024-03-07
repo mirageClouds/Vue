@@ -10,5 +10,8 @@ Vue.config.productionTip = false
 // 创建Vue的实例对象
 new Vue({
 	render: h => h(App),
+	// render(createElement, hack) {
+	// 	return createElement('h1', '你好啊')
+	// }
 }).$mount('#app')
 
