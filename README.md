@@ -1,6 +1,6 @@
 # Vue基础（核心）
 
-## **初识Vue.js**
+## 	**初识Vue.js**
 
 * 想让Vue工作，就必须创建一个Vue实例，而且需要传入一个配置对象。
 
@@ -12,24 +12,24 @@
 
 * 真实开发中只有一个Vue实例，并会配合组件一起使用
 
-* {{ XXX }}中的XXX要 写js表达式，且XXX可以自动读取到data中的所有属性
+* {{ XXX }}中的XXX要                                                                                                                                                                                                                                                                                                                                     写js表达式，且XXX可以自动读取到data中的所有属性
 
 * 一旦data中的数据发生改变，那么页面中用到数据的地方也会自动更新
 
 * 区分js表达式和js代码(语句)
 
-    * 表达式：一个表达式会产生一个值，可以放在任何一个需要值的地方
+  * 表达式：一个表达式会产生一个值，可以放在任何一个需要值的地方
 
-        * ~~~javascript
+    * ~~~javascript
       (1):a
       (2):a+b
       (3):demo(1)
       (4)：x===y ? 'a' : 'b'
       ~~~
 
-    * js代码(语句)
+  * js代码(语句)
 
-        * ~~~
+    * ~~~
       if(){}
       for(){}
       ~~~
@@ -40,20 +40,20 @@
 
 ### **Vue2.js下载**
 
-* **开发者版本**：https://v2.cn.vuejs.org/js/vue.js            包含完整的警告和调试模式
+* **开发者版本**：https://v2.cn.vuejs.org/js/vue.js			包含完整的警告和调试模式
 * **生产者版本**：https://v2.cn.vuejs.org/js/vue.min.js    删除了警告，37.51KB min+gzip
 
 ### **Vue3.js下载**
 
 * 进去后又键保存为本地文件进行导入
 
-    * **Staticfile CDN（国内）** : https://cdn.staticfile.org/vue/3.0.5/vue.global.js
-    * **unpkg**：https://unpkg.com/vue@next, 会保持和 npm 发布的最新的版本一致。
-    * **cdnjs** : https://cdnjs.cloudflare.com/ajax/libs/vue/3.0.5/vue.global.js
+  * **Staticfile CDN（国内）** : https://cdn.staticfile.org/vue/3.0.5/vue.global.js
+  * **unpkg**：https://unpkg.com/vue@next, 会保持和 npm 发布的最新的版本一致。
+  * **cdnjs** : https://cdnjs.cloudflare.com/ajax/libs/vue/3.0.5/vue.global.js
 
 * **Vue导入**
 
-    * ~~~html
+  * ~~~html
     <script src="../vue.js"></script>
     ~~~
 
@@ -63,13 +63,13 @@
 
 * **语法**
 
-    * ~~~html
+  * ~~~html
     <p>{{ message }}</p>
     ~~~
 
 * **参考代码**
 
-    * ~~~html
+  * ~~~html
     <div id="app">
     	<h1>你好,{{name}}</h1>
     	<hr/>
@@ -102,13 +102,13 @@
 
 * **语法**
 
-    * ~~~html
+  * ~~~html
     <input type="text" :value="name">
     ~~~
 
 * 用法
 
-    * ~~~html
+  * ~~~html
     <div id="app">
         <p>单向绑定</p>
         <input type="text" :value="name"><br>
@@ -128,13 +128,13 @@
 
 * **语法**
 
-    * ~~~html
+  * ~~~html
     <input type="text" v-model="name">
     ~~~
 
 * **用法**
 
-    * ~~~html
+  * ~~~html
     <div id="app">
         <p>双向绑定</p>
         <input type="text" v-model="name">
@@ -180,7 +180,7 @@
 
 * **第一种**
 
-    * ~~~html
+  * ~~~html
     <div id="root">
         <p>{{name}}</p>
     </div>
@@ -194,7 +194,7 @@
 
 * **第二种**
 
-    * ~~~html
+  * ~~~html
     <div id="root">
         <p>{{name}}</p>
     </div>
@@ -209,7 +209,7 @@
 
 * **第一种**
 
-    * ~~~html
+  * ~~~html
     <div id="root">
         <p>{{name}}</p>
     </div>
@@ -226,7 +226,7 @@
 
 * **第二种**
 
-    * ~~~html
+  * ~~~html
     <div id="root">
         <p>{{name}}</p>
     </div>
@@ -289,7 +289,7 @@
 
 * **参考代码**
 
-    * ~~~html
+  * ~~~html
     <div id="root">
       <h1>{{ name }}</h1>
       <h1>{{ address }}</h1>
@@ -308,17 +308,18 @@
     </script>
     ~~~
 
+
 ****
 
 ## **数据代理**
 
 #### 回顾Object.defineProperty方法
 
-* **enumerable 控制是否可以被枚举（遍历），默认值为false**
+* **enumerable    控制是否可以被枚举（遍历），默认值为false**
 
-* **writable 控制属性是否被修改，默认值为false**
+* **writable           控制属性是否被修改，默认值为false**
 
-* **configurable 控制属性是否被删除，默认值false**
+* **configurable   控制属性是否被删除，默认值false**
 
 * **当有人读取属性时，get（getter）就会被调用，且返回值是属性的值**
 
@@ -326,7 +327,7 @@
 
 * **参考代码**
 
-    * ~~~html
+  * ~~~html
     <script>
         let person = {
            name:'张三',
@@ -349,13 +350,14 @@
     </script>
     ~~~
 
+
 #### **何为数据代理**
 
 * **数据代理**：通过一个对象代理对另一个对象中属性的操作（读/写）
 
 * 参考代码
 
-    * ~~~html
+  * ~~~html
     /*
     	修改obj1.x的值时，obj2.x的值等于obj1.x的值
     */
@@ -374,16 +376,17 @@
     </script>
     ~~~
 
+
 #### Vue中的数据代理
 
 * 修改name时，调用set方法将data中的name修改，然后通过get方法重新渲染DOM
-    * ![image-20231202191112413](C:\Users\21592\AppData\Roaming\Typora\typora-user-images\image-20231202191112413.png)
+  * ![image-20231202191112413](C:\Users\21592\AppData\Roaming\Typora\typora-user-images\image-20231202191112413.png)
 
 * **getter**
-    * 当读取属性时，会执行get中的方法，获取到数据，并渲染页面
+  * 当读取属性时，会执行get中的方法，获取到数据，并渲染页面
 
 * **setter**
-    * 当修改属性时，会执行set中的方法，将修改的数据返回出去
+  * 当修改属性时，会执行set中的方法，将修改的数据返回出去
 
 * ![image-20231114190405746](C:\Users\21592\AppData\Roaming\Typora\typora-user-images\image-20231114190405746.png)
 
@@ -433,13 +436,13 @@
 
 * **prevent**:阻止默认事件(常用)
 
-    * ~~~html
+  * ~~~html
     <a @click.prevent="showInfo" href="https://www.blilblil.com">点击</a>
     ~~~
 
 * **stop**:阻止事件冒泡(常用)
 
-    * ~~~html
+  * ~~~html
     <div @click="showInfo" class="demo1">
         <button @click.stop="showInfo">点我提示信息</button>
     </div>
@@ -447,13 +450,13 @@
 
 * **once**：事件只触发一次(常用)
 
-    * ~~~html
+  * ~~~html
     <button @click.once="showInfo">点我提示信息</button>
     ~~~
 
 * **capture**：使用事件的捕获模式
 
-    * ~~~html
+  * ~~~html
     <div class="box1" @click.capture="showMsg(1)">
          div1
          <div @click="showMsg(2)" class="box2">div2</div>
@@ -462,7 +465,7 @@
 
 * **self**：只有enent.target是当前操作的元素才触发事件
 
-    * ~~~html
+  * ~~~html
     <div class="demo1" @click.self="showInfo">
        <button @click="showInfo">点我提示信息</button>
     </div>
@@ -470,11 +473,12 @@
 
 * **passive**:事件的默认行为立即执行，无需等待时间回调执行完毕
 
-    * ~~~html
+  * ~~~html
     <div class="demo1" @click.passive="showInfo">
          <button @click="showInfo">点我提示信息</button>
     </div>
     ~~~
+
 
 #### 键盘修饰符参考代码
 
@@ -546,25 +550,25 @@
 
 * **Vue中常用的按键别名**
 
-    * **回车 => enter**
-    * **删除 => delete（捕获“删除”和退格）**
-    * **退出 => esc**
-    * **空格 => space**
-    * **换行 => tap**
-    * **上 => up**
-    * **下 => dowm**
-    * **左 => left**
-    * **右 => right**
+  * **回车 => enter**
+  * **删除 => delete（捕获“删除”和退格）**
+  * **退出 => esc**
+  * **空格 => space**
+  * **换行 => tap**
+  * **上 => up**
+  * **下 => dowm**
+  * **左 => left**
+  * **右 => right**
 
 * **Vue未提供别名的按键，可以使用按键的原始的key值去绑定，但是注意要转为kebab-case(短横线命名)**
 
 * **系统修饰见（用法特殊）：ctrl、alt、shift、meta（win键）**
 
-    * **配合keyup使用：按下修饰键的同时，再按下其他键，随后释放其他键，事件才能被触发**
+  * **配合keyup使用：按下修饰键的同时，再按下其他键，随后释放其他键，事件才能被触发**
 
-    * **配合keydowm使用：正常触发事件**
+  * **配合keydowm使用：正常触发事件**
 
-        * ```HTML
+    * ```HTML
       <!-- 只有在 `key` 是 `Enter` 时调用 `vm.submit()` -->
       <input v-on:keyup.enter="submit">
       ```
@@ -606,12 +610,12 @@
 * **定义：要用的属性不存在，要通过已有属性计算得来**
 * **原理：底层借助了Objcet.defineproperty方法提供getter和setter**
 * **get函数什么时候执行？**
-    * **初次读取时会执行一次**
-    * **当依赖的数据发生改变时会被再次调用**
+  * **初次读取时会执行一次**
+  * **当依赖的数据发生改变时会被再次调用**
 * **优势：与methods实现相比，内部有缓存机制（复用），效率更高，调试方便**
 * **备注**
-    * **计算属性最终会出现在vm上，直接读取使用即可**
-    * **如果计算属性要修改，那必须写set函数去响应修改，且set中要引起计算式依赖的数据发生改变**
+  * **计算属性最终会出现在vm上，直接读取使用即可**
+  * **如果计算属性要修改，那必须写set函数去响应修改，且set中要引起计算式依赖的数据发生改变**
 
 #### 参考代码
 
@@ -681,9 +685,9 @@
 
 * 监视的两种写法
 
-    * new Vue时传入watch属性
+  * new Vue时传入watch属性
 
-        * ~~~html
+    * ~~~html
       <div id="root">
           <h2>今天的天气{{ info }}</h2>
           <button @click="changWeather">切换天气</button>
@@ -717,9 +721,9 @@
       </script>
       ~~~
 
-    * 通过vm.$watch监视
+  * 通过vm.$watch监视
 
-        * ```VUE
+    * ```VUE
       //第二种，没有确定的属性时写
       vm.$watch('isHot',{
           //Handler在isHot发生改变时会被调用。
@@ -735,7 +739,7 @@
 
 * Vue中的watch默认不监测对象内部值的改变（一层）
 
-    * ~~~
+  * ~~~
     watch:{
     	isHost: {
           	handled(newValue,oldValue){
@@ -747,9 +751,9 @@
 
 * 配置deep:true可以监测对象内部值的改变（多层）
 
-    * 监视多级结构中某个属性的变化
+  * 监视多级结构中某个属性的变化
 
-        * ~~~html
+    * ~~~html
       'numbers.a':{
       	handled(newValue, oldValue) {
       		console.log('a改变了')
@@ -758,9 +762,9 @@
       
       ~~~
 
-    * 监视多级结构中所有属性的变化
+  * 监视多级结构中所有属性的变化
 
-        * ~~~
+    * ~~~
       numbers: {
       	deep:true,
       	handled(){
@@ -777,10 +781,10 @@
 
 ```html
 isHost(){
-console.log("这是简写方式")
+	console.log("这是简写方式")
 }
 vm.$watch('isHot',function (){
-console.log('ishot被监视')
+	console.log('ishot被监视')
 })
 </script>
 ```
@@ -836,8 +840,8 @@ console.log('ishot被监视')
 * computed能完成的功能，watch都可以完成
 * watch能完成的任务computer不一定能完成，例如：watch可以进行异步操作
 * 两个重要的原则
-    * 所有被Vue管理的函数，最好写成普通函数，这样this的指向才是vm 或 组件实例对象
-    * 所有不被Vue所管理的函数（定时器的回调函数、ajax的回调函数等），最好写成箭头函数，这样this的指向才是vm 或 组件实例对象
+  * 所有被Vue管理的函数，最好写成普通函数，这样this的指向才是vm 或 组件实例对象
+  * 所有不被Vue所管理的函数（定时器的回调函数、ajax的回调函数等），最好写成箭头函数，这样this的指向才是vm 或 组件实例对象
 
 ### 参考代码
 
@@ -880,15 +884,15 @@ console.log('ishot被监视')
 
 * 写法：:class="XXX" XXX可以是字符串、对象、数组
 
-    * 字符串写法适用于：类名不确定，要动态获取
+  * 字符串写法适用于：类名不确定，要动态获取
 
-        * ~~~html
+    * ~~~html
       <div class="basic" :class="a" @click="changMood">{{ name }}</div>
       ~~~
 
-    * 对象写法适用于：要绑定多个样式，个数不确定，名字也不确定
+  * 对象写法适用于：要绑定多个样式，个数不确定，名字也不确定
 
-        * ~~~html
+    * ~~~html
       <div class="basic" :class="classObjer">{{ name }}</div>
       //样式对象
       classObjer:{
@@ -898,9 +902,9 @@ console.log('ishot被监视')
       }
       ~~~
 
-    * 数组写法适用于：要绑定多个样式，个数确定，名字也确定，但不确定用不用
+  * 数组写法适用于：要绑定多个样式，个数确定，名字也确定，但不确定用不用
 
-        * ~~~html
+    * ~~~html
       <div class="basic" :class="classArr" >{{ name }}</div>
       //样式数组
       classArr:["happy","sad","normal"]
@@ -910,7 +914,7 @@ console.log('ishot被监视')
 
 * :style ="{fontSize:XXX}" 其中XXX是动态值，指的是这个样式的值
 
-    * ~~~html
+  * ~~~html
     <div class="basic" :style="styObj">{{ name }}</div>
     
     styObj:{
@@ -922,7 +926,7 @@ console.log('ishot被监视')
 
 * :style="[a,b]"其中a,b是样式对象
 
-    * ~~~html
+  * ~~~html
     <div class="basic" :style="[styArr]">{{ name }}</div>
     
     styArr:[
@@ -1027,17 +1031,17 @@ console.log('ishot被监视')
 ## **条件渲染**
 
 * v-if
-    * 写法
-        * v-if = "表达式"
-        * v-else-if="表达式"
-        * v-else="表达式"
-    * 适用于：切换频率较低的场景
-    * 特点：不展示的DOM元素直接被移除
-    * 注意：v-if可以和:v-else-if、v-else一起使用，但结构要求不能被打断
+  * 写法
+    * v-if = "表达式"
+    * v-else-if="表达式"
+    * v-else="表达式"
+  * 适用于：切换频率较低的场景
+  * 特点：不展示的DOM元素直接被移除
+  * 注意：v-if可以和:v-else-if、v-else一起使用，但结构要求不能被打断
 * v-show
-    * 写法：v-show = "表达式"
-    * 适用于：切换频率较高的场景
-    * 特点：不展示的DOM元素未被移除，仅仅是使用样式隐藏掉
+  * 写法：v-show = "表达式"
+  * 适用于：切换频率较高的场景
+  * 特点：不展示的DOM元素未被移除，仅仅是使用样式隐藏掉
 * 备注：使用v-if时，元素可能无法获取到，但是使用v-show一定可以获取到
 
 ### 参考代码
@@ -1086,17 +1090,17 @@ console.log('ishot被监视')
 
 * v-for指令
 
-    * 用于展示列表数据
+  * 用于展示列表数据
 
-    * 语法：v-for="(item，index) in XXX” :key="yyy"
+  * 语法：v-for="(item，index) in XXX” :key="yyy"
 
-    * 可遍历：数组、对象、字符串（少）、指定次数
+  * 可遍历：数组、对象、字符串（少）、指定次数
 
-    * key是给节点一个标识,当key的值为index时，在dom渲染时会自动干掉，如果不写key，vue自动将key的值设为index，但是vue不知道哪个是唯一的主键
+  * key是给节点一个标识,当key的值为index时，在dom渲染时会自动干掉，如果不写key，vue自动将key的值设为index，但是vue不知道哪个是唯一的主键
 
-    * 遍历数组
+  * 遍历数组
 
-        * ~~~
+    * ~~~
       <li v-for="(p,index) in persons" :key="index">
       persons: [
       		{id: '001', name: 'mirage', age: '18'},
@@ -1104,9 +1108,9 @@ console.log('ishot被监视')
       ]
       ~~~
 
-    * 遍历对象
+  * 遍历对象
 
-        * ~~~
+    * ~~~
       <li v-for="(value,key) in car" key="key">
       car: {
       	name: 'mirage',
@@ -1114,22 +1118,22 @@ console.log('ishot被监视')
       },
       ~~~
 
-    * 遍历字符串(少)
+  * 遍历字符串(少)
 
-        * ~~~
+    * ~~~
       <li v-for="(char,index) in str" key="index">
       str: 'hello'
       ~~~
 
-    * 遍历指定次数(少)
+  * 遍历指定次数(少)
 
-        * ~~~
+    * ~~~
       <li v-for="(a,b) in 5" key="a">
       ~~~
 
 * 参考代码
 
-    * ~~~html
+  * ~~~html
     <div id="root">
     	<ul>
     		<!--遍历数组-->
@@ -1174,6 +1178,7 @@ console.log('ishot被监视')
     </script>
     ~~~
 
+
 ****
 
 ### key的原理
@@ -1182,38 +1187,38 @@ console.log('ishot被监视')
 
 * **react、vue中的key有什么作用?(key的内部原理)**
 
-    * **虚拟DOM中的key的作用**
+  * **虚拟DOM中的key的作用**
 
-        * key是虚拟DOM对象的标识，当状态中的数据发生变化时，V就会根据新数据生成新的虚拟DOM，随后Vue进行新虚拟DOM和旧虚拟DOM的差异进行比较
+    * key是虚拟DOM对象的标识，当状态中的数据发生变化时，V就会根据新数据生成新的虚拟DOM，随后Vue进行新虚拟DOM和旧虚拟DOM的差异进行比较
 
-    * **对比规则：**
+  * **对比规则：**
 
-        * 旧虚拟DOM中找到了与新虚拟DOM相同的key
-            * 若虚拟DOM中内容没有变，直接使用之前的真实DOM
-            * 若虚拟DOM中的内容变了，则生成新的真实DOM，随后替换掉页面值之前的真实DOM
-        * 就虚拟DOM中未找到与新虚拟DOM相同的key
-            * 创建新的真实DOM，随后渲染到页面
+    *  旧虚拟DOM中找到了与新虚拟DOM相同的key
+       * 若虚拟DOM中内容没有变，直接使用之前的真实DOM
+       * 若虚拟DOM中的内容变了，则生成新的真实DOM，随后替换掉页面值之前的真实DOM
+    *  就虚拟DOM中未找到与新虚拟DOM相同的key
+       * 创建新的真实DOM，随后渲染到页面
 
-    * **用index作为key可能会引发的问题**
+  * **用index作为key可能会引发的问题**
 
-        * 若对数据进行：逆序添加、逆序删除等破坏顺序操作
-            * 会产生没有必要的真实DOM更新 ==>界面效果没有问题，但是效率低
-        * 如果结构中包含着输入类DOM
-            * 产生错误的DOM跟训 ==> 界面有问题
+    * 若对数据进行：逆序添加、逆序删除等破坏顺序操作
+      *  会产生没有必要的真实DOM更新 ==>界面效果没有问题，但是效率低
+    * 如果结构中包含着输入类DOM
+      * 产生错误的DOM跟训 ==> 界面有问题
 
-    * **开发中如何选择key**
+  * **开发中如何选择key**
 
-        * 最好使用每条数据的唯一标识作为key，如id、手机号、身份证号、学号等唯一值
-        * 如果不存在对数据的逆序添加、逆序删除等破坏顺序操作，仅用于渲染列表用于展示，使用index作为key是没有问题的
+    * 最好使用每条数据的唯一标识作为key，如id、手机号、身份证号、学号等唯一值
+    * 如果不存在对数据的逆序添加、逆序删除等破坏顺序操作，仅用于渲染列表用于展示，使用index作为key是没有问题的
 
-    * **图解**
+  * **图解**
 
-        * ![image-20231125160428733](C:\Users\21592\AppData\Roaming\Typora\typora-user-images\image-20231125160428733.png)
-        * ![image-20231125160821157](C:\Users\21592\AppData\Roaming\Typora\typora-user-images\image-20231125160821157.png)
+    * ![image-20231125160428733](C:\Users\21592\AppData\Roaming\Typora\typora-user-images\image-20231125160428733.png)
+    * ![image-20231125160821157](C:\Users\21592\AppData\Roaming\Typora\typora-user-images\image-20231125160821157.png)
 
-    * 参考代码
+  * 参考代码
 
-        * ~~~html
+    * ~~~html
       <div id="root">
           <!--添加一个东西-->
           <button @click.once="add">添加一个东西</button>
@@ -1256,7 +1261,7 @@ console.log('ishot被监视')
 
 * watch方式
 
-    * ~~~html
+  * ~~~html
     <div id="root">
         <label>
            <input type="text" placeholder="请输入名字" v-model="keyWord"></input>
@@ -1305,7 +1310,7 @@ console.log('ishot被监视')
 
 * computed方式
 
-    * ~~~html
+  * ~~~html
     <div id="root">
         <label>
            <input type="text" placeholder="请输入名字" v-model="keyWord"></input>
@@ -1348,7 +1353,7 @@ console.log('ishot被监视')
 
 - 参考代码
 
-    - ~~~html
+  - ~~~html
     <div id="root">
         <label>
            <input type="text" placeholder="请输入名字" v-model="keyWord"></input>
@@ -1402,7 +1407,7 @@ console.log('ishot被监视')
 
 * 参考代码
 
-    * ~~~html
+  * ~~~html
     <script>
         let data = {
            name: Mirage,
@@ -1439,7 +1444,7 @@ console.log('ishot被监视')
 
 * 参考代码
 
-    * ```html
+  * ```html
     <body>
     <div id="root">
         <!--   <button @click="addRess">添加一个属性</button>-->
@@ -1479,13 +1484,13 @@ console.log('ishot被监视')
 
 * 第一种
 
-    * ~~~
+  * ~~~
     Vue.set(位置, 添加的属性, 属性的内容) 
     ~~~
 
-    * 参考代码
+  * 参考代码
 
-        * ~~~html
+    * ~~~html
       <div id="root">
           <button @click="addRess">添加一个属性</button>
           <h2>名称:{{ student.name }}</h2>
@@ -1516,13 +1521,13 @@ console.log('ishot被监视')
 
 * 第二种
 
-    * ~~~
+  * ~~~
     this.$set(位置, 添加的属性, 属性的内容)
     ~~~
 
-    * 参考代码
+  * 参考代码
 
-        * ~~~html
+    * ~~~html
       <div id="root">
           <button @click="addRess">添加一个属性</button>
           <h2>名称:{{ student.name }}</h2>
@@ -1555,22 +1560,22 @@ console.log('ishot被监视')
 
 * 对于data中的数组，要修改需要调用数组的方法
 
-    * pust：往数组后添加东西
-    * pop：移除数组最后一个元素
-    * shift：在数组头添加东西
-    * unshift：删除数组的第一个元素
-    * splice：对数组的元素进行删除和增加
-    * sort：对数组进行排序，a-b是升序，b-a是降序
-    * reverse：反转数组中的元素
-    * filter：不会对数组进行修改，要用这个需要将过滤后的数组重新赋值给原数组
+  * pust：往数组后添加东西
+  * pop：移除数组最后一个元素
+  * shift：在数组头添加东西
+  * unshift：删除数组的第一个元素
+  * splice：对数组的元素进行删除和增加
+  * sort：对数组进行排序，a-b是升序，b-a是降序
+  * reverse：反转数组中的元素
+  * filter：不会对数组进行修改，要用这个需要将过滤后的数组重新赋值给原数组
 
 * Vue中的数组不是数组中的方法了，是数组原型中的方法
 
-    * ![image-20231204190922151](C:\Users\21592\AppData\Roaming\Typora\typora-user-images\image-20231204190922151.png)
+  * ![image-20231204190922151](C:\Users\21592\AppData\Roaming\Typora\typora-user-images\image-20231204190922151.png)
 
 * 参考代码
 
-    * ```html
+  * ```html
     <body>
     <div id="root">
         <!--   <button @click="addRess">添加一个属性</button>-->
@@ -1607,7 +1612,7 @@ console.log('ishot被监视')
 
 * Vue会监视data中所有层次的数据
 
-    * ```
+  * ```
     data: {
         student: {
            name: 'mirage',
@@ -1623,36 +1628,36 @@ console.log('ishot被监视')
 
 * 如何检测对象中的数据
 
-    * 通过setter实现监视，且要在new Vue时就传入要检测的数据
-        * 对象中后追加的属性，Vue不做响应式的处理
-        * 如需要给后添加的属性做响应式处理，请调用以下的api
-            * Vue.set(修改的位置,名称或者索引,内容)
-            * vm.$set(修改的位置,名称或者索引,内容)
+  * 通过setter实现监视，且要在new Vue时就传入要检测的数据
+    * 对象中后追加的属性，Vue不做响应式的处理
+    * 如需要给后添加的属性做响应式处理，请调用以下的api
+      * Vue.set(修改的位置,名称或者索引,内容)
+      * vm.$set(修改的位置,名称或者索引,内容)
 
 * 如何检测数组中的数据
 
-    * 通过包裹数组更新元素的方法实现，本质上做了两件事：
-        * 调用原生对应的方法对数组进行更新
-        * 重新解析模板，进而更新页面
+  * 通过包裹数组更新元素的方法实现，本质上做了两件事：
+    * 调用原生对应的方法对数组进行更新
+    * 重新解析模板，进而更新页面
 
 * 在Vue中更新数组一定要用如下方法
 
-    * 使用数组的api：
-        * push()
-        * pop()
-        * shift()
-        * unshift()
-        * splice()
-        * sort()
-        * reverse()
-    * Vue.set或vm.$set
-    * 如果要使用filter这类不会对原来的数组进行修改的，需要重新赋值给这个数组
+  * 使用数组的api：
+    * push()
+    * pop()
+    * shift()
+    * unshift()
+    * splice()
+    * sort()
+    * reverse()
+  * Vue.set或vm.$set
+  * 如果要使用filter这类不会对原来的数组进行修改的，需要重新赋值给这个数组
 
 * 特别注意：Vue.set()和vm.$set()不能给vm 或 vm根数据对象添加属性
 
 * 参考代码
 
-    * ```html
+  * ```html
     <body>
     <div id="root">
         <button @click="student.age++">年龄加一</button>
@@ -1736,20 +1741,20 @@ console.log('ishot被监视')
 
 * 若：<input type="radio"/> ，则v-model收集的是value值，且要给标签配置value值
 
-* 若：<input type="checkbox"/>
+* 若：<input type="checkbox"/> 
 
-    * 没有配置value属性，则收集的是checkbox（勾选or未勾选 布尔值类型）
-    * 配置了value属性：
-        * v-model的初始值是非数组，则收集的是checkbox（勾选or未勾选 布尔值类型）
-        * v-model的初始值是数组，那么收集的是value组成的数组
-    * 备注：v-model的三个修饰符
-        * v-model.lazy：失去焦点时收集数据
-        * v-model.number：输入字符串转为有效数字
-        * v-model.trim：输入首位空格过滤
+  * 没有配置value属性，则收集的是checkbox（勾选or未勾选 布尔值类型）
+  * 配置了value属性：
+    * v-model的初始值是非数组，则收集的是checkbox（勾选or未勾选 布尔值类型）
+    * v-model的初始值是数组，那么收集的是value组成的数组
+  * 备注：v-model的三个修饰符
+    * v-model.lazy：失去焦点时收集数据
+    * v-model.number：输入字符串转为有效数字
+    * v-model.trim：输入首位空格过滤
 
 * 参考代码
 
-    * ```html
+  * ```html
     <body>
     <div id="root">
         <form @submit.prevent="demo">
@@ -1808,16 +1813,16 @@ console.log('ishot被监视')
 
 * 语法
 
-    * 注册过滤器Vue.filter(name,回调函数) 或 new Vue{filters:{}}
+  * 注册过滤器Vue.filter(name,回调函数) 或 new Vue{filters:{}}
 
-        * ```
+    * ```
       //创建全局过滤器
       Vue.filter('mySlice', function (value) {
           return value.slice(0, 4)
       })
       ```
 
-        * ```html
+    * ```html
       const vm = new Vue({
       		el: '#root',
       		data: {
@@ -1833,9 +1838,9 @@ console.log('ishot被监视')
       	})
       ```
 
-    * 使用过滤器：{{ xxx | 过滤器名 }} 或 v-bind:属性 = "xxx | 过滤器名"
+  * 使用过滤器：{{ xxx | 过滤器名 }} 或 v-bind:属性 = "xxx | 过滤器名"
 
-        * ```html
+    * ```html
       <div id="root">
           <!--   <h1>现在的时间是:{{ fmtTime() }}</h1>-->
           <!--过滤器实现-->
@@ -1848,21 +1853,21 @@ console.log('ishot被监视')
 
 * 备注：
 
-    * 过滤器可以接受额外的参数（第一个值是过滤器前面的值，第二个值是过滤器中括号里面传的值）
+  * 过滤器可以接受额外的参数（第一个值是过滤器前面的值，第二个值是过滤器中括号里面传的值）
 
-    * 多个过滤器可以串联
+  * 多个过滤器可以串联
 
-        * ```
+    * ```
       <h3>现在是{{ time | timeFormater('YYYY_MM_DD') | mySlice}}</h3>
       ```
 
-        * 先执行完timeFormater的过滤器，再执行mySlice的过滤器
+    * 先执行完timeFormater的过滤器，再执行mySlice的过滤器
 
-    * 并没有改变原来的数据，是产生新的对应的数据
+  * 并没有改变原来的数据，是产生新的对应的数据
 
 ## 内置指令
 
-* v-bind指令：单向绑定解析表达式，可简写为    :xxx
+* v-bind指令：单向绑定解析表达式，可简写为	:xxx
 
 * v-model指令：双向数据绑定
 
@@ -1878,24 +1883,24 @@ console.log('ishot被监视')
 
 * v-text指令：向所在的节点中渲染文本内容
 
-    * 与插值语法的区别，v-text会替换掉文本中的内容，{{xx}}则不会
+  * 与插值语法的区别，v-text会替换掉文本中的内容，{{xx}}则不会
 
 * v-html指令：向指定节点中渲染包含html结构的内容
 
-    * 与插值语法区别
-        * v-html会替换掉节点的内容，{{xx}}则不会
-        * v-html会识别html结构
-    * 严重注意v-html有安全性的问题
-        * 在网站上动态渲染任意html是非常危险的，容易导致xss攻击
-        * 一定要在可信的内容上使用v-html，永远不要在用户提交的内容上
+  * 与插值语法区别
+    * v-html会替换掉节点的内容，{{xx}}则不会
+    * v-html会识别html结构
+  * 严重注意v-html有安全性的问题
+    * 在网站上动态渲染任意html是非常危险的，容易导致xss攻击
+    * 一定要在可信的内容上使用v-html，永远不要在用户提交的内容上
 
 * v-cloak指令：(没有值)
 
-    * 本质是一个特殊的属性，Vue实例创建完毕并接管容器后，会删掉v-cloak属性
+  * 本质是一个特殊的属性，Vue实例创建完毕并接管容器后，会删掉v-cloak属性
 
-    * 使用css配合v-cloak属性可以解决网速慢的时候页面展现出{{ xxx }}的问题
+  * 使用css配合v-cloak属性可以解决网速慢的时候页面展现出{{ xxx }}的问题
 
-        * ```html
+    * ```html
       <style>
           [v-cloak] {
              display: none;
@@ -1910,21 +1915,21 @@ console.log('ishot被监视')
 
 * v-once指令：
 
-    * v-once节点在初次动态渲染后，就视为静态内容
-    * 以后数据的改变不会引起v-once所在结构的更新，可以用于优化性能
+  * v-once节点在初次动态渲染后，就视为静态内容
+  * 以后数据的改变不会引起v-once所在结构的更新，可以用于优化性能
 
 * v-pre指令：
 
-    * 跳过其所在节点的编译过程
-    * 可利用它跳过：没有使用指令语法、没有使用插值语法的节点，会加快编译
+  * 跳过其所在节点的编译过程
+  * 可利用它跳过：没有使用指令语法、没有使用插值语法的节点，会加快编译
 
 ## 自定义指令
 
 * 语法总结
 
-    * 局部指令：
+  * 局部指令：
 
-        * ~~~
+    * ~~~
       new Vue({
       	directives:{
       		指令名：配置对象
@@ -1932,7 +1937,7 @@ console.log('ishot被监视')
       })
       ~~~
 
-        * ~~~
+    * ~~~
       new Vue({
       	directives(){
       		指令名:回调
@@ -1940,30 +1945,30 @@ console.log('ishot被监视')
       })
       ~~~
 
-    * 全局指令：
+  * 全局指令：
 
-        * ~~~
+    * ~~~
       Vue.directive(指令名，配置对象)
       ~~~
 
-        * ~~~
+    * ~~~
       Vue.directive(指令名，回调函数)
       ~~~
 
 * 配置对象中的三个回调
 
-    * bind：指令与元素成功绑定时（一上来）调用
-    * inserted：指令所在元素被插入页面时调用
-    * updata：指令所在的模板被重新解析时调用
+  * bind：指令与元素成功绑定时（一上来）调用
+  * inserted：指令所在元素被插入页面时调用
+  * updata：指令所在的模板被重新解析时调用
 
 * 备注
 
-    * 指令定义时不加v-，但使用时要加v-
-    * 指令名如果是多个单词，要使用kebab-case命名方式，不要用camelCase命名
+  * 指令定义时不加v-，但使用时要加v-
+  * 指令名如果是多个单词，要使用kebab-case命名方式，不要用camelCase命名
 
 * 参考代码
 
-    * ```html
+  * ```html
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -1999,7 +2004,7 @@ console.log('ishot被监视')
     </html>
     ```
 
-    * ```html
+  * ```html
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -2058,6 +2063,8 @@ console.log('ishot被监视')
     </html>
     ```
 
+
+
 ## 生命周期
 
 ### 引出生命周期
@@ -2072,7 +2079,7 @@ console.log('ishot被监视')
 
 * 参考代码
 
-    * ```html
+  * ```html
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -2120,18 +2127,18 @@ console.log('ishot被监视')
 
 * 常用生命周期钩子
 
-    * mouted：发送ajax请求、启动定时器、绑定自定义事件、订阅消息等初始化操作
-    * beforeDestroy：清除定时器、解绑自定义事件、取消订阅消息等
+  * mouted：发送ajax请求、启动定时器、绑定自定义事件、订阅消息等初始化操作
+  * beforeDestroy：清除定时器、解绑自定义事件、取消订阅消息等
 
 * 关于销毁Vue实例
 
-    * 销毁后借助Vue开发者工具看不到任何信息
-    * 销毁后自定义事件会失效，但原生Dom事件依然有效
-    * 一般不会再beforeDestroy操作数据，因为即使操作数据也不会触发更新流程了
+  * 销毁后借助Vue开发者工具看不到任何信息
+  * 销毁后自定义事件会失效，但原生Dom事件依然有效
+  * 一般不会再beforeDestroy操作数据，因为即使操作数据也不会触发更新流程了
 
 * 参考代码
 
-    * ```html
+  * ```html
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -2212,25 +2219,25 @@ console.log('ishot被监视')
 
 * Vue中使用组件的三大步骤
 
-    * 定义组件(创建组件)
-    * 注册组件
-    * 使用组件（写组件标签）
+  * 定义组件(创建组件)
+  * 注册组件
+  * 使用组件（写组件标签）
 
 * 如何定义一个组件
 
-    * 使用Vue.extend(options)创建，其中options和new Vue(options)时传入的options几乎一样，但也要些区别
-    * 区别如下
-        * el不要写，最终所有的组件都要经过一个vm的管理，由vm中的el决定服务哪个容器
-        * data必须写成函数，避免组件被赋用时，素具存在引用关系
-    * 如何注册组件
-        * 局部注册：靠new Vue的时候窜如components选项
-        * 全局注册：靠Vue.components('组件名'，组件)
-    * 编写组件标签
-        * <组件名></组件名>
+  * 使用Vue.extend(options)创建，其中options和new Vue(options)时传入的options几乎一样，但也要些区别
+  * 区别如下
+    * el不要写，最终所有的组件都要经过一个vm的管理，由vm中的el决定服务哪个容器
+    * data必须写成函数，避免组件被赋用时，素具存在引用关系
+  * 如何注册组件
+    * 局部注册：靠new Vue的时候窜如components选项
+    * 全局注册：靠Vue.components('组件名'，组件)
+  * 编写组件标签
+    * <组件名></组件名>
 
 * 参考代码
 
-    * ```html
+  * ```html
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -2286,29 +2293,29 @@ console.log('ishot被监视')
 
 * 关于组件名：
 
-    * 一个单词组成
-        * 第一种写法(首字母小写)：school
-        * 第二种写法(首字母大写):School
-    * 多个单词组成
-        * 第一种写法(kebab-case命名)：my-school
-        * 第二种写法(CamelCase命名)：MySchool（需要脚手架支持）
-    * 备注
-        * 组件名劲量回避HTML中已有的元素，例如h2、H2都不行
-        * 可以使用name配置项指定组件在开发者工具中呈现的名字
+  * 一个单词组成
+    * 第一种写法(首字母小写)：school
+    * 第二种写法(首字母大写):School
+  * 多个单词组成
+    * 第一种写法(kebab-case命名)：my-school
+    * 第二种写法(CamelCase命名)：MySchool（需要脚手架支持）
+  * 备注
+    * 组件名劲量回避HTML中已有的元素，例如h2、H2都不行
+    * 可以使用name配置项指定组件在开发者工具中呈现的名字
 
 * 关于组件标签
 
-    * 第一种写法：<school></school>
-    * 第二种写法：<school/>
-    * 备注：不使用脚手架时<school/>会导致后续的组件无法渲染
+  * 第一种写法：<school></school>
+  * 第二种写法：<school/>
+  * 备注：不使用脚手架时<school/>会导致后续的组件无法渲染
 
 * 一个简写方式：
 
-    * const school = Vue.extend(options)可简写为: const school = options
+  * const school = Vue.extend(options)可简写为: const school = options
 
 * 参考代码
 
-    * ```html
+  * ```html
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -2373,7 +2380,7 @@ console.log('ishot被监视')
 
 * 参考代码
 
-    * ```html
+  * ```html
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -2470,18 +2477,18 @@ console.log('ishot被监视')
 
 * 关于this
 
-    * 组件配置中：
-        * data函数、methods函数、wath函数、computed函数、他们的this都是VueComponent实例对象
-    * new Vue(options)配置中:
-        * data函数、methods函数、wath函数、computed函数、他们的this都是Vue实例对象
+  * 组件配置中：
+    * data函数、methods函数、wath函数、computed函数、他们的this都是VueComponent实例对象
+  * new Vue(options)配置中:
+    * data函数、methods函数、wath函数、computed函数、他们的this都是Vue实例对象
 
 * VueComponent实例对象，以后简称vc（也可以称为组件实例对象）
 
-* Vue实例对象，以后简称vm
+* Vue实例对象，以后简称vm  
 
 * 参考代码
 
-    * ```html
+  * ```html
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -2550,14 +2557,15 @@ console.log('ishot被监视')
 * 一个重要的内置关系：VueComponent.prototype.__ _proto_ _ _ === Vue.prototype
 * 为什么要有这个关系：让组件实例对象(VueComponent)能够访问到Vue原型对象上的属性、方法
 
+
+
 ## 单文件组件
 
-* Vue 的单文件组件 (即 *.vue 文件，英文 Single-File Component，简称 SFC) 是一种**特殊的文件格式，使我们能够将一个 Vue
-  组件的模板、逻辑与样式封装在单个文件中**。
+* Vue 的单文件组件 (即 *.vue 文件，英文 Single-File Component，简称 SFC) 是一种**特殊的文件格式，使我们能够将一个 Vue 组件的模板、逻辑与样式封装在单个文件中**。
 
 * 参考代码
 
-    * ```vue
+  * ```vue
     <script>
     //组件交互的代码(数据、方法)
     export default {
@@ -2582,9 +2590,9 @@ console.log('ishot被监视')
 
 * 外部文件导入
 
-    * 参考代码
+  * 参考代码
 
-        * ```vue
+    * ```vue
       <template>
         <div>
           <school/>
@@ -2619,37 +2627,37 @@ console.log('ishot被监视')
 
 * 全局安装脚手架@vue/cil
 
-    * ~~~
+  * ~~~
     npm install -g @vue/cil
     ~~~
 
 * **切换到需要创建项目的目录**，使用命令创建脚手架
 
-    * ~~~
+  * ~~~
     cd 目录位置
     ~~~
 
-    * ~~~
+  * ~~~
     vue create xxx
     ~~~
 
 * 启动项目
 
-    * ~~~
+  * ~~~
     run npm serve
     ~~~
 
 * 备注
 
-    * 如果下载慢，可以配置使用淘宝镜像
+  * 如果下载慢，可以配置使用淘宝镜像
 
-        * ~~~
+    * ~~~
       npm config set registy https://registry.npm.taobao.org
       ~~~
 
-    * 脚手架隐藏了所有webpack配置，若要查看具体的webpack配置，请执行
+  * 脚手架隐藏了所有webpack配置，若要查看具体的webpack配置，请执行
 
-        * ~~~vue
+    * ~~~vue
       vue inspect > output.js
       ~~~
 
@@ -2658,74 +2666,74 @@ console.log('ishot被监视')
 * .gitignore：git忽略文件，不需要上传git仓库的在这个文件里面写好
 
 * babel.config.js：babel的配置文件
-    * babel：es6语法转es5语法
-    * babel的中文文档：https://babel.nodejs.cn/docs
-
+  * babel：es6语法转es5语法
+  * babel的中文文档：https://babel.nodejs.cn/docs
+  
 * package.json：包含了包名、常用短命令、包的版本
-    * serve：在本地启动项目
-    * build：生产版本，代码完成后执行的编译
-    * lint：代码检查（不常用）
-
+  * serve：在本地启动项目
+  * build：生产版本，代码完成后执行的编译
+  * lint：代码检查（不常用）
+  
 * package-lock.json：包含了包的版本信息、包的下载地址、包的node.js版本
-    * version：包的版本
-    * resolved：包的下载地址
-    * integrity：用来验证资源的完整性，即是否是我期望加载的资源，而不是被别人篡改了内容
-    * dependencies：当前包的生产依赖树
-    * devDependencies：当前包的生产依赖
-    * engines：node.js的版本
-
+  * version：包的版本
+  * resolved：包的下载地址
+  * integrity：用来验证资源的完整性，即是否是我期望加载的资源，而不是被别人篡改了内容
+  * dependencies：当前包的生产依赖树
+  * devDependencies：当前包的生产依赖
+  * engines：node.js的版本
+  
 * readme.md：项目的介绍|教程
 
 * **src**：
-    * main.js：项目的主入口文件，在这里创建Vue实例对象
-
-        * render函数：
-
-            * 在创建Vue实例的位置没有使用render函数+$mount进行挂着会导致报错
-
-                * ~~~
+  * main.js：项目的主入口文件，在这里创建Vue实例对象
+  
+    * render函数：
+  
+      * 在创建Vue实例的位置没有使用render函数+$mount进行挂着会导致报错
+  
+        * ~~~
            You are using the runtime-only build of Vue where the template compiler is not available. Either pre-compile the templates into render functions, or use the compiler-included build.
            翻译为： 您使用的是 Vue 的仅运行时构建，在该构建中模板编译器不可用。要么将模板预编译为render函数，要么使用包含编译器的构建。
           ~~~
-
-                * 原因是导入的Vue.js不是完整版的Vue.js而是vue.runtime.esm
-
-                * 使用es6语法引入Vue的方式只是引用了Vue的文件，具体引用了哪个Vue是靠Vue文件架下面的package包中module的来控制，默认dist/vue.runtime.esm.js
-
-                * esm指的是在es6语法下默认的模块
-
-                * vue.runtime.esm.js默认没有模板解析器
-
-                * 完整版的VUE是vue目录下dist中的vue.js文件
-
-            * 只要render函数
-
-                * rander函数传参：
-                    * createElement：元素名、元素内容
-                * rander必须要有返回值
-                * rander简写：
-                    * render:函数名=>函数名(参数)
-
-            * vue版本区别：node_modules下vue文件下dist文件
-
-                * vue.js与vue.runtime.xxx.js的区别
-                    * vue.js是完整版本的Vue，包含：核心功能+模板解析器
-                    * vue.runtime.xxx.js是运行版的Vue，只包含核心功能，不包含模板解析器
-                * 因为vue.runtime.xxx.js没有模板解析器，所以不能使用template配置项，需要使用render函数接收到的createElement函数去指定具体内容
-                * 只有在main.js中才使用rander函数
-
-    * App.vue：所有组件的父组件
-
-    * components：存放子组件的位置
-
-    * assets：存放静态资源的位置
-
+  
+        * 原因是导入的Vue.js不是完整版的Vue.js而是vue.runtime.esm
+  
+        * 使用es6语法引入Vue的方式只是引用了Vue的文件，具体引用了哪个Vue是靠Vue文件架下面的package包中module的来控制，默认dist/vue.runtime.esm.js
+  
+        * esm指的是在es6语法下默认的模块
+  
+        * vue.runtime.esm.js默认没有模板解析器
+  
+        * 完整版的VUE是vue目录下dist中的vue.js文件
+  
+      * 只要render函数
+  
+        * rander函数传参：
+          * createElement：元素名、元素内容
+        * rander必须要有返回值
+        * rander简写：
+          * render:函数名=>函数名(参数)
+  
+      * vue版本区别：node_modules下vue文件下dist文件
+  
+        * vue.js与vue.runtime.xxx.js的区别
+          * vue.js是完整版本的Vue，包含：核心功能+模板解析器
+          * vue.runtime.xxx.js是运行版的Vue，只包含核心功能，不包含模板解析器
+        * 因为vue.runtime.xxx.js没有模板解析器，所以不能使用template配置项，需要使用render函数接收到的createElement函数去指定具体内容
+        * 只有在main.js中才使用rander函数
+  
+  * App.vue：所有组件的父组件
+  
+  * components：存放子组件的位置
+  
+  * assets：存放静态资源的位置
+  
 * **public**：
-    * favicon.ico：网页的图标位置
-
-    * index.html：项目的主文件，项目最终会运行在这个文件上
-
-        * ```html
+  * favicon.ico：网页的图标位置
+  
+  * index.html：项目的主文件，项目最终会运行在这个文件上
+  
+    * ```html
       <head>
           <meta charset="utf-8">
           <!--针对IE浏览器的一个特殊配置，含义是让IE浏览器以最高渲染级别渲染页面-->
@@ -2753,23 +2761,23 @@ console.log('ishot被监视')
 
 * output.js：被脚手架隐藏的webpack配置项，里面包含了VueCli的webpack配置，在这个文件里面更并不奏效，这个文件只是输出出来给我们看的
 
-    * 使用vue inspect > output.js就可以查看vue脚手架默认配置
+  * 使用vue inspect > output.js就可以查看vue脚手架默认配置
 
 * vue脚手架中哪些文件不能更改：
 
-    * public文件下的内容不能更改，但是可以被同名文件替换
-    * src文件名字不能更改
-    * main.js名字不能更改
+  * public文件下的内容不能更改，但是可以被同名文件替换
+  * src文件名字不能更改
+  * main.js名字不能更改
 
 * 对vue脚手架进行个性化定制：package同文件下创建vue.config.js
 
-    * vue.config.js(可选择是否使用，如不使用则使用默认配置)：
+  * vue.config.js(可选择是否使用，如不使用则使用默认配置)：
 
-        * 配置项查询连接：https://cli.vuejs.org/zh/config/#vue-config-js
+    * 配置项查询连接：https://cli.vuejs.org/zh/config/#vue-config-js
 
-        * 使用的暴露方式：
+    * 使用的暴露方式：
 
-            * ```
+      * ```
         module.exports = defineConfig({
         })
         ```
@@ -2781,14 +2789,14 @@ console.log('ishot被监视')
 * 应用在html标签上获取的是真实DOM元素，应用在组件标签上是组件实例对象（vc）
 
 * 使用方法：
-    * 标识：
-        * ~~~
+  * 标识：
+    * ~~~
       <组件名字 ref="" />
       ~~~
-
-        * ~~~
+    
+    * ~~~
       <h1 ref="xxx"></h1>
       ~~~
-
-    * 获取方式：this.$refs.xxx
+    
+  * 获取方式：this.$refs.xxx
 
