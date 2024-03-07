@@ -2790,3 +2790,7 @@ vm.$watch('isHot',function (){
   * 标识：<h1 ref='xxx'>……</h1>或者<组件名字 ref="" />
   * 获取方式：this.$refs.xxx
 
+
+
+l
+
