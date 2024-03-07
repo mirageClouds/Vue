@@ -380,7 +380,7 @@
 #### Vue中的数据代理
 
 * 修改name时，调用set方法将data中的name修改，然后通过get方法重新渲染DOM
-  * ![image-20231202191112413](C:\Users\21592\AppData\Roaming\Typora\typora-user-images\image-20231202191112413.png)
+  * ![image-20231202191112413](typora-user-images/image-20231202191112413-17097895372819.png)
 
 * **getter**
   * 当读取属性时，会执行get中的方法，获取到数据，并渲染页面
@@ -388,7 +388,7 @@
 * **setter**
   * 当修改属性时，会执行set中的方法，将修改的数据返回出去
 
-* ![image-20231114190405746](C:\Users\21592\AppData\Roaming\Typora\typora-user-images\image-20231114190405746.png)
+* ![image-20231114190405746](typora-user-images/image-20231114190405746-17097895243587.png)
 
 ****
 
@@ -1213,8 +1213,8 @@ vm.$watch('isHot',function (){
 
   * **图解**
 
-    * ![image-20231125160428733](C:\Users\21592\Desktop\Folder\Vue\typora-user-images\image-20231125160428733.png)
-    * ![image-20231125160821157](C:\Users\21592\Desktop\Folder\Vue\typora-user-images\image-20231125160821157.png)
+    * ![image-20231125160428733](typora-user-images/image-20231125160428733-170978955792411.png)
+    * ![image-20231125160821157](typora-user-images/image-20231125160821157-170978956254613.png)
 
   * 参考代码
 
@@ -1440,7 +1440,7 @@ vm.$watch('isHot',function (){
 
 ### Vue中监测数据改变的原理_对象
 
-* ![image-20231204184939920](C:\Users\21592\Desktop\Folder\Vue\typora-user-images\image-20231204184939920.png)
+* ![image-20231204184939920](typora-user-images/image-20231204184939920-170978957209015.png)
 
 * 参考代码
 
@@ -1571,7 +1571,7 @@ vm.$watch('isHot',function (){
 
 * Vue中的数组不是数组中的方法了，是数组原型中的方法
 
-  * ![image-20231204190922151](C:\Users\21592\AppData\Roaming\Typora\typora-user-images\image-20231204190922151.png)
+  * ![image-20231204190922151](typora-user-images/image-20231204190922151-170978957918417.png)
 
 * 参考代码
 
