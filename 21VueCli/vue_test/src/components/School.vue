@@ -9,6 +9,9 @@ export default {
     return {
       school: 'mirage'
     }
+  },
+  props:{
+
   }
 }
 </script>
