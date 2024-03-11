@@ -2781,6 +2781,120 @@ vm.$watch('isHot',function (){
         module.exports = defineConfig({
         })
         ```
+  
+* 参考代码:
+
+  * main.js：
+
+    * ```
+      /*
+      * 该文件是整个项目的入口文件
+      * */
+      //引入Vue
+      import Vue from 'vue'
+      // 引入App组件，它是所有组件的父组件
+      import App from "@/App.vue";
+      // 关闭vue的开发者提示
+      Vue.config.productionTip = false
+      // 创建Vue的实例对象
+      new Vue({
+          render: h => h(App),
+          // render(createElement, hack) {
+          //     return createElement('h1', '你好啊')
+          // }
+      }).$mount('#app')
+      ```
+
+  * App.vue：
+
+    * ```
+      <template>
+        <div>
+          <School></School>
+          <Student></Student>
+        </div>
+      </template>
+      
+      <script>
+      import Student from "./components/Student.vue";
+      import School from "./components/School.vue";
+      
+      export default {
+        name: "App",
+        components: {
+          School,
+          Student
+        }
+      }
+      </script>
+      
+      <style lang="scss" scoped>
+      
+      </style>
+      ```
+
+  * School：
+
+    * ```vue
+      <script>
+      //组件交互的代码(数据、方法)
+      export default {
+        name: "School",
+        data() {
+          return {
+            name: 'Mirage'
+          }
+        },
+      }
+      </script>
+      
+      <template>
+        <!--组件的结构-->
+        <h2>{{ name }}</h2>
+      </template>
+      
+      <style lang="scss" scoped>
+      /*组件的样式2*/
+      </style>
+      ```
+
+  * Student：
+
+    * ```
+      <script>
+      //组件交互的代码(数据、方法)
+      export default {
+        name: "Student",
+        data() {
+          return {
+            name: 'clouds'
+          }
+        },
+      }
+      </script>
+      
+      <template>
+        <!--组件的结构-->
+        <h2>{{ name }}</h2>
+      </template>
+      
+      <style lang="scss" scoped>
+      /*组件的样式2*/
+      </style>
+      ```
+
+  * vue.config.js：
+
+    * ```
+      const {defineConfig} = require('@vue/cli-service')
+      module.exports = defineConfig({
+          //转es5语法时忽略node_modules
+          transpileDependencies: true,
+          // 停止代码检查
+          lintOnSave: false
+      })
+      ```
+
 
 ## ref属性
 
@@ -2799,4 +2913,183 @@ vm.$watch('isHot',function (){
       ~~~
     
   * 获取方式：this.$refs.xxx
+  
+* 参考代码：
+
+  * App.vue：
+
+    * ```
+      <template>
+        <div>
+          <h1 v-text="msg"></h1>
+          <button @click="showDom">111</button>
+          <school ref="box"/>
+        </div>
+      </template>
+      
+      <script>
+      
+      import School from "@/components/School.vue";
+      
+      export default {
+        name: 'App',
+        components: {School},
+        data() {
+          return {
+            msg: 'clouds'
+          }
+        },
+        methods: {
+          showDom() {
+            console.log(this.$refs.box)
+          }
+        }
+      }
+      </script>
+      
+      <style lang="scss" scoped>
+      
+      </style>
+      ```
+
+  * School：
+
+    * ```
+      <template>
+        <div>{{ school }}</div>
+      </template>
+      
+      <script>
+      export default {
+        name: 'School',
+        data() {
+          return {
+            school: 'mirage'
+          }
+        }
+      }
+      </script>
+      
+      <style lang="scss" scoped>
+      
+      </style>
+      ```
+
+## prope配置项
+
+* 功能：让组件接受外部传过来的数据
+
+  * 传递数据：
+
+    * 传递字符串方式
+
+      * ~~~
+        <School name="xxx"/>
+        ~~~
+
+    * 传递其他类型
+
+      * ~~~
+        <School :age="xxx"/>
+        ~~~
+
+  * 接收数据：
+
+    * 第一种接收方式(只接收)：
+
+      * ~~~
+        props:['name']
+        ~~~
+
+    * 第二种方式(限制类型)：
+
+      * ~~~
+        props:{
+        	name:String
+        }
+        ~~~
+
+    * 第三种方式(限制类型、限制必要性、指定默认值)
+
+      * ~~~
+        props:{
+        	type:String,//类型
+        	required:true,//必要性
+        	default:'老王'//默认值
+        }
+        ~~~
+
+* 备注：
+
+  * props是只读的，Vue底层会检测你对props的修改，如果进行了修改，就会发出警告，若业务需求确实需要修改，那么请复制props的内容到data中一份，然后去修改data值的数据。
+
+* 参考代码
+
+  * App.vue：
+
+    * ```
+      <template>
+      <!--在传递数据的时候，如要传输的非字符串，那就使用v-bind进行绑定传输-->
+        <School :age="18" sex="box"/>
+      </template>
+      
+      <script>
+      
+      import School from "@/components/School.vue";
+      
+      export default {
+        name: 'App',
+        components: {School},
+      }
+      </script>
+      
+      <style lang="scss" scoped>
+      
+      </style>
+      ```
+
+  * School：
+
+    * ```
+      <template>
+        <div>
+          <div>{{ school }}</div>
+          <div>{{ my_age }}</div>
+          <div>{{ sex }}</div>
+        </div>
+      </template>
+      
+      <script>
+      export default {
+        name: 'School',
+        data() {
+          return {
+            school: 'mirage',
+            my_age:this.age
+          }
+        },
+        // 简单声明接收
+        // props:['age']
+        // 介绍同时对数据进行类型限定
+        // props:{
+        //   age:Number,
+        // }
+        // 接收的同时对数据：进行类型限制+默认值指定+必要性的限制
+        props:{
+          age:{
+            type:Number,//类型
+            default:99//默认值
+          },
+          sex:{
+            type:String,
+            required:true//让sex成为必填项
+          }
+        }
+      }
+      </script>
+      
+      <style lang="scss" scoped>
+      
+      </style>
+      ```
 
