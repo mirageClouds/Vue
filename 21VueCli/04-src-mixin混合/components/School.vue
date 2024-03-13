@@ -6,6 +6,7 @@
 </template>
 
 <script>
+import {mixin} from "../../mixin";
 
 export default {
   name: 'School',
@@ -15,6 +16,8 @@ export default {
       name: 'mirage'
     }
   },
+  // 配置局部混合
+  mixins: [mixin]
 }
 </script>
 
