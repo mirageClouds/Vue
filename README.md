@@ -3242,11 +3242,15 @@ vm.$watch('isHot',function (){
 ## webStorage
 
 * 存储内容大小一般支持5MB左右(不同浏览器可能不一样)
-
 * 浏览器通过Windows.sesslonStorage和Windows.localStorage属性来实现本地存储机制
-
 * 相关api：
 
-  * `xxxStorage.setItem('key','value';)` ：该方法接受一个键和值作为参数，会把键值对添加到存储库中，如果键名存在，则更新其对应的值
-
-    
+  * `xxxStorage.setItem('key','value')` ：该方法接受一个键和值作为参数，会把键值对添加到存储库中，如果键名存在，则更新其对应的值
+  * `xxxStorage.getItem('key')`：该方法接受一个键名为参数，返回键名对应的值
+  * `xxxStorage.removeItem('key')`：该方法接受一个键名作为参数，并把键名从储存中删除
+  * `xxxStorage.clear()`：该方法会清空存储中所有数据
+* 备注：
+  * SessionStorage存储的内容会随着浏览器窗口关闭而消失
+  * LocalStorage存储的内容需要手动清除才会消失
+  * `xxxStorage.getItem('key')`如果key对应的value获取不到，那么getter的返回值是null
+  * `JSON.parse(null)`的结果 依然是null

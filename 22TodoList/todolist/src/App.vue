@@ -3,7 +3,7 @@
     <div ref="content">
       <todo-list-header :receive="receive"/>
       <todo-list-content :checked_delete="checked_delete" :checked_todo="checked_todo" :todos="todos"/>
-      <todo-list-footer :todos="todos" :clickTodoDone="clickTodoDone" :clearAllTodo="clearAllTodo"/>
+      <todo-list-footer :clearAllTodo="clearAllTodo" :clickTodoDone="clickTodoDone" :todos="todos"/>
     </div>
   </div>
 </template>
@@ -20,12 +20,7 @@ export default {
   },
   data() {
     return {
-      todos: [
-        {id: '001', title: '学习', done: true},
-        {id: '002', title: '打代码', done: false},
-        {id: '003', title: '睡觉', done: true},
-        {id: '004', title: '打游戏', done: false},
-      ]
+      todos: JSON.parse(localStorage.getItem('todos')) || []
     }
   },
   methods: {
@@ -54,6 +49,14 @@ export default {
     //删除已经完成的任务
     clearAllTodo() {
       this.todos = this.todos.filter((todos) => !todos.done)
+    }
+  },
+  watch: {
+    todos: {
+      deep: true,
+      handler(value) {
+        localStorage.setItem('todos', JSON.stringify(value))
+      }
     }
   }
 }
