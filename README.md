@@ -3238,3 +3238,15 @@ vm.$watch('isHot',function (){
   * 子组件==>父组件通信(要求父组件先给子组件一个函数)
 * 使用v-modle注意：v-modle是不能是props传过来的值，因为props是不可以被修改的
 * props传过来的值若是对象类型的值，修改对象中的属性时Vue不会报错，但不推荐这么做
+
+## webStorage
+
+* 存储内容大小一般支持5MB左右(不同浏览器可能不一样)
+
+* 浏览器通过Windows.sesslonStorage和Windows.localStorage属性来实现本地存储机制
+
+* 相关api：
+
+  * `xxxStorage.setItem('key','value';)` ：该方法接受一个键和值作为参数，会把键值对添加到存储库中，如果键名存在，则更新其对应的值
+
+    
