@@ -3242,15 +3242,215 @@ vm.$watch('isHot',function (){
 ## webStorage
 
 * 存储内容大小一般支持5MB左右(不同浏览器可能不一样)
+
 * 浏览器通过Windows.sesslonStorage和Windows.localStorage属性来实现本地存储机制
+
 * 相关api：
 
   * `xxxStorage.setItem('key','value')` ：该方法接受一个键和值作为参数，会把键值对添加到存储库中，如果键名存在，则更新其对应的值
   * `xxxStorage.getItem('key')`：该方法接受一个键名为参数，返回键名对应的值
   * `xxxStorage.removeItem('key')`：该方法接受一个键名作为参数，并把键名从储存中删除
   * `xxxStorage.clear()`：该方法会清空存储中所有数据
+  
 * 备注：
+
   * SessionStorage存储的内容会随着浏览器窗口关闭而消失
   * LocalStorage存储的内容需要手动清除才会消失
   * `xxxStorage.getItem('key')`如果key对应的value获取不到，那么getter的返回值是null
   * `JSON.parse(null)`的结果 依然是null
+
+* 参考代码
+
+  * localStorage：
+
+    * ~~~
+      <body>
+      <button onclick="saveData()">点我保存一个数据</button>
+      <button onclick="readData()">点我读取一个数据</button>
+      <button onclick="deleteData()">点我删除一个数据</button>
+      <button onclick="deleteAllData()">点我清空数据</button>
+      <script>
+      	function saveData() {
+      		let p = {name: '张三', age: 18}
+      		window.localStorage.setItem('msg', 'hello')
+      		window.localStorage.setItem('msg2', 555)
+      		window.localStorage.setItem('msg3', JSON.stringify(p))
+      	}
+      	
+      	function readData() {
+      		console.log(localStorage.getItem('msg'))
+      		console.log(localStorage.getItem('msg2'))
+      		console.log(JSON.parse(localStorage.getItem('msg3')))
+      	}
+      	
+      	function deleteData() {
+      		localStorage.removeItem('msg')
+      	}
+      	
+      	function deleteAllData() {
+      		localStorage.clear()
+      	}
+      </script>
+      </body>
+      ~~~
+
+  * sessionStorage：
+
+    * ~~~
+      <body>
+      <button onclick="saveData()">点我保存一个数据</button>
+      <button onclick="readData()">点我读取一个数据</button>
+      <button onclick="deleteData()">点我删除一个数据</button>
+      <button onclick="deleteAllData()">点我清空数据</button>
+      <script>
+      	function saveData() {
+      		let p = {name: '张三', age: 18}
+      		window.sessionStorage.setItem('msg', 'hello')
+      		window.sessionStorage.setItem('msg2', 555)
+      		window.sessionStorage.setItem('msg3', JSON.stringify(p))
+      	}
+      	
+      	function readData() {
+      		console.log(sessionStorage.getItem('msg'))
+      		console.log(sessionStorage.getItem('msg2'))
+      		console.log(JSON.parse(sessionStorage.getItem('msg3')))
+      	}
+      	
+      	function deleteData() {
+      		sessionStorage.removeItem('msg')
+      	}
+      	
+      	function deleteAllData() {
+      		sessionStorage.clear()
+      	}
+      </script>
+      </body>
+      ~~~
+
+## 组件的自定义事件
+
+* 一种组件间通信的方式，适用于子组件==>父组件
+
+* 使用场景：A是父组件、B是子组件，B像给A传数据，那么就要在A中给B绑定自定义事件（事件的回调在A中）
+
+* 绑定自定义事件的方式：
+
+  * 第一种：在父组件中：`<Student @clouds="m1"/>`或`<Student v-on:mirage="demo"/>`
+
+  * 第二种：在父组件中：
+
+    * ~~~
+      <Student ref="mirage"/>
+      …………
+       mounted() {
+          // 使用$refs.名字.$on(事件名，触发的事件)
+          // this.$refs.mirage.$on('mirage', this.demo)
+          //写成普通函数，this指向的是调用函数着
+          this.$refs.mirage.$on('mirage', function () {
+            console.log(this)
+          })
+          // 写成箭头函数，因为箭头函数没有this，向外找，mounted钩子的this是vm，所以指向的是vm
+          this.$refs.mirage.$on('mirage', () => {
+            console.log(this)
+          })
+        }
+      ~~~
+
+  * 若想要自定义事件只能触发一次`once`修饰符，或`$once`方法
+
+* 触发自定义事件：`this.$emit('事件名','数据')`
+
+* 解绑自定义事件：`this.$off('事件名')`
+
+* 组件上也可以绑定DOM事件，需要使用`native`方法
+
+* 注意：通过`this.$refs.xxx.$on('事件名',回调)`绑定事件时，回调要么配置在methods中，要么使用箭头函数，否则this指向会出问题
+
+* 参考代码
+
+  * student.vue:
+
+    * ```
+      <script>
+      export default {
+        name: "Student",
+        data() {
+          return {
+            school: 'mirage',
+            name: 'clouds'
+          }
+        },
+        methods: {
+          sendStudentName() {
+            // 触发Student组件实例上的mirage事件
+            this.$emit('mirage')
+            this.$emit('clouds')
+          },
+          unbind() {
+            this.$off('mirage') //解绑一个自定义事件
+            this.$off(['mirage', 'clouds']) //解绑多个事件
+            this.$off() //解绑所有事件
+          },
+          death() {
+            this.$destroy() //销毁当前student组件的实例，销毁后所有student实例的自定义事件全部奏效
+          }
+        }
+      }
+      </script>
+      
+      <template>
+        <div>
+          <h2>学校{{ school }}</h2>
+          <button @click="sendStudentName">111</button>
+          <button @click="unbind">111</button>
+          <button @click="death">111</button>
+        </div>
+      </template>
+      ```
+
+  * App.vue:
+
+    * ```
+      <template>
+        <div>
+          <School/>
+          <!--通过父组件给子组件绑定一个自定义事件实现子组件给父组件传递数据-->
+          <!--<Student @clouds="m1" @mirage="demo"/>-->
+          <!--通过父组件给子组件绑定一个自定义事件实现子组件给父组件传递数据-->
+          <!--使用原生dom事件的时候需要在后面加上.native，否则会当成自定义事件使用-->
+          <Student ref="mirage" @click.native="m1"/>
+        </div>
+      </template>
+      
+      <script>
+      
+      import School from "@/components/School.vue";
+      import Student from "@/components/Student.vue";
+      
+      export default {
+        name: 'App',
+        components: {School, Student},
+        methods: {
+          demo() {
+            console.log('demo被调用了')
+          },
+          m1() {
+            console.log('1')
+          }
+        },
+        mounted() {
+          // 使用$refs.名字.$on(事件名，触发的事件)
+          // this.$refs.mirage.$on('mirage', this.demo)
+          //写成普通函数，this指向的是调用函数着
+          this.$refs.mirage.$on('mirage', function () {
+            console.log(this)
+          })
+          // 写成箭头函数，因为箭头函数没有this，向外找，mounted钩子的this是vm，所以指向的是vm
+          this.$refs.mirage.$on('mirage', () => {
+            console.log(this)
+          })
+        }
+      }
+      </script>
+      ```
+

@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ffa63a5c-f0d1-4d2a-8ea5-256d1deeb1b9" name="更改" comment="Vue基础">
-      <change afterPath="$PROJECT_DIR$/21VueCli/05-src-浏览器本地存储/localStorage.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/21VueCli/05-src-浏览器本地存储/sessionStorage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/22TodoList/todolist/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/22TodoList/todolist/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/21VueCli/vue_test/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/21VueCli/vue_test/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/21VueCli/vue_test/src/components/Student.vue" beforeDir="false" afterPath="$PROJECT_DIR$/21VueCli/vue_test/src/components/Student.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -345,7 +345,7 @@
       <workItem from="1710660221537" duration="5249000" />
       <workItem from="1710734021987" duration="60000" />
       <workItem from="1710773791780" duration="407000" />
-      <workItem from="1710774207501" duration="2454000" />
+      <workItem from="1710774207501" duration="6510000" />
     </task>
     <task id="LOCAL-00001" summary="Vue基础">
       <option name="closed" value="true" />
@@ -563,7 +563,23 @@
       <option name="project" value="LOCAL" />
       <updated>1710773853808</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Vue基础">
+      <option name="closed" value="true" />
+      <created>1710776787481</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1710776787481</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Vue基础">
+      <option name="closed" value="true" />
+      <created>1710776800040</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1710776800040</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
