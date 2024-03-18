@@ -3,7 +3,7 @@
     <div ref="content">
       <todo-list-header :receive="receive"/>
       <todo-list-content :checked_delete="checked_delete" :checked_todo="checked_todo" :todos="todos"/>
-      <todo-list-footer/>
+      <todo-list-footer :todos="todos" :clickTodoDone="clickTodoDone" :clearAllTodo="clearAllTodo"/>
     </div>
   </div>
 </template>
@@ -44,6 +44,16 @@ export default {
     //删除一个todo
     checked_delete(x) {
       this.todos = this.todos.filter(todos => todos.id !== x)
+    },
+    //全选或取消
+    clickTodoDone(x) {
+      this.todos.forEach((todos) => {
+        todos.done = x
+      })
+    },
+    //删除已经完成的任务
+    clearAllTodo() {
+      this.todos = this.todos.filter((todos) => !todos.done)
     }
   }
 }
