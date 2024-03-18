@@ -3185,3 +3185,42 @@ vm.$watch('isHot',function (){
           }
       }
       ~~~
+
+## Vue插件
+
+* 功能：用于增强Vue
+
+* 本质：包含install方法的一个对象，install的第一个参数是Vue，第二个以后的参数是插件使用者传递的数据
+
+* 定义插件：
+
+  * ~~~
+    对象.install = function(Vue,options){
+    	//1.添加全局过滤器
+    	Vue.filter(……)
+    	//2.添加全局指令
+    	Vue.directive(……)
+    	//3.配置全局混入
+    	Vue.mixin(……)
+    	//4.添加实例方法
+    	Vue.prototype.$myHethod = function(){……}
+    	Vue.prototype.$myProperty = xxx
+    }
+    ~~~
+
+* 使用插件：
+
+  * ~~~
+    Vue.use(插件名字)
+    ~~~
+
+## scoped样式
+
+* 作用：让样式在局部生效，防止冲突
+
+* 写法：
+
+  * ~~~	
+    <!--lang内写样式语言，不写lang默认css-->
+    <style lang="css" scoped>
+    ~~~
