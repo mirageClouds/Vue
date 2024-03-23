@@ -1,4 +1,6 @@
 <script>
+import PubSub from 'pubsub-js'
+
 export default {
   name: "Student",
   data() {
@@ -12,6 +14,7 @@ export default {
       // 触发Student组件实例上的mirage事件
       this.$emit('mirage')
       this.$emit('clouds')
+
     },
     unbind() {
       this.$off('mirage') //解绑一个自定义事件
@@ -21,6 +24,14 @@ export default {
     death() {
       this.$destroy() //销毁当前student组件的实例，销毁后所有student实例的自定义事件全部奏效
     }
+  },
+  mounted() {
+    this.pubid = PubSub.subscribe('hello', function () {
+      console.log('hello')
+    })
+  },
+  beforeDestroy() {
+    PubSub.unsubscribe(this.pubid)
   }
 }
 </script>
@@ -35,5 +46,7 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-
+div {
+  background: #66ccff;
+}
 </style>

@@ -6,6 +6,7 @@
 </template>
 
 <script>
+import PubSub from "pubsub-js";
 
 export default {
   name: 'School',
@@ -17,7 +18,8 @@ export default {
   },
   methods: {
     update() {
-      this.$bus.$emit('demo', 333)
+      // this.$bus.$emit('demo', 333)
+      PubSub.publish('hello', 555)
     }
   },
   beforeDestroy() {
@@ -27,5 +29,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+div {
+  background: pink;
+}
 </style>

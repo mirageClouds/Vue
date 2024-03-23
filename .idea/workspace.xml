@@ -5,30 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ffa63a5c-f0d1-4d2a-8ea5-256d1deeb1b9" name="更改" comment="Vue基础">
-      <change afterPath="$PROJECT_DIR$/21VueCli/06-src-组件自定义事件/App.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/21VueCli/06-src-组件自定义事件/assets/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/21VueCli/06-src-组件自定义事件/components/School.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/21VueCli/06-src-组件自定义事件/components/Student.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/21VueCli/06-src-组件自定义事件/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/21VueCli/06-src-组件自定义事件/plugins.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/21VueCli/07-src-全局事件总线/App.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/21VueCli/07-src-全局事件总线/assets/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/21VueCli/07-src-全局事件总线/components/School.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/21VueCli/07-src-全局事件总线/components/Student.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/21VueCli/07-src-全局事件总线/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/21VueCli/07-src-全局事件总线/plugins.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/21VueCli/vue_test/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/21VueCli/vue_test/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/21VueCli/vue_test/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/21VueCli/vue_test/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/21VueCli/vue_test/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/21VueCli/vue_test/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/21VueCli/vue_test/src/assets/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/21VueCli/vue_test/src/assets/logo.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/21VueCli/vue_test/src/components/School.vue" beforeDir="false" afterPath="$PROJECT_DIR$/21VueCli/vue_test/src/components/School.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/21VueCli/vue_test/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/21VueCli/vue_test/src/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/22TodoList/todolist/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/22TodoList/todolist/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/22TodoList/todolist/src/components/TodoList-Footer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/22TodoList/todolist/src/components/TodoList-Footer.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/22TodoList/todolist/src/components/TodoList-Header.vue" beforeDir="false" afterPath="$PROJECT_DIR$/22TodoList/todolist/src/components/TodoList-Header.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/22TodoList/todolist/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/22TodoList/todolist/src/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/21VueCli/vue_test/src/components/Student.vue" beforeDir="false" afterPath="$PROJECT_DIR$/21VueCli/vue_test/src/components/Student.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,7 +101,7 @@
     "npm.serve.executor": "Run",
     "npm.test.executor": "Run",
     "rearrange.code.on.save": "true",
-    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2023.3.5\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
     "typescript.add.unambiguous.imports.on.the.fly": "true",
     "vue.rearranger.settings.migration": "true"
@@ -149,7 +130,7 @@
       <recent name="C:\Users\21592\Desktop\Folder\vueDemo" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.serve">
+  <component name="RunManager" selected="npm.serve (1)">
     <configuration name="sessionStorage.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Vue/21VueCli/05-src-浏览器本地存储/sessionStorage.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
@@ -195,8 +176,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.serve" />
         <item itemvalue="npm.serve (1)" />
+        <item itemvalue="npm.serve" />
         <item itemvalue="npm.test" />
         <item itemvalue="npm.build:stage" />
       </list>
@@ -392,7 +373,7 @@
       <workItem from="1711187062938" duration="3308000" />
       <workItem from="1711190746934" duration="671000" />
       <workItem from="1711192315301" duration="1282000" />
-      <workItem from="1711199752309" duration="169000" />
+      <workItem from="1711199752309" duration="3458000" />
     </task>
     <task id="LOCAL-00001" summary="Vue基础">
       <option name="closed" value="true" />
@@ -634,7 +615,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710780930344</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Vue基础">
+      <option name="closed" value="true" />
+      <created>1711199937183</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1711199937183</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
