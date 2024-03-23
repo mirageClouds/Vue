@@ -17,17 +17,22 @@ export default {
   },
   methods: {
     add() {
-      // 对输入进行判断  
+      // 对输入进行判断
       if (!this.val.trim()) return alert('输入不能为空')
       // 包装一个todo_add对象
       const todo_add = {id: nanoid(), title: this.val, done: false}
-      console.log(todo_add)
+      // console.log(todo_add)
       // 调用app.vue中的函数，提交todo_add对象
-      this.receive(todo_add)
+      // this.receive(todo_add)
+      // this.$emit('receive', todo_add)
+      this.$bus.$emit('receive', todo_add)
       this.val = ''
     }
   },
-  props: ['receive']
+  beforeDestroy() {
+    this.$bus.$off('receive')
+  }
+  // props: ['receive']
 }
 </script>
 

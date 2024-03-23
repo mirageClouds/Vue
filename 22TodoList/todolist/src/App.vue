@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <div ref="content">
-      <todo-list-header :receive="receive"/>
+      <todo-list-header/>
       <todo-list-content :checked_delete="checked_delete" :checked_todo="checked_todo" :todos="todos"/>
-      <todo-list-footer :clearAllTodo="clearAllTodo" :clickTodoDone="clickTodoDone" :todos="todos"/>
+      <todo-list-footer :todos="todos"/>
     </div>
   </div>
 </template>
@@ -58,6 +58,11 @@ export default {
         localStorage.setItem('todos', JSON.stringify(value))
       }
     }
+  },
+  mounted() {
+    this.$bus.$on('receive', this.receive)
+    this.$bus.$on('clickTodoDone', this.clickTodoDone)
+    this.$bus.$on('clearAllTodo', this.clearAllTodo)
   }
 }
 </script>

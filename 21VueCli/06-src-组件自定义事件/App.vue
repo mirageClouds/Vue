@@ -18,8 +18,8 @@ export default {
   name: 'App',
   components: {School, Student},
   methods: {
-    demo(v) {
-      console.log('demo被调用了', v)
+    demo() {
+      console.log('demo被调用了')
     },
     m1() {
       console.log('1')
@@ -36,7 +36,6 @@ export default {
     this.$refs.mirage.$on('mirage', () => {
       console.log(this)
     })
-    this.$bus.$on('demo', this.demo)
   }
 }
 </script>

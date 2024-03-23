@@ -1,7 +1,6 @@
 <template>
   <div>
     <h2>学校{{ school }}</h2>
-    <button @click="update">123</button>
   </div>
 </template>
 
@@ -15,14 +14,6 @@ export default {
       name: 'mirage'
     }
   },
-  methods: {
-    update() {
-      this.$bus.$emit('demo', 333)
-    }
-  },
-  beforeDestroy() {
-    this.$bus.$off('demo')
-  }
 }
 </script>
 

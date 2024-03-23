@@ -14,8 +14,5 @@ Vue.use(plugins, 1, 2, 3)
 // 创建Vue的实例对象
 new Vue({
 	render: h => h(App),
-	beforeCreate() {
-		Vue.prototype.$bus = this
-	}
 }).$mount('#app')
 

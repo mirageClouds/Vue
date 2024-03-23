@@ -2,7 +2,8 @@
 
 export default {
   name: "TodoList-Footer",
-  props: ['todos', 'clickTodoDone', 'clearAllTodo'],
+  // props: ['todos', 'clickTodoDone', 'clearAllTodo'],
+  props: ['todos'],
   computed: {
     doneTodo() {
       return this.todos.reduce((pre, element) => {
@@ -18,16 +19,24 @@ export default {
         return this.doneTodo === this.total && this.total > 0
       },
       set(v) {
-        this.clickTodoDone(v)
+        // this.clickTodoDone(v)
+        // this.$emit('clickTodoDone', v)
+        this.$bus.$emit('clickTodoDone', v)
       }
     }
   },
   methods: {
     clearTodoDone() {
       if (confirm('确定要清除全部完成的内容吗')) {
-        this.clearAllTodo()
+        // this.clearAllTodo()
+        // this.$emit('clearAllTodo')
+        this.$bus.$emit('clearAllTodo')
       }
     }
+  },
+  beforeDestroy() {
+    this.$bus.$off('clickTodoDone')
+    this.$bus.$off('clearAllTodo')
   }
 }
 </script>
@@ -35,7 +44,7 @@ export default {
 <template>
   <div v-show="total">
     <label>
-      <input type="checkbox" v-model="isAll">
+      <input v-model="isAll" type="checkbox">
     </label>
     <span>
       已完成{{ doneTodo }}
