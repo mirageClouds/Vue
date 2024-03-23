@@ -1,5 +1,7 @@
 <script>
 
+import pubsub from "pubsub-js";
+
 export default {
   name: "TodoList-Footer",
   // props: ['todos', 'clickTodoDone', 'clearAllTodo'],
@@ -7,7 +9,7 @@ export default {
   computed: {
     doneTodo() {
       return this.todos.reduce((pre, element) => {
-        console.log(pre, element)
+        // console.log(pre, element)
         return pre + (element.done ? 1 : 0)
       }, 0)
     },
@@ -21,7 +23,8 @@ export default {
       set(v) {
         // this.clickTodoDone(v)
         // this.$emit('clickTodoDone', v)
-        this.$bus.$emit('clickTodoDone', v)
+        // this.$bus.$emit('clickTodoDone', v)
+        this.pubId1 = pubsub.publish('clickTodoDone', v)
       }
     }
   },
@@ -30,13 +33,16 @@ export default {
       if (confirm('确定要清除全部完成的内容吗')) {
         // this.clearAllTodo()
         // this.$emit('clearAllTodo')
-        this.$bus.$emit('clearAllTodo')
+        // this.$bus.$emit('clearAllTodo')
+        this.pubId = pubsub.publish('clearAllTodo')
       }
     }
   },
   beforeDestroy() {
-    this.$bus.$off('clickTodoDone')
-    this.$bus.$off('clearAllTodo')
+    // this.$bus.$off('clickTodoDone')
+    // this.$bus.$off('clearAllTodo')
+    pubsub.unsubscribe(this.pubId)
+    pubsub.unsubscribe(this.pubId1)
   }
 }
 </script>

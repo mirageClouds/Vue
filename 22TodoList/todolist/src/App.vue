@@ -9,6 +9,7 @@
 </template>
 
 <script>
+import pubsub from 'pubsub-js'
 import TodoListHeader from "@/components/TodoList-Header.vue";
 import TodoListContent from "@/components/TodoList-Content.vue";
 import TodoListFooter from "@/components/TodoList-Footer.vue";
@@ -25,15 +26,22 @@ export default {
   },
   methods: {
     // 添加一个todo
-    receive(x) {
-      console.log(x)
+    receive(_, x) {
+      // console.log(x)
       this.todos.unshift(x)
     },
     //勾选或取消勾选一个todo
     checked_todo(x) {
-      console.log(x)
+      // console.log(x)
       this.todos.forEach((todo) => {
         if (todo.id === x) todo.done = !todo.done
+      })
+    },
+    uptada_todo(x, y) {
+      // console.log(x)
+      // console.log(y)
+      this.todos.forEach((todo) => {
+        if (todo.id === x) todo.title = y
       })
     },
     //删除一个todo
@@ -41,7 +49,7 @@ export default {
       this.todos = this.todos.filter(todos => todos.id !== x)
     },
     //全选或取消
-    clickTodoDone(x) {
+    clickTodoDone(_, x) {
       this.todos.forEach((todos) => {
         todos.done = x
       })
@@ -60,9 +68,14 @@ export default {
     }
   },
   mounted() {
-    this.$bus.$on('receive', this.receive)
-    this.$bus.$on('clickTodoDone', this.clickTodoDone)
-    this.$bus.$on('clearAllTodo', this.clearAllTodo)
+    // this.$bus.$on('receive', this.receive)
+    // this.$bus.$on('clickTodoDone', this.clickTodoDone)
+    // this.$bus.$on('clearAllTodo', this.clearAllTodo)
+    pubsub.subscribe('receive', this.receive)
+    pubsub.subscribe('clickTodoDone', this.clickTodoDone)
+    pubsub.subscribe('clearAllTodo', this.clearAllTodo)
+    // pubsub.subscribe('updata', this.uptada_todo)
+    this.$bus.$on('updata', this.uptada_todo)
   }
 }
 </script>

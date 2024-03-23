@@ -7,6 +7,7 @@
 <script>
 
 import {nanoid} from "nanoid";
+import pubsub from "pubsub-js";
 
 export default {
   name: "TodoList-Footer",
@@ -24,13 +25,18 @@ export default {
       // console.log(todo_add)
       // 调用app.vue中的函数，提交todo_add对象
       // this.receive(todo_add)
+      // 使用组件间自定义事件传递数据
       // this.$emit('receive', todo_add)
-      this.$bus.$emit('receive', todo_add)
+      // 使用全局事件总线传递数据
+      // this.$bus.$emit('receive', todo_add)
+      // 使用消息订阅传递数据
+      this.pubId = pubsub.publish('receive', todo_add)
       this.val = ''
     }
   },
   beforeDestroy() {
-    this.$bus.$off('receive')
+    // this.$bus.$off('receive')
+    pubsub.unsubscribe('receive')
   }
   // props: ['receive']
 }
