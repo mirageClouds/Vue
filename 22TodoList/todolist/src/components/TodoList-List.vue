@@ -37,7 +37,7 @@ export default {
 }
 </script>
 <template>
-  <ul>
+  <transition appear name="todo">
     <li>
       <label>
         <input :checked="todo.done" type="checkbox" @click="handleClick(todo.id)">
@@ -49,10 +49,28 @@ export default {
       <button @click="handledDelte(todo.id)">删除</button>
       <button @click="handledEdit(todo)">修改</button>
     </li>
-  </ul>
+  </transition>
 </template>
 <style>
 li {
   list-style: none;
+}
+
+.todo-enter-active {
+  animation: hello 0.5s linear;
+}
+
+.todo-leave-active {
+  animation: hello 1s linear reverse;
+}
+
+
+@keyframes hello {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0px);
+  }
 }
 </style>

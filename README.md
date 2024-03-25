@@ -3521,3 +3521,74 @@ vm.$watch('isHot',function (){
 * 语法：`this.$nextTick(回调函数)`
 * 作用：在下一次DOM更新结束后执行指定的回调
 * 什么时候用，当改变数据后，要基于更新后的新DOM进行某些操作的时候，要在nextTick所指定的回调函数中执行
+
+## Vue封装的过度与动画
+
+* 作用：在插入、更新或移除DOM元素的时候，在合适的时候给元素添加样式类名
+
+* 写法：
+
+  * 准备好样式：
+
+    * 元素进入的样式
+      * v-enter：进入的起点
+      * v-enter-active：进入的过程中
+      * v-enter-to：进入的终点
+    * 元素离开的样式
+      * v-leave：离开的起点
+      * v-leave-active：离开过程中
+      * v-leave-to：离开的终点
+
+  * 使用`<transition>`包裹要过度的元素，并配置name属性：
+
+    * ~~~vue
+      <transition name='hello' appear>
+      	<h1 v-show="!isShow" key="1">你好</h1>
+      </transition>
+      ~~~
+
+  * 如果有多个元素需要过度，则需要使用:`<transition-group>`,且每个元素都要指定`key`值
+
+## Vue脚手架配置代理
+
+* 方法一
+
+  * 在Vue.config.js中添加如下配置：
+
+    * ~~~vue
+      devServer:{
+      	proxy:'url'
+      }
+      ~~~
+
+  * 说明：
+
+    * 优点：配置简单，请求资源时直接发给前段(8080)即可
+    * 缺点：不能配置多个代理，不能灵活的控制是否走代理
+    * 工作方式：若按照上述配置代理，当请求了前端资源时，那么请求会发给前端，优先匹配前端资源
+
+* 方法二
+
+  * 在Vue.config.js中添加如下配置：
+
+    * ~~~js
+      devServer: {
+              proxy: {
+                  '/api': { //请求前缀,匹配所有以'/api'开头的请求路径
+                      target: 'url', //请求转发的地址，代理的基础路径
+                      PathRewrite: {'^/api': ''}//重写请求路径
+                      // ws:true, //用于支持websocket
+                      // changeOrigin:true //用于控制控制头中的host值
+                  }
+              }
+          }
+      ~~~
+
+  * 说明：
+
+    * 优点：可以配置多个代理，且可以灵活的控制请求是否走代理
+    * 缺点：配置略微繁琐，请求资源的时候必须携带请求头
+    * changeOrigin：
+      * 为true时：服务器收到的请求头中的host为：localhost:5000
+      * 为false时：服务器收到的请求头中的host为：localhost:8080
+      * 默认值为true
