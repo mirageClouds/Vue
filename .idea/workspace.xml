@@ -6,9 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="ffa63a5c-f0d1-4d2a-8ea5-256d1deeb1b9" name="更改" comment="Vue基础">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/22TodoList/todolist-demo/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/22TodoList/todolist-demo/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/22TodoList/todolist-demo/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/22TodoList/todolist-demo/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/22TodoList/todolist-demo/src/components/HelloWorld.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/22TodoList/todolist/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/22TodoList/todolist/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/22TodoList/todolist/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/22TodoList/todolist/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/22TodoList/todolist/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/22TodoList/todolist/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/22TodoList/todolist/src/components/TodoList-Footer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/22TodoList/todolist/src/components/TodoList-Footer.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/22TodoList/todolist/src/components/TodoList-Header.vue" beforeDir="false" afterPath="$PROJECT_DIR$/22TodoList/todolist/src/components/TodoList-Header.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/22TodoList/todolist/src/components/TodoList-List.vue" beforeDir="false" afterPath="$PROJECT_DIR$/22TodoList/todolist/src/components/TodoList-List.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -375,9 +379,6 @@
       <workItem from="1711192315301" duration="1282000" />
       <workItem from="1711199752309" duration="6176000" />
       <workItem from="1711225381251" duration="3557000" />
-      <workItem from="1711229144787" duration="619000" />
-      <workItem from="1711261466917" duration="4000" />
-      <workItem from="1711274741770" duration="26000" />
     </task>
     <task id="LOCAL-00001" summary="Vue基础">
       <option name="closed" value="true" />
@@ -643,15 +644,7 @@
       <option name="project" value="LOCAL" />
       <updated>1711213576354</updated>
     </task>
-    <task id="LOCAL-00034" summary="Vue基础">
-      <option name="closed" value="true" />
-      <created>1711229251490</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1711229251490</updated>
-    </task>
-    <option name="localTasksCounter" value="35" />
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
