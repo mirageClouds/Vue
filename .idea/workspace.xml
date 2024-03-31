@@ -5,14 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ffa63a5c-f0d1-4d2a-8ea5-256d1deeb1b9" name="更改" comment="Vue基础">
+      <change afterPath="$PROJECT_DIR$/21VueCli/09-src-配置代理服务器/vue.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/23github/github/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/23github/github/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/23github/github/babel.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/23github/github/jsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/23github/github/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/23github/github/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/23github/github/public/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/23github/github/public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/23github/github/src/App.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/23github/github/src/assets/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/23github/github/src/components/github-list.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/23github/github/src/components/github-search.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/23github/github/src/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/23github/github/vue.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/22TodoList/todolist/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/22TodoList/todolist/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/22TodoList/todolist/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/22TodoList/todolist/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/22TodoList/todolist/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/22TodoList/todolist/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/22TodoList/todolist/src/components/TodoList-Footer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/22TodoList/todolist/src/components/TodoList-Footer.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/22TodoList/todolist/src/components/TodoList-Header.vue" beforeDir="false" afterPath="$PROJECT_DIR$/22TodoList/todolist/src/components/TodoList-Header.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/22TodoList/todolist/src/components/TodoList-List.vue" beforeDir="false" afterPath="$PROJECT_DIR$/22TodoList/todolist/src/components/TodoList-List.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,9 +31,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Vue Composition API Component" />
-        <option value="Vue Options API Component" />
         <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="Vue Options API Component" />
       </list>
     </option>
   </component>
@@ -88,7 +96,7 @@
     &quot;ejs.open.delimiter&quot;: &quot;&lt;%&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore_missing_gitignore&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/21592/Desktop/Folder/Vue/21VueCli&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/21592/Desktop/Folder/Vue/21VueCli/09-src-配置代理服务器&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.stylelint&quot;: &quot;true&quot;,
@@ -102,6 +110,7 @@
     &quot;npm.build:prod.executor&quot;: &quot;Run&quot;,
     &quot;npm.build:stage.executor&quot;: &quot;Run&quot;,
     &quot;npm.serve (1).executor&quot;: &quot;Run&quot;,
+    &quot;npm.serve (2).executor&quot;: &quot;Run&quot;,
     &quot;npm.serve.executor&quot;: &quot;Run&quot;,
     &quot;npm.test.executor&quot;: &quot;Run&quot;,
     &quot;rearrange.code.on.save&quot;: &quot;true&quot;,
@@ -122,11 +131,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\21592\Desktop\Folder\Vue\21VueCli\09-src-配置代理服务器" />
       <recent name="C:\Users\21592\Desktop\Folder\Vue\21VueCli" />
       <recent name="C:\Users\21592\Desktop\Folder\Vue\21VueCli\vue_test" />
       <recent name="C:\Users\21592\Desktop\Folder\Vue\21VueCli\06-src-组件自定义事件" />
       <recent name="C:\Users\21592\Desktop\Folder\Vue\21VueCli\vue_test\src\components" />
-      <recent name="C:\Users\21592\Desktop\Folder\Vue\21VueCli\vue_test\src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\21592\Desktop\Folder\Vue\21VueCli\04-src-mixin混合" />
@@ -134,10 +143,7 @@
       <recent name="C:\Users\21592\Desktop\Folder\vueDemo" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.serve (1)">
-    <configuration name="sessionStorage.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Vue/21VueCli/05-src-浏览器本地存储/sessionStorage.html" useBuiltInWebServerPort="true">
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="npm.serve (2)">
     <configuration name="build:stage" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/vue-element-admin/package.json" />
       <command value="run" />
@@ -150,6 +156,16 @@
     </configuration>
     <configuration name="serve (1)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/21VueCli/vue_test/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="serve" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="serve (2)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/23github/github/package.json" />
       <command value="run" />
       <scripts>
         <script value="serve" />
@@ -180,6 +196,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.serve (2)" />
         <item itemvalue="npm.serve (1)" />
         <item itemvalue="npm.serve" />
         <item itemvalue="npm.test" />
@@ -379,6 +396,11 @@
       <workItem from="1711192315301" duration="1282000" />
       <workItem from="1711199752309" duration="6176000" />
       <workItem from="1711225381251" duration="3557000" />
+      <workItem from="1711487948383" duration="1201000" />
+      <workItem from="1711541120585" duration="1004000" />
+      <workItem from="1711542139695" duration="1822000" />
+      <workItem from="1711886410352" duration="1555000" />
+      <workItem from="1711897968116" duration="3705000" />
     </task>
     <task id="LOCAL-00001" summary="Vue基础">
       <option name="closed" value="true" />
