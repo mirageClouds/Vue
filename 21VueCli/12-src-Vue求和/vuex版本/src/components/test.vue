@@ -1,7 +1,4 @@
 <script>
-
-import {mapGetters, mapState} from "vuex";
-
 export default {
   name: "test",
   data() {
@@ -22,21 +19,13 @@ export default {
     incrementWait() {
       this.$store.dispatch("incrementWait", this.n);
     }
-  },
-  computed: {
-    //借mapState生成计算属性，从state中获取数据(第一种写法,对象写法)
-    // ...mapState({sum: 'sum'}),
-    //借mapState生成计算属性，从state中获取数据(第二种写法,数组写法)
-    ...mapState(['sum']),
-    ...mapGetters({bigsum: 'bigsum'})
   }
 }
 </script>
 
 <template>
   <div>
-    <h2>当前求和为{{ sum }}</h2>
-    <h2>当前求和为{{ bigsum }}</h2>
+    <h2>当前求和为{{ $store.state.sum }}</h2>
     <select v-model.number="n">
       <option value="1">1</option>
       <option value="2">2</option>

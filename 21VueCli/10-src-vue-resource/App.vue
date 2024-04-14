@@ -1,5 +1,5 @@
 <template>
-  <div class="wp">
+  <div>
     <test/>
   </div>
 </template>
@@ -11,20 +11,9 @@ import test from "@/components/test.vue";
 export default {
   name: 'App',
   components: {test},
-  mounted() {
-    console.log(this);
-  }
 }
-
 </script>
 
-<style lang="css">
-.wp {
-  display: flex;
-  justify-content: space-around;
-}
+<style lang="scss">
 
-img {
-  width: 100%;
-}
 </style>

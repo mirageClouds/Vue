@@ -11,11 +11,7 @@ import test from "@/components/test.vue";
 export default {
   name: 'App',
   components: {test},
-  mounted() {
-    console.log(this);
-  }
 }
-
 </script>
 
 <style lang="css">

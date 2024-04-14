@@ -3592,3 +3592,222 @@ vm.$watch('isHot',function (){
       * 为true时：服务器收到的请求头中的host为：localhost:5000
       * 为false时：服务器收到的请求头中的host为：localhost:8080
       * 默认值为true
+
+## 插槽
+
+* 作用：让父组件可以向子组件指定位置插入HTML结构，也是一种组件间通信方式，适用于父组件===》子组件
+
+* 分类：默认插槽、具名插槽、作用域插槽
+
+* 使用方式：
+
+  * 默认插槽：
+
+    * ~~~	vue
+      父组件中：
+      	<test>
+      		<div>
+                  html结构
+              </div>
+      	</test>
+      子组件中:
+      	<test>
+      		<template>
+              	<!--定义插槽-->
+      			<slot>插槽内容</slot>
+              </template>
+      	</test>
+      ~~~
+
+  * 具名插槽：
+
+    * ~~~vue
+      父组件中：
+      	<test>
+      		<template slot='content'>
+              	<div>html结构1</div>
+              </template>
+              <template v-slot='footer'>
+              	<div>html结构2</div>
+              </template>
+      	</test>
+      子组件中:
+      	<test>
+      		<template>
+              	<!--定义插槽-->
+      			<slot name='content'>插槽内容1</slot>
+      			<slot name='footer'>插槽内容2</slot>
+              </template>
+      	</test>
+      ~~~
+
+  * 作用域插槽：
+  
+    * 理解：数据在组件自身，但根据生成的结构需要组件的使用者来决定。
+  
+    * ~~~vue
+      父组件中：
+      	<test>
+            <template v-slot:haha="{games}">
+              <li v-for="(g,index) in games" :key=index>{{ g }}</li>
+            </template>
+          </test>
+      子组件中：
+      	<script>
+          export default {
+            name: "test",
+            data() {
+              return {
+                game: ['千恋*万花', 'Granblue Fantasy:Relink', 'Counter-strike2', 'Apex 英雄']
+              }
+            }
+          }
+          </script>
+      
+          <template>
+            <div>
+              <h3>游戏</h3>
+              <ul>
+                <slot :games="game" name="haha"></slot>
+              </ul>
+            </div>
+          </template>
+      ~~~
+  
+## Vuex
+
+* 搭建环境
+
+  * 创建文件：`src/store/index,js`
+
+  * ~~~js
+    // 该文件用于创建Vuex中最为核心的store
+    // 引入vue
+    import Vue from 'vue'
+    // 引入vuex
+    import Vuex from 'vuex'
+    // 使用vuex
+    Vue.use(Vuex)
+    //准备actions-用于响应组件中的动作
+    const actions = {}
+    //准备mutations-用于操作数据(state)
+    const mutations = {}
+    
+    //准备state-用于存储数据
+    const state = {}
+    
+    // 创建store并暴露store
+    export default new Vuex.Store({
+    	actions,
+    	mutations,
+    	state,
+    })
+    ~~~
+
+  * 在`main.js`中创建vm时传入`store`配置项
+
+  * ~~~js
+    // 引入store
+    import store from "@/store";
+    // 创建Vue的实例对象
+    new Vue({
+    	render: h => h(App),
+    	//使用store
+    	store,
+    	beforeCreate() {
+    		Vue.prototype.$bus = this
+    	}
+    }).$mount('#app')
+    
+    ~~~
+
+* 基本使用
+
+  * ```js
+    // 该文件用于创建Vuex中最为核心的store
+    // 引入vue
+    import Vue from 'vue'
+    // 引入vuex
+    import Vuex from 'vuex'
+    // 使用vuex
+    Vue.use(Vuex)
+    //准备actions-用于响应组件中的动作
+    const actions = {
+        incrementOdd(context, v) {
+           console.log('vuex 中的actions被调用了', context, v)
+           if (context.state.sum % 2) {
+              context.commit('incrementOdd', v)
+           }
+        },
+        incrementWait(context, v) {
+           console.log('vuex 中的actions被调用了', context, v)
+           setTimeout(() => context.commit('incrementWait', v), 500)
+        }
+    }
+    //准备mutations-用于操作数据(state)
+    const mutations = {
+        increment(state, v) {
+           console.log('vuex 中的mutations被调用了', state, v)
+           state.sum += v
+           console.log(state.sum)
+        },
+        decrement(state, v) {
+           console.log('vuex 中的mutations被调用了', state, v)
+           state.sum -= v
+           console.log(state.sum)
+        },
+        incrementOdd(state, v) {
+           console.log('vuex 中的mutations被调用了', state, v)
+           state.sum += v
+           console.log(state.sum)
+        },
+        incrementWait(state, v) {
+           console.log('vuex 中的mutations被调用了', state, v)
+           state.sum += v
+           console.log(state.sum)
+        }
+    }
+    //准备state-用于存储数据
+    const state = {
+        sum: 0
+    }
+    
+    // 创建store并暴露store
+    export default new Vuex.Store({
+        actions,
+        mutations,
+        state,
+    })
+    ```
+
+  * 组件读取vuex中的数据：`$store.state.数据名`
+
+  * 组件中修改vuex的数据：`$store.dispatch('action中的方法名',数据)`或`$store.commit('mutations中的方法名',数据)`
+
+  * 注意：若没有网络请求或其他业务逻辑，组件中也可以越过actions，即不写`dispatch`，直接写`commit`
+  
+* getter的使用
+
+  * 概念：当state中的数据需要进行加工后再使用，可以使用getter进行加工
+
+  * 在store文件夹下的index.js中追加`geeters`配置
+
+    * ```js
+      // 准备getters-用于将state中的数据进行加工
+      const getters = {
+          bigsum(state) {
+             return state.sum * 50
+          }
+      }
+      
+      // 创建store并暴露store
+      export default new Vuex.Store({
+          actions,
+          mutations,
+          state,
+          getters
+      })
+      ```
+
+  * 组件中读取数据：`$store.getters.bigsum`
+
