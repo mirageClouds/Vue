@@ -4,7 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ffa63a5c-f0d1-4d2a-8ea5-256d1deeb1b9" name="更改" comment="Vue基础" />
+    <list default="true" id="ffa63a5c-f0d1-4d2a-8ea5-256d1deeb1b9" name="更改" comment="Vue基础">
+      <change afterPath="$PROJECT_DIR$/21VueCli/vue_test/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/21VueCli/vue_test/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/21VueCli/vue_test/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/21VueCli/vue_test/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/21VueCli/vue_test/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/21VueCli/vue_test/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/21VueCli/vue_test/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/21VueCli/vue_test/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/21VueCli/vue_test/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/21VueCli/vue_test/src/store/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/21VueCli/vue_test/src/store/person.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/21VueCli/vue_test/src/store/test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/21VueCli/vue_test/vue.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/21VueCli/vue_test/vue.config.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -82,9 +93,9 @@
     "WebServerToolWindowFactoryState": "false",
     "ejs.close.delimiter": "%>",
     "ejs.open.delimiter": "<%",
-    "git-widget-placeholder": "Merging master",
+    "git-widget-placeholder": "master",
     "ignore_missing_gitignore": "true",
-    "last_opened_file_path": "C:/Users/Administrator/WebstormProjects/Vue/21VueCli/12-src-Vue求和/最终版本",
+    "last_opened_file_path": "C:/Users/Administrator/WebstormProjects/Vue/21VueCli/vue_test/src",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.detected.package.stylelint": "true",
@@ -120,11 +131,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\WebstormProjects\Vue\21VueCli\vue_test\src" />
       <recent name="C:\Users\Administrator\WebstormProjects\Vue\21VueCli\12-src-Vue求和\最终版本" />
       <recent name="D:\Users\H3C\WebstormProjects\Vue\21VueCli\12-src-Vue求和\代码整理1" />
       <recent name="D:\Users\H3C\WebstormProjects\Vue\21VueCli\12-src-Vue求和\vuex组件间通信" />
       <recent name="D:\Users\H3C\WebstormProjects\Vue\21VueCli\12-src-Vue求和\mapMutations与mapActions" />
-      <recent name="D:\Users\H3C\WebstormProjects\Vue\21VueCli\12-src-Vue求和\mapState与mapGetters" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\21592\Desktop\Folder\Vue\21VueCli\04-src-mixin混合" />
@@ -441,7 +452,7 @@
       <workItem from="1713144188911" duration="7018000" />
       <workItem from="1713163248668" duration="21000" />
       <workItem from="1713163271823" duration="78000" />
-      <workItem from="1713163355314" duration="7469000" />
+      <workItem from="1713163355314" duration="9840000" />
     </task>
     <task id="LOCAL-00001" summary="Vue基础">
       <option name="closed" value="true" />
@@ -731,7 +742,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713170819480</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Vue基础">
+      <option name="closed" value="true" />
+      <created>1713170895758</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1713170895758</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
