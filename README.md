@@ -3926,3 +3926,23 @@ vm.$watch('isHot',function (){
         //方式二：借助mapMutations
         ...mapMutations('testOption',{sum:'sum'})
         ~~~
+
+## Vue-router
+
+* 理解:vue的一个插件库，专门实现spa应用
+* 对spa的理解：
+  * 单页面Web应用(sing page web application,SPA)
+  * 整个应用只有一个完整的页面
+  * 点击页面中的导航链接不会刷新页面，只会做页面的局部更新
+  * 数据需要通过ajax获取
+* 路由的理解
+  * 什么是路由
+    * 一个路由就是一组映射关系(key-value)
+    * key为路径，value可能是function或者component
+  * 路由分类：
+    * 后端路由
+      * 理解：value就是function，用于处理客户端提交的请求
+      * 工作过程：服务器接收到一个请求时，根据请求路径找到匹配的函数来处理请求，返回响应数据
+    * 前端路由
+      * 理解：value就是component，用于展示页面内容
+      * 工作过程：当浏览器路径发生改变时，对应的组件就会展示

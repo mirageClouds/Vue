@@ -5,12 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ffa63a5c-f0d1-4d2a-8ea5-256d1deeb1b9" name="更改" comment="Vue基础">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/21VueCli/vue_test/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/21VueCli/vue_test/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/21VueCli/vue_test/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/21VueCli/vue_test/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/21VueCli/vue_test/src/components/person.vue" beforeDir="false" afterPath="$PROJECT_DIR$/21VueCli/vue_test/src/components/person.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/21VueCli/vue_test/src/store/person.js" beforeDir="false" afterPath="$PROJECT_DIR$/21VueCli/vue_test/src/store/person.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/21VueCli/12-src-Vue求和/最终版本/src/App.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/21VueCli/12-src-Vue求和/最终版本/src/assets/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/21VueCli/12-src-Vue求和/最终版本/src/components/person.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/21VueCli/12-src-Vue求和/最终版本/src/components/test.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/21VueCli/12-src-Vue求和/最终版本/src/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/21VueCli/12-src-Vue求和/最终版本/src/plugins.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/21VueCli/12-src-Vue求和/最终版本/src/store/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/21VueCli/12-src-Vue求和/最终版本/src/store/person.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/21VueCli/12-src-Vue求和/最终版本/src/store/test.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +34,11 @@
     <option name="myRunOnSave" value="true" />
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Mirage &lt;2159272804@qq.com&gt;" />
+      </list>
+    </option>
     <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
@@ -86,7 +94,7 @@
     "ejs.open.delimiter": "<%",
     "git-widget-placeholder": "master",
     "ignore_missing_gitignore": "true",
-    "last_opened_file_path": "C:/Program Files/nodejs/node.exe",
+    "last_opened_file_path": "C:/Users/Administrator/WebstormProjects/Vue/21VueCli/12-src-Vue求和/最终版本",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.detected.package.stylelint": "true",
@@ -122,11 +130,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\WebstormProjects\Vue\21VueCli\12-src-Vue求和\最终版本" />
       <recent name="D:\Users\H3C\WebstormProjects\Vue\21VueCli\12-src-Vue求和\代码整理1" />
       <recent name="D:\Users\H3C\WebstormProjects\Vue\21VueCli\12-src-Vue求和\vuex组件间通信" />
       <recent name="D:\Users\H3C\WebstormProjects\Vue\21VueCli\12-src-Vue求和\mapMutations与mapActions" />
       <recent name="D:\Users\H3C\WebstormProjects\Vue\21VueCli\12-src-Vue求和\mapState与mapGetters" />
-      <recent name="C:\Users\21592\Desktop\Folder\vue\21VueCli\12-src-Vue求和\vuex版本" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\21592\Desktop\Folder\Vue\21VueCli\04-src-mixin混合" />
@@ -443,7 +451,7 @@
       <workItem from="1713144188911" duration="7018000" />
       <workItem from="1713163248668" duration="21000" />
       <workItem from="1713163271823" duration="78000" />
-      <workItem from="1713163355314" duration="5989000" />
+      <workItem from="1713163355314" duration="6705000" />
     </task>
     <task id="LOCAL-00001" summary="Vue基础">
       <option name="closed" value="true" />
@@ -709,7 +717,23 @@
       <option name="project" value="LOCAL" />
       <updated>1711213576354</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Vue基础">
+      <option name="closed" value="true" />
+      <created>1713169377693</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1713169377693</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Vue基础">
+      <option name="closed" value="true" />
+      <created>1713169400061</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1713169400061</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
