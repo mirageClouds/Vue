@@ -3828,9 +3828,101 @@ vm.$watch('isHot',function (){
 
     * ~~~js
       computed:{
-          
+          //借mapGetters生成计算属性，从getters中获取数据(第一种写法,对象写法)
+          // ...mapGetters({bigsum: 'bigsum'}),
+          //借mapState生成计算属性，从state中获取数据(第二种写法,数组写法)
+          ...mapGetters(['bigsum'])
       }
       ~~~
-
-    * 
-
+    
+  * mapActions方法：帮助我们生产与`actions`对话的方法，即包含`$store.dispatch(xxx)`的函数
+  
+    * ~~~js
+      methods:{
+      	//使用mapActions生成对应的方法，方法会调用dispatch去联系actions(对象写法)
+          ...mapActions({incrementOdd: "incrementOdd", incrementWait: "incrementWait"}),
+          //使用mapActions生成对应的方法，方法会调用dispatch去联系actions(数组写法)
+          ...mapActions(['incrementWait', 'incrementOdd']),
+      
+      }
+      ~~~
+    
+  * mapMutations方法：帮助我们生产与`mutations`对话的方法，即包含`$store.commit(xxx)`的函数
+  
+    * ```js
+      methods:{
+          // 使用mapMutations生成对应的方法，方法会调用commit去联系mutations(对象写法)
+          ...mapMutations({increment: "increment", decrement: "decrement"}),
+          // 使用mapMutations生成对应的方法，方法会调用commit去联系mutations(数组写法)
+          ...mapMutations(["increment", 'decrement']),
+      }
+      ```
+  
+  * 模块化+命名空间
+  
+    * 目的：让代码更好维护，让多种数据分类更加明确
+  
+    * 修改`store.js`
+  
+      * ~~~	js
+        // 分类模块化
+        const testOption = {
+            // 开启命名空间，使mapxxx写法可以找到
+            namespaced: true,
+            actions: {……},
+            mutations: {……},
+            state: {……},
+            getters: {……}
+        }
+        
+        const personOption = {
+            namespaced: true,
+            actions: {……},
+            mutations: {……},
+            state: {……},
+            getters: {……}
+        }
+        
+        // 创建store并暴露store
+        export default new Vuex.Store({
+            modules: {
+                testOption, personOption
+            }
+        })
+        ~~~
+  
+    * 开启命名空间后，组件中读取state数据
+  
+      * ~~~js
+        //方式一：自己直接读取
+        this.$store.testOption.list
+        //方式二：借助mapState读取
+        ...mapState('testOption',['sum'])
+        ~~~
+  
+    * 开启命名空间后，组件读取getters数据
+  
+      * ~~~js
+        //方式一：自己读取
+        this.$store.getters['testOption/sum']
+        //方式二：借助mapGeeters读取
+        ...mapGetters('testOption',['sum'])
+        ~~~
+  
+    * 开启命名空间后，组件调用dispatch
+  
+      * ~~~js
+        //方式一：自己直接调用dispatch
+        this.$store.dispatch('testOption/sum',person)
+        //方式二：借助mapActions读取
+        ...mapActions('testOption',{sum:'sum'})
+        ~~~
+  
+    * 开启命名空间后，组件调用commit
+  
+      * ~~~js
+        //方式一：自己直接commit
+        this.$store.commit('testOption/sum',person)
+        //方式二：借助mapMutations
+        ...mapMutations('testOption',{sum:'sum'})
+        ~~~
