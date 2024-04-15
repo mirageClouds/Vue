@@ -3811,3 +3811,26 @@ vm.$watch('isHot',function (){
 
   * 组件中读取数据：`$store.getters.bigsum`
 
+* 四个map方法使用
+
+  * mapState方法：帮助我们映射`state`中的数据为计算属性
+
+    * ```js
+      computed:{
+          //借mapState生成计算属性，从state中获取数据(第一种写法,对象写法)
+      ...mapState({sum: 'sum'}),
+      //借mapState生成计算属性，从state中获取数据(第二种写法,数组写法)
+      ...mapState(['sum']),
+      }
+      ```
+
+  * mapGetter方法：帮助我们映射`getters`中的数据为计算属性
+
+    * ~~~js
+      computed:{
+          
+      }
+      ~~~
+
+    * 
+

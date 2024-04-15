@@ -5,45 +5,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ffa63a5c-f0d1-4d2a-8ea5-256d1deeb1b9" name="更改" comment="Vue基础">
-      <change afterPath="$PROJECT_DIR$/21VueCli/10-src-vue-resource/App.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/21VueCli/10-src-vue-resource/assets/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/21VueCli/10-src-vue-resource/components/test.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/21VueCli/10-src-vue-resource/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/21VueCli/10-src-vue-resource/plugins.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/21VueCli/11-src-插槽/作用域插槽/src/App.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/21VueCli/11-src-插槽/作用域插槽/src/assets/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/21VueCli/11-src-插槽/作用域插槽/src/components/test.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/21VueCli/11-src-插槽/作用域插槽/src/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/21VueCli/11-src-插槽/作用域插槽/src/plugins.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/21VueCli/11-src-插槽/默认插槽和具名插槽/src/App.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/21VueCli/11-src-插槽/默认插槽和具名插槽/src/assets/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/21VueCli/11-src-插槽/默认插槽和具名插槽/src/components/test.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/21VueCli/11-src-插槽/默认插槽和具名插槽/src/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/21VueCli/11-src-插槽/默认插槽和具名插槽/src/plugins.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/21VueCli/12-src-Vue求和/vuex版本/src/App.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/21VueCli/12-src-Vue求和/vuex版本/src/assets/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/21VueCli/12-src-Vue求和/vuex版本/src/components/test.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/21VueCli/12-src-Vue求和/vuex版本/src/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/21VueCli/12-src-Vue求和/vuex版本/src/plugins.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/21VueCli/12-src-Vue求和/vuex版本/src/store/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/21VueCli/12-src-Vue求和/纯vue版本/src/App.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/21VueCli/12-src-Vue求和/纯vue版本/src/assets/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/21VueCli/12-src-Vue求和/纯vue版本/src/components/test.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/21VueCli/12-src-Vue求和/纯vue版本/src/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/21VueCli/12-src-Vue求和/纯vue版本/src/plugins.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/21VueCli/vue_test/src/store/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BookManagerVue/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/21VueCli/12-src-Vue求和/mapMutations与mapActions/src/App.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/21VueCli/12-src-Vue求和/mapMutations与mapActions/src/assets/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/21VueCli/12-src-Vue求和/mapMutations与mapActions/src/components/test.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/21VueCli/12-src-Vue求和/mapMutations与mapActions/src/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/21VueCli/12-src-Vue求和/mapMutations与mapActions/src/plugins.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/21VueCli/12-src-Vue求和/mapMutations与mapActions/src/store/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/21VueCli/12-src-Vue求和/mapState与mapGetters/src/App.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/21VueCli/12-src-Vue求和/mapState与mapGetters/src/assets/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/21VueCli/12-src-Vue求和/mapState与mapGetters/src/components/test.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/21VueCli/12-src-Vue求和/mapState与mapGetters/src/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/21VueCli/12-src-Vue求和/mapState与mapGetters/src/plugins.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/21VueCli/12-src-Vue求和/mapState与mapGetters/src/store/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/21VueCli/12-src-Vue求和/vuex组件间通信/src/App.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/21VueCli/12-src-Vue求和/vuex组件间通信/src/assets/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/21VueCli/12-src-Vue求和/vuex组件间通信/src/components/person.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/21VueCli/12-src-Vue求和/vuex组件间通信/src/components/test.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/21VueCli/12-src-Vue求和/vuex组件间通信/src/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/21VueCli/12-src-Vue求和/vuex组件间通信/src/plugins.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/21VueCli/12-src-Vue求和/vuex组件间通信/src/store/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/21VueCli/12-src-Vue求和/代码整理1/src/App.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/21VueCli/12-src-Vue求和/代码整理1/src/assets/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/21VueCli/12-src-Vue求和/代码整理1/src/components/person.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/21VueCli/12-src-Vue求和/代码整理1/src/components/test.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/21VueCli/12-src-Vue求和/代码整理1/src/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/21VueCli/12-src-Vue求和/代码整理1/src/plugins.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/21VueCli/12-src-Vue求和/代码整理1/src/store/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/21VueCli/vue_test/src/components/person.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/21VueCli/vue_test/src/store/person.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/21VueCli/vue_test/src/store/test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/21VueCli/vue_test/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/21VueCli/vue_test/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/21VueCli/vue_test/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/21VueCli/vue_test/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/21VueCli/vue_test/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/21VueCli/vue_test/src/App.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/21VueCli/vue_test/src/components/test.vue" beforeDir="false" afterPath="$PROJECT_DIR$/21VueCli/vue_test/src/components/test.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/21VueCli/vue_test/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/21VueCli/vue_test/src/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/21VueCli/vue_test/vue.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/21VueCli/vue_test/vue.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/21VueCli/vue_test/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/21VueCli/vue_test/src/store/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +115,7 @@
     "ejs.open.delimiter": "<%",
     "git-widget-placeholder": "master",
     "ignore_missing_gitignore": "true",
-    "last_opened_file_path": "C:/Users/21592/Desktop/Folder/vue/21VueCli/12-src-Vue求和/vuex版本",
+    "last_opened_file_path": "D:/Users/H3C/WebstormProjects/Vue/21VueCli/12-src-Vue求和/代码整理1",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.detected.package.stylelint": "true",
@@ -138,7 +134,7 @@
     "npm.test.executor": "Run",
     "rearrange.code.on.save": "true",
     "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2023.3.5\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
+    "ts.external.directory.path": "D:\\Program Files\\JetBrains\\WebStorm 2024.1\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
     "typescript.add.unambiguous.imports.on.the.fly": "true",
     "vue.rearranger.settings.migration": "true"
   },
@@ -154,11 +150,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Users\H3C\WebstormProjects\Vue\21VueCli\12-src-Vue求和\代码整理1" />
+      <recent name="D:\Users\H3C\WebstormProjects\Vue\21VueCli\12-src-Vue求和\vuex组件间通信" />
+      <recent name="D:\Users\H3C\WebstormProjects\Vue\21VueCli\12-src-Vue求和\mapMutations与mapActions" />
+      <recent name="D:\Users\H3C\WebstormProjects\Vue\21VueCli\12-src-Vue求和\mapState与mapGetters" />
       <recent name="C:\Users\21592\Desktop\Folder\vue\21VueCli\12-src-Vue求和\vuex版本" />
-      <recent name="C:\Users\21592\Desktop\Folder\vue\21VueCli\12-src-Vue求和\纯vue版本" />
-      <recent name="C:\Users\21592\Desktop\Folder\vue\21VueCli\11-src-插槽\作用域插槽" />
-      <recent name="C:\Users\21592\Desktop\Folder\vue\21VueCli\11-src-插槽\默认插槽和具名插槽" />
-      <recent name="C:\Users\21592\Desktop\Folder\vue\21VueCli\11-src-插槽" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\21592\Desktop\Folder\Vue\21VueCli\04-src-mixin混合" />
@@ -469,6 +465,10 @@
       <workItem from="1713005481320" duration="28000" />
       <workItem from="1713068643534" duration="381000" />
       <workItem from="1713081825177" duration="15996000" />
+      <workItem from="1713139879379" duration="5000" />
+      <workItem from="1713139886914" duration="642000" />
+      <workItem from="1713140542868" duration="2365000" />
+      <workItem from="1713144188911" duration="7018000" />
     </task>
     <task id="LOCAL-00001" summary="Vue基础">
       <option name="closed" value="true" />

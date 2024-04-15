@@ -10,14 +10,20 @@ export default {
     }
   },
   methods: {
-    ...mapMutations('testOption', {increment: "increment", decrement: "decrement"}),
-    ...mapActions('testOption', ['incrementWait', 'incrementOdd']),
+    // 使用mapMutations生成对应的方法，方法会调用commit去联系mutations(对象写法)
+    ...mapMutations({increment: "increment", decrement: "decrement"}),
+    // 使用mapMutations生成对应的方法，方法会调用commit去联系mutations(数组写法)
+    // ...mapMutations(["increment", 'decrement']),
+    /*------------------------------------*/
+    //使用mapActions生成对应的方法，方法会调用dispatch去联系actions(对象写法)
+    // ...mapActions({incrementOdd: "incrementOdd", incrementWait: "incrementWait"}),
+    //使用mapActions生成对应的方法，方法会调用dispatch去联系actions(数组写法)
+    ...mapActions(['incrementWait', 'incrementOdd']),
 
   },
   computed: {
-    ...mapState('testOption', ['sum']),
-    ...mapState('personOption', ['personList']),
-    ...mapGetters('testOption', ['bigsum'])
+    ...mapState(['sum', "personList"]),
+    ...mapGetters({bigsum: 'bigsum'})
   }
 }
 </script>
@@ -36,7 +42,6 @@ export default {
     <button @click="decrement(n)">-</button>
     <button @click="incrementOdd(n)">当前求和为奇数时加</button>
     <button @click="incrementWait(n)">等一等再加</button>
-
   </div>
 </template>
 
