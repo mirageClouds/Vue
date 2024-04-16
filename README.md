@@ -4176,3 +4176,53 @@ vm.$watch('isHot',function (){
   * 作用：控制路由跳转时操作浏览器历史记录的模式
   * 浏览器的历史记录有两种写入方式：分别为`push`和`replace`,`push`是追加历史记录，`replact`是替换当前历史记录，路由跳转跳转时候默认为`push`
   * 如何开启`replace`模式：`<reouter-link replace ……>news</reouter>`
+  
+* 编程式路由导航
+
+  * 作用：不借助`<router-link>`实现路由跳转，让路由跳转更加灵活
+
+  * 具体编码：
+
+    * ```js
+      //$router的两个api
+      this.$router.push({
+        name: 'detail',
+        params: {
+          id: item.id,
+          title: item.title,
+        }
+      })
+      this.$router.replace({
+         name: 'detail',
+         params: {
+           id: item.id,
+           title: item.title,
+         }
+      })
+      //后退
+      this.$router.back()
+      //前进
+      this.$router.forward()
+      //可前进，可后退，看传递的值，正数前进负数后退
+      this.$router.go(-3)
+      ```
+
+* 缓存路由组件
+
+  * 作用：让不展示的路由组件保持挂载，不被销毁
+
+  * 具体编码
+
+    * ```vue
+      <keep-alive include="news">
+        <router-view></router-view>
+      </keep-alie>
+      ```
+
+* 两个新的生命周期钩子
+
+  * 作用：路由组件所独有的两个构子，用于捕获由组件的激活状态
+  * 具体名字：
+    * `activated`:路由组件激活时触发
+    * `deactivated`:路由组件失活时触发
+
