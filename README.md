@@ -3930,11 +3930,13 @@ vm.$watch('isHot',function (){
 ## Vue-router
 
 * 理解:vue的一个插件库，专门实现spa应用
+
 * 对spa的理解：
   * 单页面Web应用(sing page web application,SPA)
   * 整个应用只有一个完整的页面
   * 点击页面中的导航链接不会刷新页面，只会做页面的局部更新
   * 数据需要通过ajax获取
+  
 * 路由的理解
   * 什么是路由
     * 一个路由就是一组映射关系(key-value)
@@ -3946,3 +3948,201 @@ vm.$watch('isHot',function (){
     * 前端路由
       * 理解：value就是component，用于展示页面内容
       * 工作过程：当浏览器路径发生改变时，对应的组件就会展示
+  
+* 基本使用
+
+  * 安装vue-router：`npm i vue-router`
+
+  * 应用插件：`Vue.use(VueRouter)`
+
+  * 编写router配置项：
+
+    * ~~~js
+      //该文件专门用于创建整个应用的路由器
+      import VueRouter from "vue-router";
+      // 引入组件
+      import home from "@/components/home.vue"
+      import about from "@/components/about.vue";
+      // 创建一个路由器并暴露
+      export default new VueRouter({
+      	routes: [
+      		{
+      			path: "/home",
+      			component: home
+      		},
+      		{
+      			path: "/about",
+      			component: about
+      		}
+      	]
+      })
+      ~~~
+
+  * 实现切换(active-class 可以配置高亮样式)
+
+    * ~~~vue
+      <router-link active-class="active" to="/about">about</router-link>
+      ~~~
+
+  * 指定展示位置
+
+    * ```vue
+      <router-view></router-view>
+      ```
+
+* 注意点：
+
+  * 路由组件通常存放在`pages`文件夹，一般组件存放在`components`文件夹
+  * 通过切换，‘隐藏’了路由组件，默认是被销毁掉的，需要的时候再去挂载
+  * 每个组件都有自己的`$route`属性，里面存储着自己的路由信息
+  * 整个应用只有一个router，可以通过`$router`属性获取到
+
+* 多级路由(嵌套路由)
+
+  * 配置路由规则，使用`children配置项`
+
+    * ~~~js
+      routes: [
+      		// 多级路由
+      		{
+      			path: "/home",
+      			component: home,
+                  //通过children配置子级路由
+      			children: [
+      				{
+      					path: "news",//此处一定不要写/news
+      					component: news
+      				},
+      				{
+      					path: "message",
+      					component: message
+      				}
+      			]
+      		},
+      		// 一级路由
+      		{
+      			path: "/about",
+      			component: about
+      		}
+      	]
+      ~~~
+
+  * 跳转(要写完整路径)
+
+    * ~~~vue
+      <router-link to="/home/news">news</router-link>
+      ~~~
+
+* 路由的query参数
+
+  * 传递参数
+
+    * ~~~vue
+      <!--跳转路由并传参第一种方式，to字符串写法-->
+      <!--<router-link :to="`/home/message/detail?id=${item.id}&title=${item.title}`">{{ item.title }}</router-link>-->
+      <!--跳转路由并传参第二种方式，to的对象写法-->
+      <router-link :to="{
+      	path:'/home/message/detail',
+      	query: {
+      		id: item.id,
+              title: item.title,
+      	},
+      }">{{ item.title }}</router-link>
+      ~~~
+
+  * 接收参数：`$route.query.参数名`
+
+* 路由的name属性
+
+  * 作用：简化路由跳转
+
+  * 如何使用
+
+    * 给路由命名
+
+      * ```js
+        path: "/home",
+        component: home,
+        children: [
+            {
+               path: "news",
+               component: news
+            },
+            {
+               path: "message",
+               component: message,
+               children: [
+                  {
+                     name: 'detail',
+                     path: 'detail',
+                     component: detail
+                  }
+               ]
+            }
+        ]
+        ```
+
+    * 简化跳转
+
+      * ~~~vue
+        <!--简化前，需要通过完整的路径-->
+        <router-link to="/home/message/detail">跳转</router-link>
+        <!--简化后，直接通过名字跳转-->
+        <router-link :to="{name:'detail',}">跳转</router-link>
+        <!--简化配合传递参数-->
+        <router-link :to="{
+        	name:'detail',
+        	query: {
+        		id: item.id,
+        		title: item.title,
+        	},
+        }">跳转</router-link>
+        ~~~
+
+* 路由的params参数
+
+  * 配置路由，声明接受params参数
+
+    * ```js
+      {
+          path: "/home",
+          component: home,
+          children: [
+             {
+                path: "news",
+                component: news
+             },
+             {
+                path: "message",
+                component: message,
+                children: [
+                   {
+                      name: 'detail',
+                      path: 'detail/:id/:title',//此处使用占位符声明介绍params参数
+                      component: detail
+                   }
+                ]
+             }
+          ]
+      },
+      ```
+
+  * 传递参数
+
+    * ```vue
+      <!--跳转路由并携带params参数，to字符串写法-->
+      <router-link :to="`/home/message/detail/${item.id}/${item.title}`">跳转</router-link>
+      <!--跳转路由并携带query参数，to的对象写法-->
+      <router-link :to="{
+        name:'detail',
+        params: {
+          id: item.id,
+          title: item.title,
+        },
+      }">{{ item.title }}
+      </router-link>
+      ```
+
+    * 特别注意：路由携带params参数时，若使用to的对象写法，则不能使用path配置项，必须使用name配置
+
+  * 接受参数：`$route.params.参数名`
