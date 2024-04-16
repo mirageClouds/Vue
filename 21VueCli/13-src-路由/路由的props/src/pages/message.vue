@@ -26,7 +26,7 @@ export default {
             id: item.id,
             title: item.title,
           },
-        }" replace>{{ item.title }}
+        }">{{ item.title }}
         </router-link>
       </li>
       <router-view></router-view>

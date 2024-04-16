@@ -4146,3 +4146,33 @@ vm.$watch('isHot',function (){
     * 特别注意：路由携带params参数时，若使用to的对象写法，则不能使用path配置项，必须使用name配置
 
   * 接受参数：`$route.params.参数名`
+
+* 路由的props配置
+
+  * 作用：让路由组件更方便的收到参数
+
+  * ```js
+    // props的第一种写法，值为对象，该对象中所有的key-value都会以props的形式传给detail组件
+    // props: { title: 'Detail' }
+    // props的第二种写法，值为布尔值，当布尔值为真，就会把该路由组件收到的所有params参数，以props的形式传给detail组件
+    // props: true
+    // props的第三种写法，值为函数，
+    props($route) {
+        return {
+           id: $route.params.id,
+           title: $route.params.title,
+        }
+    }
+    // 结构赋值式写法，语义化不好不推荐
+    /*props({params: {id, title}}) {
+        return {
+           id, title
+        }
+    }*/
+    ```
+
+* `router-link`的replace
+
+  * 作用：控制路由跳转时操作浏览器历史记录的模式
+  * 浏览器的历史记录有两种写入方式：分别为`push`和`replace`,`push`是追加历史记录，`replact`是替换当前历史记录，路由跳转跳转时候默认为`push`
+  * 如何开启`replace`模式：`<reouter-link replace ……>news</reouter>`
