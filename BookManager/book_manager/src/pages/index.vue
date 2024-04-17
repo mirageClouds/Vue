@@ -14,6 +14,7 @@ export default {
   <el-container>
     <el-aside style="overflow: hidden" width="250px ">
       <nav-menu></nav-menu>
+      <!--      <router-link to="bookInfo">111</router-link>-->
     </el-aside>
     <el-container>
       <el-header>

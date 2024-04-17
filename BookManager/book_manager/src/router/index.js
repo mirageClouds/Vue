@@ -4,12 +4,17 @@ import VueRouter from "vue-router";
 import login from "@/pages/login.vue";
 import registered from "@/pages/registered .vue";
 import index from '@/pages/index.vue'
+import bookInfo from "@/pages/book-info.vue";
+import bookType from "@/pages/book-type.vue";
+import borrowInfo from "@/pages/borrow-info.vue";
+import updatePassword from "@/pages/update-password.vue";
+import userManage from "@/pages/user-manage.vue";
 
 //路由组件
 const router = new VueRouter({
 	routes: [
 		{
-			path: "/login",
+			path: "/",
 			component: login,
 			name: 'login',
 			meta: {
@@ -30,7 +35,49 @@ const router = new VueRouter({
 			name: 'index',
 			meta: {
 				title: '主页'
-			}
+			},
+			children: [
+				{
+					path: 'bookInfo',
+					component: bookInfo,
+					name: 'bookInfo',
+					meta: {
+						title: '图书信息管理'
+					}
+				},
+				{
+					path: 'bookType',
+					component: bookType,
+					name: 'bookType',
+					meta: {
+						title: '图书类别管理'
+					}
+				},
+				{
+					path: 'borrowInfo',
+					component: borrowInfo,
+					name: 'borrowInfo',
+					meta: {
+						title: '借阅信息管理'
+					}
+				},
+				{
+					path: 'userManage',
+					component: userManage,
+					name: 'userManage',
+					meta: {
+						title: '用户管理'
+					}
+				},
+				{
+					path: 'updatePassword',
+					component: updatePassword,
+					name: 'updatePassword',
+					meta: {
+						title: '修改密码'
+					}
+				}
+			]
 		}
 	]
 })
