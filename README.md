@@ -4226,3 +4226,97 @@ vm.$watch('isHot',function (){
     * `activated`:路由组件激活时触发
     * `deactivated`:路由组件失活时触发
 
+* 路由守卫
+
+  * 作用：对路由进行权限控制
+
+  * 分类：全局守卫、独享守卫、组件内守卫
+
+  * 全局守卫
+
+    * ```js
+      //全局前置路由守卫-初始化的时候调用，每次路由切换前调用
+      router.beforeEach((to, from, next) => {
+          //判断当前是否需要进行权限控制
+          if (to.meta.isAuth) {
+              //权限控制具体规则
+             if (localStorage.getItem("name") === 'mirage') {
+                 //放行
+                next()
+             } else {
+                alert('名字错误，无权限访问')
+             }
+          } else {
+             next()
+          }
+      })
+      //全局后置路由守卫-初始化的时候调用，每次路由切换后调用
+      router.afterEach((to, from) => {
+          console.log('后', to, from)
+          //修改网页的title
+          document.title = to.meta.title || 'vue_test'
+      })
+      ```
+
+  * 独享路由守卫
+
+    * ```js
+      //独享路由守卫
+      beforeEnter: (to, from, next) => {
+             // console.log(to, from, next)
+             if (to.meta.isAuth) {
+                if (localStorage.getItem("name") === 'mirage') {
+                   next()
+                } else {
+                   alert('名字错误，无权限访问')
+                }
+             } else {
+                next()
+             }
+          }
+      },
+      ```
+
+  * 组件内守卫
+
+    * ```js
+      beforeRouteEnter(to, from, next) {
+        if (to.meta.isAuth) {
+          if (localStorage.getItem("name") === 'mirage') {
+            next()
+          } else {
+            alert(1)
+          }
+        } else {
+          alert(2)
+        }
+      },
+      // 通过路由规则，离开该组件的时候调用
+      beforeRouteLeave(to, from, next) {
+        next()
+      }
+      ```
+
+* 路由器的两种工作方式
+
+  * 对于一个url来说，什么是hash值？--`#`后面的内容就是hash值
+  * hash值不会包含在HTTP请求中，即hash值不会带给服务器
+  * hash模式：
+    * 地址中永远带着#号，不美观
+    * 若以后地址通过第三方手机app分享，若app校验严格，则地址标记不合法
+    * 兼容性好
+  * history模式：
+    * 地址干净、美观
+    * 兼容性和hash相比略差
+    * 应用部署上线后需要后端人员支持，解决页面刷新404的问题
+
+## Vue-UI组件库
+
+* 移动端常用UI组件库
+  * <a herf='https://youzan.github.io/vant'>Vant</a>
+  * <a herf='https://didi.github.io/cube-ui'>Cube-UI</a>
+  * <a herf='https://mint-ui.github.io'>Mint-UI</a>
+* PC端常用UI组件库
+  * <a herf='https://element.eleme.cn'>Element UI</a>
+  * <a herf='https://www.iviewui.com'>IView UI</a>
+
