@@ -14,7 +14,6 @@ export default {
   <el-container>
     <el-aside style="overflow: hidden" width="250px ">
       <nav-menu></nav-menu>
-      <!--      <router-link to="bookInfo">111</router-link>-->
     </el-aside>
     <el-container>
       <el-header>
@@ -29,17 +28,15 @@ export default {
 
 <style lang="css" scoped>
 * {
-  margin: 0;
-  padding: 0;
   width: 100%;
   height: 100%;
 }
 
-.el-header, .el-footer {
-  background-color: #B3C0D1;
-  color: #333;
+.el-header {
+  background-color: #fff;
+  height: 5%;
   text-align: center;
-  line-height: 60px;
+  line-height: 5%;
 }
 
 .el-aside {
@@ -52,7 +49,7 @@ export default {
 .el-main {
   background-color: #E9EEF3;
   color: #333;
-  text-align: center;
-  line-height: 160px;
+  height: 95%;
+  overflow: auto;
 }
 </style>

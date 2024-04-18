@@ -24,7 +24,7 @@ export default {
                     type: 'success'
                   })
                   setTimeout(() => {
-                    this.$router.push('/')
+                    this.$router.push('/login')
                   }, 1000)
                 } else {
                   this.$message.error('注册失败，可能账号重复了');
@@ -45,7 +45,7 @@ export default {
       }
     },
     login() {
-      this.$router.push('/')
+      this.$router.push('/login')
     },
     registeredError() {
       this.$nextTick(() => {

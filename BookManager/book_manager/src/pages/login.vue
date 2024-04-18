@@ -25,11 +25,13 @@ export default {
               if (res.data.status === 200) {
                 console.log(res.data.data.token)
                 localStorage.setItem('token', res.data.data.token)
+                localStorage.setItem('cache-token', res.data.data.token)
                 this.$message.success('登录成功')
                 this.$router.push('/index')
               } else {
                 console.log(res.data.message)
                 this.$message.error(res.data.message)
+                console.log(this.$route)
               }
             }
         )

@@ -14,7 +14,7 @@ import userManage from "@/pages/user-manage.vue";
 const router = new VueRouter({
 	routes: [
 		{
-			path: "/",
+			path: "/login",
 			component: login,
 			name: 'login',
 			meta: {
@@ -34,7 +34,9 @@ const router = new VueRouter({
 			component: index,
 			name: 'index',
 			meta: {
-				title: '主页'
+				title: '主页',
+				showInbreadcrumb: true,
+				isAuth: true
 			},
 			children: [
 				{
@@ -42,7 +44,9 @@ const router = new VueRouter({
 					component: bookInfo,
 					name: 'bookInfo',
 					meta: {
-						title: '图书信息管理'
+						title: '图书信息管理',
+						showInbreadcrumb: true,
+						isAuth: true
 					}
 				},
 				{
@@ -50,7 +54,9 @@ const router = new VueRouter({
 					component: bookType,
 					name: 'bookType',
 					meta: {
-						title: '图书类别管理'
+						title: '图书类别管理',
+						showInbreadcrumb: true,
+						isAuth: true
 					}
 				},
 				{
@@ -58,7 +64,9 @@ const router = new VueRouter({
 					component: borrowInfo,
 					name: 'borrowInfo',
 					meta: {
-						title: '借阅信息管理'
+						title: '借阅信息管理',
+						showInbreadcrumb: true,
+						isAuth: true
 					}
 				},
 				{
@@ -66,7 +74,9 @@ const router = new VueRouter({
 					component: userManage,
 					name: 'userManage',
 					meta: {
-						title: '用户管理'
+						title: '用户管理',
+						showInbreadcrumb: true,
+						isAuth: true
 					}
 				},
 				{
@@ -74,17 +84,51 @@ const router = new VueRouter({
 					component: updatePassword,
 					name: 'updatePassword',
 					meta: {
-						title: '修改密码'
+						title: '修改密码',
+						showInbreadcrumb: true,
+						isAuth: true
 					}
 				}
 			]
+		},
+		//匹配空路由，重定向到登陆页面
+		{
+			path: '/',
+			component: login,
+			meta: {
+				showInbreadcrumb: false
+			}
 		}
 	]
 })
 
 // 路由守卫
+
+// 前端路由守卫
+router.beforeEach((to, from, next) => {
+	if (to.meta.isAuth) {
+		if (localStorage.getItem("token") === localStorage.getItem("cache-token")) {
+			next()
+		} else {
+			alert('登录失效，请重新登录')
+			next('/')
+		}
+	} else {
+		console.log(to)
+		next()
+	}
+})
+
 router.afterEach((to) => {
 	document.title = to.meta.title || 'book_manager';
 })
+
+// 解决重复跳转同一个路由报错问题 https://juejin.cn/post/7080806127952199693
+//VueRouter:这个是导入路由使用的变量
+const originalPush = VueRouter.prototype.push
+VueRouter.prototype.push = function push(location) {
+	return originalPush.call(this, location).catch(err => err)
+}
+
 
 export default router;

@@ -3,23 +3,27 @@ export default {
   name: "nav-menu",
   data() {
     return {
-      isCollapse: false
+      isCollapse: false,
     };
   },
   methods: {
     handleOpen(key, keyPath) {
       console.log(key, keyPath);
+
     },
     handleClose(key, keyPath) {
       console.log(key, keyPath);
+      console.log(this.$route.name);
     }
   }
 }
+
 </script>
 
 <template>
   <div>
-    <el-menu :collapse="isCollapse" :router="true" class="el-menu-vertical-demo" default-active="1-4-1"
+    <el-menu :collapse="isCollapse" :default-active="$route.path" :router="true"
+             class="el-menu-vertical-demo"
              @close="handleClose" @open="handleOpen">
       <el-menu-item index="/index">
         <i class="el-icon-menu"></i>
