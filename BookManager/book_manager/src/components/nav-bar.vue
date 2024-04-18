@@ -8,7 +8,6 @@ export default {
             return item.meta.showInbreadcrumb
           }
       )
-      console.log(matchedArr);
       return matchedArr;
     },
   },

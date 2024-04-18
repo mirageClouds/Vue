@@ -1,11 +1,17 @@
 <script>
 import navMenu from "@/components/nav-menu.vue";
 import navBar from "@/components/nav-bar.vue";
+import bookIndex from "@/components/book-index.vue";
 
 export default {
   name: "index",
+  data() {
+    return {
+      ifIndex: true
+    }
+  },
   components: {
-    navMenu, navBar
+    navMenu, navBar, bookIndex
   }
 }
 </script>
@@ -20,7 +26,7 @@ export default {
         <nav-bar></nav-bar>
       </el-header>
       <el-main>
-        <router-view></router-view>
+        <router-view/>
       </el-main>
     </el-container>
   </el-container>

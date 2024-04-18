@@ -5,16 +5,6 @@ export default {
     return {
       isCollapse: false,
     };
-  },
-  methods: {
-    handleOpen(key, keyPath) {
-      console.log(key, keyPath);
-
-    },
-    handleClose(key, keyPath) {
-      console.log(key, keyPath);
-      console.log(this.$route.name);
-    }
   }
 }
 
@@ -23,8 +13,7 @@ export default {
 <template>
   <div>
     <el-menu :collapse="isCollapse" :default-active="$route.path" :router="true"
-             class="el-menu-vertical-demo"
-             @close="handleClose" @open="handleOpen">
+             class="el-menu-vertical-demo">
       <el-menu-item index="/index">
         <i class="el-icon-menu"></i>
         <span slot="title">首页</span>
@@ -34,17 +23,17 @@ export default {
           <i class="el-icon-location"></i>
           <span slot="title">图书管理</span>
         </template>
-        <el-menu-item index="/index/bookInfo">图书信息管理</el-menu-item>
-        <el-menu-item index="/index/bookType">图书类型管理</el-menu-item>
-        <el-menu-item index="/index/borrowInfo">借阅信息管理</el-menu-item>
+        <el-menu-item index="/index/bookmanage/bookInfo">图书信息管理</el-menu-item>
+        <el-menu-item index="/index/bookmanage/bookType">图书类型管理</el-menu-item>
+        <el-menu-item index="/index/bookmanage/borrowInfo">借阅信息管理</el-menu-item>
       </el-submenu>
       <el-submenu index="1-4">
         <template slot="title">
           <i class="el-icon-location"></i>
-          <span slot="title">其他管理</span>
+          <span slot="title">用户管理</span>
         </template>
-        <el-menu-item index="/index/userManage">用户管理</el-menu-item>
-        <el-menu-item index="/index/updatePassword">修改密码</el-menu-item>
+        <el-menu-item index="/index/userInfoManage/userManage">用户管理</el-menu-item>
+        <el-menu-item index="/index/userInfoManage/updatePassword">修改密码</el-menu-item>
       </el-submenu>
     </el-menu>
   </div>

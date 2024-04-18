@@ -7,9 +7,10 @@ import index from '@/pages/index.vue'
 import bookInfo from "@/pages/book-info.vue";
 import bookType from "@/pages/book-type.vue";
 import borrowInfo from "@/pages/borrow-info.vue";
-import updatePassword from "@/pages/update-password.vue";
 import userManage from "@/pages/user-manage.vue";
-
+import updatePassword from "@/pages/update-password.vue";
+import bookmanage from "@/pages/bookmanage.vue";
+import usermanage from '@/pages/userManage.vue'
 //路由组件
 const router = new VueRouter({
 	routes: [
@@ -39,55 +40,81 @@ const router = new VueRouter({
 				isAuth: true
 			},
 			children: [
+				// 图书管理路由
 				{
-					path: 'bookInfo',
-					component: bookInfo,
-					name: 'bookInfo',
+					path: 'bookmanage',
+					name: 'bookmanage',
+					component: bookmanage,
 					meta: {
-						title: '图书信息管理',
+						title: '图书管理',
 						showInbreadcrumb: true,
 						isAuth: true
-					}
+					},
+					children: [
+						{
+							path: 'bookInfo',
+							component: bookInfo,
+							name: 'bookInfo',
+							meta: {
+								title: '图书信息管理',
+								showInbreadcrumb: true,
+								isAuth: true
+							}
+						},
+						{
+							path: 'bookType',
+							component: bookType,
+							name: 'bookType',
+							meta: {
+								title: '图书类别管理',
+								showInbreadcrumb: true,
+								isAuth: true
+							}
+						},
+						{
+							path: 'borrowInfo',
+							component: borrowInfo,
+							name: 'borrowInfo',
+							meta: {
+								title: '借阅信息管理',
+								showInbreadcrumb: true,
+								isAuth: true
+							}
+						},
+					]
 				},
+				// 用户信息管理
 				{
-					path: 'bookType',
-					component: bookType,
-					name: 'bookType',
+					path: 'userInfoManage',
+					name: 'userInfoManage',
+					component: usermanage,
 					meta: {
-						title: '图书类别管理',
+						title: '用户信息管理',
 						showInbreadcrumb: true,
 						isAuth: true
-					}
-				},
-				{
-					path: 'borrowInfo',
-					component: borrowInfo,
-					name: 'borrowInfo',
-					meta: {
-						title: '借阅信息管理',
-						showInbreadcrumb: true,
-						isAuth: true
-					}
-				},
-				{
-					path: 'userManage',
-					component: userManage,
-					name: 'userManage',
-					meta: {
-						title: '用户管理',
-						showInbreadcrumb: true,
-						isAuth: true
-					}
-				},
-				{
-					path: 'updatePassword',
-					component: updatePassword,
-					name: 'updatePassword',
-					meta: {
-						title: '修改密码',
-						showInbreadcrumb: true,
-						isAuth: true
-					}
+					},
+					children: [
+						{
+							path: 'userManage',
+							component: userManage,
+							name: 'userManage',
+							meta: {
+								title: '用户管理',
+								showInbreadcrumb: true,
+								isAuth: true
+							}
+						},
+						{
+							path: 'updatePassword',
+							component: updatePassword,
+							name: 'updatePassword',
+							meta: {
+								title: '修改密码',
+								showInbreadcrumb: true,
+								isAuth: true
+							}
+						}
+					]
 				}
 			]
 		},
@@ -96,9 +123,10 @@ const router = new VueRouter({
 			path: '/',
 			component: login,
 			meta: {
+				title: '登录',
 				showInbreadcrumb: false
 			}
-		}
+		},
 	]
 })
 
@@ -114,7 +142,6 @@ router.beforeEach((to, from, next) => {
 			next('/')
 		}
 	} else {
-		console.log(to)
 		next()
 	}
 })
