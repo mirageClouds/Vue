@@ -11,6 +11,7 @@ import userManage from "@/pages/user-manage.vue";
 import updatePassword from "@/pages/update-password.vue";
 import bookmanage from "@/pages/bookmanage.vue";
 import usermanage from '@/pages/userManage.vue'
+import bookIndex from "@/pages/book-index.vue";
 //路由组件
 const router = new VueRouter({
 	routes: [
@@ -31,15 +32,26 @@ const router = new VueRouter({
 			}
 		},
 		{
-			path: '/index',
-			component: index,
-			name: 'index',
+			path: '/bookIndex',
+			component: bookIndex,
+			name: 'bookIndex',
 			meta: {
 				title: '主页',
 				showInbreadcrumb: true,
 				isAuth: true
 			},
 			children: [
+				// 主页路由
+				{
+					path: 'index',
+					component: index,
+					name: 'index',
+					meta: {
+						title: '主页',
+						showInbreadcrumb: true,
+						isAuth: true
+					}
+				},
 				// 图书管理路由
 				{
 					path: 'bookmanage',

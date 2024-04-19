@@ -5,13 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ffa63a5c-f0d1-4d2a-8ea5-256d1deeb1b9" name="更改" comment="Vue基础">
-      <change afterPath="$PROJECT_DIR$/BookManager/book_manager/src/components/book-index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BookManager/book_manager/src/pages/bookmanage.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BookManager/book_manager/src/pages/userManage.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookManager/book_manager/src/components/nav-bar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/BookManager/book_manager/src/components/nav-bar.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookManager/book_manager/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/BookManager/book_manager/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookManager/book_manager/src/components/book-index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/BookManager/book_manager/src/pages/book-index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BookManager/book_manager/src/components/nav-menu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/BookManager/book_manager/src/components/nav-menu.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookManager/book_manager/src/pages/book-info.vue" beforeDir="false" afterPath="$PROJECT_DIR$/BookManager/book_manager/src/pages/book-info.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BookManager/book_manager/src/pages/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/BookManager/book_manager/src/pages/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookManager/book_manager/src/pages/login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/BookManager/book_manager/src/pages/login.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BookManager/book_manager/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/BookManager/book_manager/src/router/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -130,11 +130,11 @@
       <recent name="C:\Users\21592\Desktop\Folder\vue\21VueCli\13-src-路由\两个新的生命周期钩子" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\21592\Desktop\Folder\vue\BookManager\book_manager\src\pages" />
       <recent name="C:\Users\21592\Desktop\Folder\vue\BookManager\book_manager\src\components" />
       <recent name="C:\Users\21592\Desktop\Folder\vue\BookManager\book_manager\src" />
       <recent name="C:\Users\21592\Desktop\Folder\vue\21VueCli\14-src-element-ui" />
       <recent name="C:\Users\21592\Desktop\Folder\vue\21VueCli\vue_test\src\pages" />
-      <recent name="C:\Users\21592\Desktop\Folder\Vue\21VueCli\04-src-mixin混合" />
     </key>
   </component>
   <component name="RunManager" selected="npm.serve (2)">
@@ -448,7 +448,10 @@
       <workItem from="1713267403800" duration="10463000" />
       <workItem from="1713315808150" duration="3990000" />
       <workItem from="1713323333315" duration="30892000" />
-      <workItem from="1713435597233" duration="13795000" />
+      <workItem from="1713435597233" duration="16372000" />
+      <workItem from="1713492569956" duration="3273000" />
+      <workItem from="1713500722699" duration="4127000" />
+      <workItem from="1713521178640" duration="15026000" />
     </task>
     <task id="LOCAL-00001" summary="Vue基础">
       <option name="closed" value="true" />
@@ -786,7 +789,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713454691012</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Vue基础">
+      <option name="closed" value="true" />
+      <created>1713457684583</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1713457684583</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

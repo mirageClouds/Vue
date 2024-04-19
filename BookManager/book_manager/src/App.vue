@@ -16,5 +16,6 @@ export default {
 * {
   padding: 0;
   margin: 0;
+  font-family: "霞鹜文楷 GB 屏幕阅读版";
 }
 </style>

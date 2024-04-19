@@ -27,7 +27,7 @@ export default {
                 localStorage.setItem('token', res.data.data.token)
                 localStorage.setItem('cache-token', res.data.data.token)
                 this.$message.success('登录成功')
-                this.$router.push('/index')
+                this.$router.push('/bookIndex/index')
               } else {
                 console.log(res.data.message)
                 this.$message.error(res.data.message)

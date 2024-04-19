@@ -14,7 +14,7 @@ export default {
   <div>
     <el-menu :collapse="isCollapse" :default-active="$route.path" :router="true"
              class="el-menu-vertical-demo">
-      <el-menu-item index="/index">
+      <el-menu-item index="/bookIndex/index">
         <i class="el-icon-menu"></i>
         <span slot="title">首页</span>
       </el-menu-item>
@@ -23,17 +23,17 @@ export default {
           <i class="el-icon-location"></i>
           <span slot="title">图书管理</span>
         </template>
-        <el-menu-item index="/index/bookmanage/bookInfo">图书信息管理</el-menu-item>
-        <el-menu-item index="/index/bookmanage/bookType">图书类型管理</el-menu-item>
-        <el-menu-item index="/index/bookmanage/borrowInfo">借阅信息管理</el-menu-item>
+        <el-menu-item index="/bookIndex/bookmanage/bookInfo">图书信息管理</el-menu-item>
+        <el-menu-item index="/bookIndex/bookmanage/bookType">图书类型管理</el-menu-item>
+        <el-menu-item index="/bookIndex/bookmanage/borrowInfo">借阅信息管理</el-menu-item>
       </el-submenu>
       <el-submenu index="1-4">
         <template slot="title">
           <i class="el-icon-location"></i>
           <span slot="title">用户管理</span>
         </template>
-        <el-menu-item index="/index/userInfoManage/userManage">用户管理</el-menu-item>
-        <el-menu-item index="/index/userInfoManage/updatePassword">修改密码</el-menu-item>
+        <el-menu-item index="/bookIndex/userInfoManage/userManage">用户管理</el-menu-item>
+        <el-menu-item index="/bookIndex/userInfoManage/updatePassword">修改密码</el-menu-item>
       </el-submenu>
     </el-menu>
   </div>
