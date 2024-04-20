@@ -8,12 +8,14 @@ export default {
       bookType: [],
       // 图书信息列表数据
       bookInfo: [],
+      // 是否打开第一个弹窗
       dialogAddBook: false,
       // 条件查询数据
       selectBook: {
         bookName: '',
         bookAuthor: '',
         bookTypeId: null,
+        bookTypeName: ''
       },
       // 分页查询数据
       pageBook: {
@@ -23,10 +25,13 @@ export default {
       },
       // 添加图书数据
       dialogFormAdd: {
-        bookame: '',
+        bookname: '',
         bookauthor: '',
         bookprice: '',
         bookdesc: '',
+        bookTypeName: '',
+        bookImg: '',
+        baseApi: 'http://localhost:8092/BookManager',
         bookTypeId: null
       },
       // 表单验证规则
@@ -46,7 +51,9 @@ export default {
         bookTypeId: [
           {required: true, message: '请输入图书描述', trigger: 'blur'}
         ],
-      }
+      },
+      dialogVisible: false,
+      disabled: false
     }
   },
   methods: {
@@ -114,6 +121,7 @@ export default {
           res => {
             this.bookInfo = res.data.data
             this.pageBook.pageCount = res.data.count
+            this.$message.success('搜索完成')
           }
       )
     },
@@ -123,6 +131,11 @@ export default {
       ).then(res => {
         this.bookInfo = res.data.data
         this.pageBook.pageCount = res.data.count
+        this.$message.success('搜索完成')
+        this.selectBook.bookName = ''
+        this.selectBook.bookAuthor = ''
+        this.selectBook.bookTypeName = ''
+
       })
     },
     // 修改添加图书数据中的BookTypeId
@@ -133,6 +146,64 @@ export default {
         }
       }
     },
+    //  文件上传成功调用
+    handleAvatarSuccess(res, file) {
+      console.log(res)
+      console.log(file)
+      if (res.code === 0) {
+        this.$message.success('上传成功');
+        this.dialogFormAdd.bookImg = res.data
+      } else {
+        this.$message.error('上传失败，请联系管理员');
+      }
+    },
+    // 图片上传之前调用
+    beforeAvatarUpload(file) {
+      const isJPG = file.type === 'image/jpeg';
+      const isLt4M = file.size / 1024 / 1024 < 4;
+      if (!isJPG) {
+        this.$message.error('上传封面图片只能是 JPG或PNG 格式!');
+      }
+      if (!isLt4M) {
+        this.$message.error('上传封面图片大小不能超过 4MB!');
+      }
+      return isJPG && isLt4M;
+    },
+    // 图片点击放大时调用
+    handlePictureCardPreview() {
+      this.dialogVisible = true;
+    },
+    // 图片点击删除时调用
+    handleRemove(file) {
+      console.log(file)
+      this.$refs.upload.handleRemove(file)
+    },
+    // 图片上传超过最大限制调用
+    handleAvatarExceed() {
+      this.$message.error('图片以超过最大上传上限，请删除后重新上传')
+    },
+    // 弹窗一点击确定时调用
+    dialogFormAddSuccess() {
+      this.$axios.post('/api/bookInfo/addBookInfo', {
+        bookid: null,
+        bookname: this.dialogFormAdd.bookname,
+        bookauthor: this.dialogFormAdd.bookauthor,
+        booktypeid: this.dialogFormAdd.bookTypeId,
+        bookimg: this.dialogFormAdd.bookImg,
+        bookdesc: this.dialogFormAdd.bookdesc,
+        bookprice: this.dialogFormAdd.bookprice,
+        isborrowed: 0
+      }).then(
+          () => {
+            this.$message('添加图书成功')
+            this.selectAllBookInfo()
+            this.dialogAddBook = false
+          },
+          error => {
+            this.$message.error(error)
+          }
+      )
+    }
   },
   // 加载获取数据
   created() {
@@ -183,7 +254,7 @@ export default {
       </el-col>
       <el-col :span="5">
         <el-autocomplete
-            v-model="selectBook.state1"
+            v-model="selectBook.bookTypeName"
             :fetch-suggestions="querySearch"
             class="inline-input"
             clearable
@@ -211,7 +282,7 @@ export default {
     <el-dialog
         :visible.sync="dialogAddBook"
         title="提示"
-        width="25%">
+        width="30%">
       <el-container>
         <el-aside>
           <el-form ref="ruleForm" :model="dialogFormAdd" :rules="ruleFrom" class="demo-ruleForm" label-width="100px">
@@ -226,7 +297,7 @@ export default {
             </el-form-item>
             <el-form-item label="图书类型" prop="bookTypeId">
               <el-autocomplete
-                  v-model="dialogFormAdd.booktypename"
+                  v-model="dialogFormAdd.bookTypeName"
                   :fetch-suggestions="querySearch"
                   class="inline-input"
                   clearable
@@ -239,11 +310,49 @@ export default {
             </el-form-item>
           </el-form>
         </el-aside>
-        <el-main>Main</el-main>
+        <el-main>
+          <h2>点击上传图书封面</h2>
+          <el-upload
+              ref="upload"
+              :before-upload="beforeAvatarUpload"
+              :limit="1"
+              :on-exceed="handleAvatarExceed"
+              :on-success="handleAvatarSuccess"
+              action="http://localhost:8092/BookManager/update/updateImg" class="avatar-uploader"
+              list-type="picture-card"
+          >
+            <i slot="default" class="el-icon-plus"></i>
+            <div slot="file" slot-scope="{file}">
+              <img
+                  v-if="dialogFormAdd.bookImg"
+                  :src="dialogFormAdd.baseApi + dialogFormAdd.bookImg "
+                  alt="" class="el-upload-list__item-thumbnail"
+              >
+              <span class="el-upload-list__item-actions">
+                <span
+                    class="el-upload-list__item-preview"
+                    @click="handlePictureCardPreview()"
+                >
+                  <i class="el-icon-zoom-in"></i>
+                </span>
+                <span
+                    v-if="!disabled"
+                    class="el-upload-list__item-delete"
+                    @click="handleRemove(file)"
+                >
+                  <i class="el-icon-delete"></i>
+                </span>
+              </span>
+              <el-dialog :append-to-body='true' :visible.sync="dialogVisible">
+                <img :src="dialogFormAdd.baseApi + dialogFormAdd.bookImg" alt="" width="100%">
+              </el-dialog>
+            </div>
+          </el-upload>
+        </el-main>
       </el-container>
       <span slot="footer" class="dialog-footer">
-        <el-button @click="dialogVisible = false">取 消</el-button>
-        <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
+        <el-button @click="dialogAddBook = false">取 消</el-button>
+        <el-button type="primary" @click="dialogFormAddSuccess">确 定</el-button>
       </span>
     </el-dialog>
 
@@ -348,6 +457,12 @@ export default {
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="css" scoped>
+.el-main {
+  text-align: center;
+}
 
+.el-main > h2 {
+  margin-bottom: 30px;
+}
 </style>

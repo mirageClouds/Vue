@@ -77,3 +77,23 @@
 ## 全局路由守卫中跳转
 
 * next('跳转的位置')
+
+## 关于element-ui的dialog组件遮罩层异常的问题
+
+# 关于element-ui的dialog组件遮罩层异常的问题
+
+### 解决方案
+
+在属性内加上这段代码：
+
+1. :append-to-body=“true” ；
+2. :modal-append-to-body=“false” 也可以
+
+# [element-ui的upload组件如何删除文件？](https://segmentfault.com/q/1010000019618247)
+
+```
+handleRemove(file) {
+  console.log(file)
+  this.$refs.upload.handleRemove(file)
+}
+```

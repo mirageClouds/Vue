@@ -6,10 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="ffa63a5c-f0d1-4d2a-8ea5-256d1deeb1b9" name="更改" comment="Vue基础">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookManager/book_manager/src/mixin.js" beforeDir="false" afterPath="$PROJECT_DIR$/BookManager/book_manager/src/mixin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookManager/book_manager/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/BookManager/book_manager/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BookManager/book_manager/src/pages/book-info.vue" beforeDir="false" afterPath="$PROJECT_DIR$/BookManager/book_manager/src/pages/book-info.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookManager/book_manager/src/pages/login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/BookManager/book_manager/src/pages/login.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookManager/book_manager/src/pages/registered .vue" beforeDir="false" afterPath="$PROJECT_DIR$/BookManager/book_manager/src/pages/registered .vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -449,7 +447,7 @@
       <workItem from="1713492569956" duration="3273000" />
       <workItem from="1713500722699" duration="4127000" />
       <workItem from="1713521178640" duration="15976000" />
-      <workItem from="1713582705651" duration="17751000" />
+      <workItem from="1713582705651" duration="32443000" />
     </task>
     <task id="LOCAL-00001" summary="Vue基础">
       <option name="closed" value="true" />
@@ -803,7 +801,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713542077919</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="Vue基础">
+      <option name="closed" value="true" />
+      <created>1713617006933</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1713617006933</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
