@@ -203,6 +203,11 @@ export default {
             this.$message.error(error)
           }
       )
+    },
+    // 批量删除时调用
+    fromBulkDelete(row, index) {
+      console.log(row)
+      console.log(index)
     }
   },
   // 加载获取数据
@@ -363,6 +368,7 @@ export default {
             margin-top: 20px;
           ">
       <el-table-column
+          :selectable="fromBulkDelete"
           align="center"
           min-width="100"
           type="selection">
