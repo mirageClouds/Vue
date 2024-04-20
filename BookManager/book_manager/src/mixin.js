@@ -1,6 +1,6 @@
 export const mixin = {
 	computed: {
-		title() {
+		titles() {
 			return this.$route.meta.title
 		}
 	}

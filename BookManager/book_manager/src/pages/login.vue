@@ -56,7 +56,7 @@ export default {
 
 <template>
   <div id="login">
-    <h2>{{ title }}</h2>
+    <h2>{{ titles }}</h2>
     <el-row>
       <el-input
           ref="loginName"

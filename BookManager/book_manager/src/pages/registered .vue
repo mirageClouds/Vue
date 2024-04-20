@@ -59,7 +59,7 @@ export default {
 
 <template>
   <div id="registered">
-    <h2>{{ title }}</h2>
+    <h2>{{ titles }}</h2>
     <el-row>
       <el-input
           ref="registeredName"
