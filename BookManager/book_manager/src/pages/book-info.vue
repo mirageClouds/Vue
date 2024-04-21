@@ -184,7 +184,7 @@ export default {
           res => {
             this.bookInfo = res.data.data
             this.pageBook.pageCount = res.data.count
-            this.$message.success('搜索完成')
+            this.$message.success('搜索完毕')
           },
           error => {
             console.log(error)
@@ -259,7 +259,7 @@ export default {
     },
     // 图片上传超过最大限制调用
     handleAvatarExceed() {
-      this.$message.error('图片以超过最大上传上限，请删除后重新上传')
+      this.$message.error('图片已超过最大上传上限，请删除后重新上传')
     },
     // 添加书籍弹窗点击确定时调用
     dialogFormAddSuccess() {
@@ -296,7 +296,7 @@ export default {
     // 批量删除时调用
     // 判断是否确认删除
     openDeleteAll() {
-      this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
+      this.$confirm('此操作将永久删除该图书数据, 是否继续?', '提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
         type: 'warning'
@@ -392,7 +392,7 @@ export default {
       this.openDelete()
     },
     openDelete() {
-      this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
+      this.$confirm('此操作将永久删除该图书数据, 是否继续?', '提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
         type: 'warning'
