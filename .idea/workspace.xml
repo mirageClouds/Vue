@@ -7,6 +7,8 @@
     <list default="true" id="ffa63a5c-f0d1-4d2a-8ea5-256d1deeb1b9" name="更改" comment="Vue基础">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BookManager/book_manager/src/pages/book-info.vue" beforeDir="false" afterPath="$PROJECT_DIR$/BookManager/book_manager/src/pages/book-info.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookManager/book_manager/src/pages/login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/BookManager/book_manager/src/pages/login.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookManager/book_manager/src/pages/registered .vue" beforeDir="false" afterPath="$PROJECT_DIR$/BookManager/book_manager/src/pages/registered .vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +102,7 @@
     "npm.serve.executor": "Run",
     "npm.test.executor": "Run",
     "rearrange.code.on.save": "true",
-    "settings.editor.selected.configurable": "preferences.sourceCode",
+    "settings.editor.selected.configurable": "terminal",
     "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2023.3.5\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
     "typescript.add.unambiguous.imports.on.the.fly": "true",
     "vue.rearranger.settings.migration": "true"
@@ -184,9 +186,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.serve (2)" />
         <item itemvalue="npm.test" />
         <item itemvalue="npm.serve" />
-        <item itemvalue="npm.serve (2)" />
         <item itemvalue="npm.serve (1)" />
         <item itemvalue="npm.build:stage" />
       </list>
@@ -446,7 +448,10 @@
       <workItem from="1713492569956" duration="3273000" />
       <workItem from="1713500722699" duration="4127000" />
       <workItem from="1713521178640" duration="15976000" />
-      <workItem from="1713582705651" duration="32895000" />
+      <workItem from="1713582705651" duration="33383000" />
+      <workItem from="1713665711018" duration="635000" />
+      <workItem from="1713674002823" duration="273000" />
+      <workItem from="1713674317634" duration="7830000" />
     </task>
     <task id="LOCAL-00001" summary="Vue基础">
       <option name="closed" value="true" />
@@ -816,7 +821,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713634477495</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="Vue基础">
+      <option name="closed" value="true" />
+      <created>1713635160195</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1713635160196</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

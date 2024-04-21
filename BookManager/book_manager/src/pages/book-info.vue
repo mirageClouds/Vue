@@ -4,12 +4,15 @@ export default {
   name: "book-info",
   data() {
     return {
+      /*获取图书信息部分*/
+
       // 图书类型列表数据
       bookType: [],
       // 图书信息列表数据
       bookInfo: [],
-      // 是否打开第一个弹窗
-      dialogAddBook: false,
+
+      /*分页查询部分*/
+
       // 条件查询数据
       selectBook: {
         bookName: '',
@@ -23,6 +26,11 @@ export default {
         pageCount: 100,
         pageSize: 10,
       },
+
+      /*添加图书信息部分*/
+
+      // 是否打开第一个弹窗
+      dialogAddBook: false,
       // 添加图书数据
       dialogFormAdd: {
         bookname: '',
@@ -52,11 +60,22 @@ export default {
           {required: true, message: '请输入图书描述', trigger: 'blur'}
         ],
       },
+      // 是否打开图片放大弹窗
       dialogVisible: false,
-      disabled: false
+      disabled: false,
+
+      /*批量删除部分*/
+
+      // 批量删除的数据
+      batchDeleteForm: [],
+      // 是否批量删除
+      ifOpenBacth: false,
+      ifBacthDelete: false
     }
   },
   methods: {
+    /*分页查询部分*/
+
     // 调用 callback 返回建议列表的数据
     querySearch(queryString, cb) {
       cb(this.bookType);
@@ -87,6 +106,9 @@ export default {
               this.pageBook.pageSize = val
               console.log(this.pageSize)
             }
+          },
+          error => {
+            console.log(error)
           }
       )
     },
@@ -106,9 +128,15 @@ export default {
               this.pageBook.pageCount = res.data.count
               this.pageBook.currentPage = val
             }
+          },
+          error => {
+            console.log(error)
           }
       )
     },
+
+    /*条件查询部分*/
+
     // 条件查询书籍信息
     selectBookInfo() {
       this.$axios.get(`/api/bookInfo/queryBookInfosByPage?page=${this.pageBook.currentPage}&limit=${this.pageBook.pageSize}`, {
@@ -122,22 +150,31 @@ export default {
             this.bookInfo = res.data.data
             this.pageBook.pageCount = res.data.count
             this.$message.success('搜索完成')
+          },
+          error => {
+            console.log(error)
           }
       )
     },
     selectAllBookInfo() {
       this.$axios.get(
           `/api/bookInfo/queryBookInfosByPage?page=${this.pageBook.currentPage}&limit=${this.pageBook.pageSize}`
-      ).then(res => {
-        this.bookInfo = res.data.data
-        this.pageBook.pageCount = res.data.count
-        this.$message.success('搜索完成')
-        this.selectBook.bookName = ''
-        this.selectBook.bookAuthor = ''
-        this.selectBook.bookTypeName = ''
-
-      })
+      ).then(
+          res => {
+            this.bookInfo = res.data.data
+            this.pageBook.pageCount = res.data.count
+            this.selectBook.bookName = ''
+            this.selectBook.bookAuthor = ''
+            this.selectBook.bookTypeName = ''
+          },
+          error => {
+            console.log(error)
+          }
+      )
     },
+
+    /*添加图书部分*/
+
     // 修改添加图书数据中的BookTypeId
     updataDialogFormAddBookTypeId(item) {
       for (let i = 0; i < this.bookType.length; i++) {
@@ -182,7 +219,7 @@ export default {
     handleAvatarExceed() {
       this.$message.error('图片以超过最大上传上限，请删除后重新上传')
     },
-    // 弹窗一点击确定时调用
+    // 添加书籍弹窗点击确定时调用
     dialogFormAddSuccess() {
       this.$axios.post('/api/bookInfo/addBookInfo', {
         bookid: null,
@@ -204,10 +241,47 @@ export default {
           }
       )
     },
+
+    /*批量删除部分*/
+
     // 批量删除时调用
-    fromBulkDelete(row, index) {
-      console.log(row)
-      console.log(index)
+    // 判断是否发送axios请求
+    ifdeleteBatch() {
+      if (this.ifBacthDelete) {
+        this.deleteBatch()
+      }
+    },
+    // 发送axios请求
+    deleteBatch() {
+      this.$axios.delete('/api/bookInfo/deleteBookInfos', {
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        data: JSON.stringify(this.batchDeleteForm)
+      }).then(
+          res => {
+            if (res.data === 1 || res.data === 2) {
+              this.$message.success('批量删除成功')
+              this.ifOpenBacth = false
+              this.ifBacthDelete = false
+              this.selectAllBookInfo()
+            } else {
+              this.$message.error('批量删除失败')
+              this.ifOpenBacth = false
+              this.ifBacthDelete = false
+            }
+          },
+          error => {
+            this.$message.error(error)
+          }
+      )
+    },
+    batchDeleteData(selection) {
+      this.batchDeleteForm = selection
+    },
+    batchDeleteAllData(selection) {
+      this.batchDeleteForm = selection
+      console.log(this.batchDeleteForm)
     }
   },
   // 加载获取数据
@@ -242,6 +316,7 @@ export default {
 
 <template>
   <div>
+    <!--条件查询部分-->
     <el-row :gutter="20" style="width: 700px;">
       <el-col :span="4">
         <el-input
@@ -274,16 +349,30 @@ export default {
         <el-button icon="el-icon-search" type="primary" @click="selectAllBookInfo">显示全部</el-button>
       </el-col>
     </el-row>
-
+    <!--添加图书和批量删除部分-->
     <el-row :gutter="20" style="width: 400px; margin-top: 20px">
       <el-col :span="8">
         <el-button icon="el-icon-edit" type="primary" @click="dialogAddBook = !dialogAddBook">添加图书</el-button>
       </el-col>
       <el-col :span="8">
-        <el-button icon="el-icon-delete" type="danger">批量删除</el-button>
+        <el-button icon="el-icon-delete" type="danger" @click="ifOpenBacth = true; ifBacthDelete = true">批量删除
+        </el-button>
       </el-col>
     </el-row>
-
+    <!--批量删除弹窗-->
+    <el-dialog
+        :visible.sync="ifOpenBacth"
+        title="提示"
+        width="30%">
+      <span>
+        <i class="el-icon-question"></i>
+        确定要删除这些记录吗?</span>
+      <span slot="footer" class="dialog-footer">
+    <el-button @click="ifOpenBacth = false;ifBacthDelete = false">取 消</el-button>
+    <el-button type="primary" @click="ifdeleteBatch">确 定</el-button>
+  </span>
+    </el-dialog>
+    <!--添加图书弹窗-->
     <el-dialog
         :visible.sync="dialogAddBook"
         title="提示"
@@ -360,18 +449,21 @@ export default {
         <el-button type="primary" @click="dialogFormAddSuccess">确 定</el-button>
       </span>
     </el-dialog>
-
+    <!--数据列表部分-->
     <el-table
         :data="bookInfo"
         border
         style="width: 100%;
             margin-top: 20px;
-          ">
+          "
+        @select="batchDeleteData"
+        @select-all="batchDeleteAllData"
+    >
       <el-table-column
-          :selectable="fromBulkDelete"
           align="center"
           min-width="100"
-          type="selection">
+          type="selection"
+      >
       </el-table-column>
       <el-table-column
           align="center"
@@ -447,7 +539,7 @@ export default {
         </template>
       </el-table-column>
     </el-table>
-
+    <!--分页组件部分-->
     <el-pagination
         :current-page.sync="pageBook.currentPage"
         :page-size.sync="pageBook.pageSize"

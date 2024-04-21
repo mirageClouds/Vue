@@ -90,7 +90,7 @@ export default {
 
 #login {
   width: 400px;
-  margin: 20% auto;
+  margin: 19% auto;
 }
 
 h2 {
