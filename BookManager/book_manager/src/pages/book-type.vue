@@ -9,6 +9,15 @@ export default {
       currentPage:1,
       pageSize:10,
       total:0,
+      openDialog:false,
+      rules:{
+        booktypename: [
+          { required: true, message: '图书类型名字不能为空', trigger: 'blur' }
+        ],
+        booktypedesc: [
+          { required: true, message: '图书类型详情不能为空', trigger: 'blur' }
+        ]
+      },
       ruleForm:{
         booktypename:'',
         booktypedesc:''
@@ -82,6 +91,17 @@ export default {
             this.$message.error(error)
           }
       )
+    },
+    dialogFormVisible(){
+      this.$axios.post('/api/bookType/addBookType',{
+        bookid: null,
+        bookname:this.ruleForm.booktypename,
+        booktypedesc:this.ruleForm.booktypedesc,
+      }).then(
+          res=>{
+            console.log(res)
+          }
+      )
     }
   },
   created() {
@@ -120,7 +140,7 @@ export default {
       </el-col>
       <el-col :span="5">
         <div class="grid-content bg-purple">
-          <el-button icon="el-icon-search" type="primary">添加类型</el-button>
+          <el-button icon="el-icon-search" type="primary" @click="openDialog = true">添加类型</el-button>
         </div>
       </el-col>
       <el-col :span="5">
@@ -130,19 +150,19 @@ export default {
       </el-col>
     </el-row>
 
-    <el-dialog width="30%">
-      <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
-        <el-form-item label="图书类型名称" prop="name">
+    <el-dialog width="50%" :visible.sync="openDialog" title="添加图书类型">
+      <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="120px" class="demo-ruleForm">
+        <el-form-item label="图书类型名称" prop="booktypename">
           <el-input v-model="ruleForm.booktypename"></el-input>
         </el-form-item>
-        <el-form-item label="图书类型详情" prop="name">
+        <el-form-item label="图书类型详情" prop="booktypedesc">
           <el-input v-model="ruleForm.booktypedesc"></el-input>
         </el-form-item>
-        <el-form-item>
-          <el-button type="primary" @click="submitForm('ruleForm')">立即创建</el-button>
-          <el-button @click="resetForm('ruleForm')">重置</el-button>
-        </el-form-item>
       </el-form>
+      <div slot="footer" class="dialog-footer">
+        <el-button @click="openDialog  = false">取 消</el-button>
+        <el-button type="primary" @click="dialogFormVisible">确 定</el-button>
+      </div>
     </el-dialog>
 
     <el-table
