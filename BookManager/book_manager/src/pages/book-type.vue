@@ -3,8 +3,71 @@ export default {
   name: "book-type",
   data() {
     return {
-      selectInput: ''
+      selectInput: '',
+      userinfo:[],
+      bookType:[] ,
+      currentPage:1,
+      pageSize:10,
+      total:0
     }
+  },
+  methods:{
+    handleSizeChange(v){
+        this.$axios.get('/api/bookType/queryBookTypesByPage',{
+          params:{
+            page: this.currentPage,
+            limit:v
+          }
+        }).then(
+            res=>{
+              this.pageSize = v
+              console.log(res.data.data)
+              this.bookType = res.data.data
+            }
+        )
+    },
+    handleCurrentChange(v){
+      this.$axios.get('/api/bookType/queryBookTypesByPage',{
+        params:{
+          page: v,
+          limit:this.pageSize
+        }
+      }).then(
+          res=>{
+            this.currentPage = v
+            console.log(res.data.data)
+            this.bookType = res.data.data
+          }
+      )
+    },
+    selectFromInput(){
+      this.currentPage = 1
+      this.$axios.get('/api/bookType/queryBookTypesByPage',{
+        params:{
+          page: this.currentPage,
+          limit:this.pageSize,
+          booktypename:this.selectInput
+        }
+      }).then(
+          res=>{
+            this.bookType = res.data.data
+            this.total = res.data.data.length
+          }
+      )
+    }
+  },
+  created() {
+    this.$axios.get('/api/user/queryUsers').then(
+        res=>{
+          this.userinfo = res.data
+        }
+    )
+    this.$axios.get('/api/bookType/queryBookTypes').then(
+        res =>{
+          this.bookType = res.data
+          this.total = res.data.length
+        }
+    )
   }
 }
 </script>
@@ -19,7 +82,7 @@ export default {
       </el-col>
       <el-col :span="4">
         <div class="grid-content bg-purple">
-          <el-button icon="el-icon-search" type="primary">搜索</el-button>
+          <el-button icon="el-icon-search" type="primary" @click="selectFromInput">搜索</el-button>
         </div>
       </el-col>
       <el-col :span="5">
@@ -38,9 +101,12 @@ export default {
         </div>
       </el-col>
     </el-row>
+
+
+
     <el-table
         ref="multipleTable"
-        :data="tableData"
+        :data="bookType"
         style="width: 100%"
         tooltip-effect="dark"
         @selection-change="handleSelectionChange">
@@ -49,26 +115,40 @@ export default {
           width="55">
       </el-table-column>
       <el-table-column
-          label="日期"
-          width="120">
-        <template slot-scope="scope">{{ scope.row.date }}</template>
-      </el-table-column>
-      <el-table-column
-          label="姓名"
-          prop="name"
+          label="序号"
+          prop="booktypeid"
           width="120">
       </el-table-column>
       <el-table-column
-          label="地址"
-          prop="address"
+          label="类型名字"
+          prop="booktypename"
           show-overflow-tooltip>
       </el-table-column>
+      <el-table-column
+          label="类型详情"
+          prop="booktypedesc"
+          show-overflow-tooltip>
+      </el-table-column>
+      <el-table-column label="操作">
+        <template slot-scope="scope">
+          <el-button
+              size="mini"
+              @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
+          <el-button
+              size="mini"
+              type="danger"
+              @click="handleDelete(scope.$index, scope.row)">删除</el-button>
+        </template>
+      </el-table-column>
     </el-table>
+
+
+
     <el-pagination
-        :current-page="currentPage4"
-        :page-size="100"
-        :page-sizes="[100, 200, 300, 400]"
-        :total="400"
+        :current-page="currentPage"
+        :page-size="pageSize"
+        :page-sizes="[5, 10, 20, 50]"
+        :total="total"
         background
         layout="total, sizes, prev, pager, next, jumper"
         @size-change="handleSizeChange"
