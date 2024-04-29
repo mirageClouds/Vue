@@ -3,36 +3,25 @@
     <video id="bgVid" autoplay class="fullscreenVideo" loop muted>
       <source src="@/assets/Kelsey-Hugs-Amiya-Arknights.mp4" type="video/mp4">
     </video>
-    <div class="login">
-      <h2>登录</h2>
-      <el-row>
-        <el-input
-            ref="loginName"
-            v-model="username"
-            placeholder="请输入用户名">
-          <i slot="prefix" class="el-input__icon el-icon-user-solid"></i>
-        </el-input>
-        <el-input
-            v-model="password"
-            placeholder="请输入密码">
-          <i slot="prefix" class="el-input__icon el-icon-lock"></i>
-        </el-input>
-      </el-row>
-      <el-row :gutter="20" style="margin-top: 30px;width: 100%">
-        <el-col :span="12">
-          <el-button :plain="true" type="primary" @click="login">登录</el-button>
-        </el-col>
-        <el-col :span="12">
-          <el-button :plain="true" type="success" @click="registered">注册</el-button>
-        </el-col>
-      </el-row>
-    </div>
+    <login-model v-if="showLogin" ></login-model>
+    <register-model v-if="!showLogin" ></register-model>
   </div>
 </template>
 
 <script>
+import loginModel from "@/views/login/component/login-model.vue";
+import registerModel from "@/views/login/component/register-model.vue";
 export default {
-  name: "login-index"
+  name: "login-index",
+  data(){
+    return{
+      showLogin:true
+    }
+  },
+  components: {
+    loginModel,registerModel
+  },
+
 }
 </script>
 

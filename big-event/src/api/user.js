@@ -12,7 +12,7 @@ import request from "@/utils/request";
 // key是传入的对象key匹配，value是变量名,用于接收外面传入的值
 // ES6规定，key和value变量同名的时候，可以简写(key既可以为key也可以是value变量名)
 
-export const registerApi = ({username, password}) => {
+export const registerApi = (username,password) => {
 	return request({
 		method: "POST",
 		url: "/user/register",
@@ -20,6 +20,16 @@ export const registerApi = ({username, password}) => {
 		// data的对象参数名和值，axios会把参数和值拼接在请求体里(body)
 		params: {
 			username, password,
+		}
+	})
+}
+
+export const loginApi = (username,password) => {
+	return request({
+		method: "POST",
+		url: "/user/login",
+		params:{
+			username, password
 		}
 	})
 }
