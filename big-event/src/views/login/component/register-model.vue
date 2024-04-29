@@ -52,6 +52,9 @@ export default {
       repassword:''
     }
   },
+  created() {
+    document.title = '注册'
+  }
 }
 </script>
 

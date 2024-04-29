@@ -43,6 +43,9 @@ export default {
     ...mapActions(['login']),
 
   },
+  created() {
+    document.title = '登录'
+  }
 }
 </script>
 
