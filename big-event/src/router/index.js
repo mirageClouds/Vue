@@ -8,9 +8,8 @@ export default new VueRouter({
 			component: () => import('@/views/login'),
 		},
 		{
-			path: '/register',
-			name: 'register',
-			component: () => import('@/views/register')
+			path: '/',
+			component: () => import('@/views/login')
 		}
 	]
 })

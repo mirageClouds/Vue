@@ -10,7 +10,6 @@ const actions = {
 	login(context,v) {
 		loginApi(v.username, v.password).then(
 			res=>{
-				console.log(res)
 				context.commit('setToken', res.data);
 			}
 		)

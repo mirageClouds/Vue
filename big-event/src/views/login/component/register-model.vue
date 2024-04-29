@@ -21,10 +21,10 @@
     </el-row>
     <el-row :gutter="20" style="margin-top: 30px;width: 100%">
       <el-col :span="12">
-        <el-button  type="primary" @click="register">登录</el-button>
+        <el-button  type="primary" @click="register">注册</el-button>
       </el-col>
       <el-col :span="12">
-        <el-button  type="success" @click="handleClick">返回登录</el-button>
+        <el-button  type="success" @click="showLogin">返回登录</el-button>
       </el-col>
     </el-row>
   </div>
@@ -37,13 +37,17 @@ export default {
   name: "register-model",
   methods: {
     register(){
-      registerApi(this.username,this.password).then(
-          res=>{
-            console.log(res)
-          }
-      )
+      if(this.password === this.repassword){
+        registerApi(this.username,this.password).then(
+            res=>{
+              console.log(res)
+            }
+        )
+      }
     },
-
+    showLogin(){
+      this.$emit('show',true)
+    }
   },
   data(){
     return{

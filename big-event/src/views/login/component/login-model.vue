@@ -19,7 +19,7 @@
         <el-button  type="primary" @click="login(userinfo)">登录</el-button>
       </el-col>
       <el-col :span="12">
-        <el-button  type="success" >注册</el-button>
+        <el-button  type="success" @click="showLogin">注册</el-button>
       </el-col>
     </el-row>
   </div>
@@ -41,7 +41,9 @@ export default {
   },
   methods:{
     ...mapActions(['login']),
-
+    showLogin(){
+      this.$emit('show',false)
+    }
   },
   created() {
     document.title = '登录'

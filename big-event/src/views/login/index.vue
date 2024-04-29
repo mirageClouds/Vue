@@ -3,8 +3,8 @@
     <video id="bgVid" autoplay class="fullscreenVideo" loop muted>
       <source src="@/assets/Kelsey-Hugs-Amiya-Arknights.mp4" type="video/mp4">
     </video>
-    <login-model v-if="showLogin" ></login-model>
-    <register-model v-if="!showLogin" ></register-model>
+    <login-model v-if="showLogin" @show="setShowLogin"></login-model>
+    <register-model v-if="!showLogin" @show="setShowLogin" ></register-model>
   </div>
 </template>
 
@@ -21,7 +21,11 @@ export default {
   components: {
     loginModel,registerModel
   },
-
+  methods:{
+    setShowLogin(val){
+      this.showLogin=val
+    }
+  }
 }
 </script>
 
