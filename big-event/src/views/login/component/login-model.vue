@@ -64,7 +64,7 @@ export default {
           res => {
             this.$message.success(res.data.message ? res.data.message : '登录成功')
             this.$store.commit('setToken', res.data.data)
-
+            this.$router.push('/index')
           },
           error => {
             this.$message.error(error)
