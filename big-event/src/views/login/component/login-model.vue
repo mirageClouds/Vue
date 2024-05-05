@@ -2,47 +2,74 @@
   <div class="login">
     <h2>登录</h2>
     <el-row>
-      <el-input
-          ref="loginName"
-          v-model="userinfo.username"
-          placeholder="请输入用户名">
-        <i slot="prefix" class="el-input__icon el-icon-user-solid"></i>
-      </el-input>
-      <el-input
-          v-model="userinfo.password"
-          placeholder="请输入密码">
-        <i slot="prefix" class="el-input__icon el-icon-lock"></i>
-      </el-input>
+      <el-form ref="ruleForm" :model="loginUserInfo" :rules="rules" class="demo-ruleForm">
+        <el-form-item prop="username">
+          <el-input v-model="loginUserInfo.username" placeholder="请输入用户名">
+            <i slot="prefix" class=" el-input__icon el-icon-user-solid"></i>
+          </el-input>
+        </el-form-item>
+        <el-form-item prop="password">
+          <el-input v-model="loginUserInfo.password" placeholder="请输入密码" show-password>
+            <i slot="prefix" class="el-input__icon el-icon-lock"></i>
+          </el-input>
+        </el-form-item>
+      </el-form>
     </el-row>
     <el-row :gutter="20" style="margin-top: 30px;width: 100%">
       <el-col :span="12">
-        <el-button  type="primary" @click="login(userinfo)">登录</el-button>
+        <el-button type="primary" @click="clickLogin">登录</el-button>
       </el-col>
       <el-col :span="12">
-        <el-button  type="success" @click="showLogin">注册</el-button>
+        <el-button type="success" @click="showLogin">注册</el-button>
       </el-col>
     </el-row>
   </div>
 </template>
 
 <script>
-
-import {mapActions} from 'vuex'
+import {userLoginService} from "@/api/user";
 
 export default {
   name: "login-index",
-  data(){
-    return{
-      userinfo:{
-        username:'',
-        password:''
-      }
+  data() {
+    return {
+      loginUserInfo: {
+        username: '',
+        password: ''
+      },
+      rules: {
+        username: [
+          {
+            trigger: 'blur',
+            required: true,
+            message: '用户名不能为空'
+          }
+        ],
+        password: [
+          {
+            trigger: 'blur',
+            required: true,
+            message: '密码不能为空'
+          }
+        ]
+      },
     }
   },
-  methods:{
-    ...mapActions(['login']),
-    showLogin(){
-      this.$emit('show',false)
+  methods: {
+    showLogin() {
+      this.$emit('show', false)
+    },
+    clickLogin() {
+      userLoginService(this.loginUserInfo.username, this.loginUserInfo.password).then(
+          res => {
+            this.$message.success(res.data.message ? res.data.message : '登录成功')
+            this.$store.commit('setToken', res.data.data)
+
+          },
+          error => {
+            this.$message.error(error)
+          }
+      )
     }
   },
   created() {
@@ -64,8 +91,11 @@ export default {
   font-family: "霞鹜文楷 GB 屏幕阅读版";
 }
 
+.el-form {
+  margin-top: 42px;
+}
+
 .el-input {
-  margin-top: 30px;
   display: flex;
   align-items: center;
 }

@@ -10,6 +10,11 @@ export default new VueRouter({
 		{
 			path: '/',
 			component: () => import('@/views/login')
+		},
+		{
+			path: '/index',
+			name: 'index',
+			component: () => import('@/views/home')
 		}
 	]
 })

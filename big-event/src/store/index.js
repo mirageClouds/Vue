@@ -1,20 +1,13 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import {loginApi} from "@/api/user";
+
+
 Vue.use(Vuex);
 
 const store = {
 	token: ''
 }
-const actions = {
-	login(context,v) {
-		loginApi(v.username, v.password).then(
-			res=>{
-				context.commit('setToken', res.data);
-			}
-		)
-	}
-}
+const actions = {}
 const mutations = {
 	setToken(state, token) {
 		state.token = token

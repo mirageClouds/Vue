@@ -4,26 +4,27 @@
       <source src="@/assets/Kelsey-Hugs-Amiya-Arknights.mp4" type="video/mp4">
     </video>
     <login-model v-if="showLogin" @show="setShowLogin"></login-model>
-    <register-model v-if="!showLogin" @show="setShowLogin" ></register-model>
+    <register-model v-if="!showLogin" @show="setShowLogin"></register-model>
   </div>
 </template>
 
 <script>
 import loginModel from "@/views/login/component/login-model.vue";
 import registerModel from "@/views/login/component/register-model.vue";
+
 export default {
   name: "login-index",
-  data(){
-    return{
-      showLogin:true
+  data() {
+    return {
+      showLogin: true
     }
   },
   components: {
-    loginModel,registerModel
+    loginModel, registerModel
   },
-  methods:{
-    setShowLogin(val){
-      this.showLogin=val
+  methods: {
+    setShowLogin(val) {
+      this.showLogin = val
     }
   }
 }
@@ -42,7 +43,7 @@ export default {
 
 .login {
   width: 430px;
-  margin: 15% auto;
+  margin: 10% auto;
   border-radius: 20px;
   padding: 40px;
   height: 300px;

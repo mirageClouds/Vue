@@ -2,58 +2,105 @@
   <div class="register">
     <h2>注册</h2>
     <el-row>
-      <el-input
-          ref="loginName"
-          v-model="username"
-          placeholder="请输入用户名">
-        <i slot="prefix" class="el-input__icon el-icon-user-solid"></i>
-      </el-input>
-      <el-input
-          v-model="password"
-          placeholder="请输入密码">
-        <i slot="prefix" class="el-input__icon el-icon-lock"></i>
-      </el-input>
-      <el-input
-          v-model="repassword"
-          placeholder="请再次输入密码">
-        <i slot="prefix" class="el-input__icon el-icon-lock"></i>
-      </el-input>
+      <el-form ref="ruleForm" :model="registerUserInfo" :rules="rules" class="demo-ruleForm">
+        <el-form-item prop="username">
+          <el-input v-model="registerUserInfo.username" placeholder="请输入用户名">
+            <i slot="prefix" class=" el-input__icon el-icon-user-solid"></i>
+          </el-input>
+        </el-form-item>
+        <el-form-item prop="password">
+          <el-input v-model="registerUserInfo.password" placeholder="请输入密码" show-password>
+            <i slot="prefix" class="el-input__icon el-icon-lock"></i>
+          </el-input>
+        </el-form-item>
+        <el-form-item prop="rePassword">
+          <el-input v-model="registerUserInfo.rePassword" placeholder="请再次输入密码" show-password>
+            <i slot="prefix" class=" el-input__icon el-icon-lock"></i>
+          </el-input>
+        </el-form-item>
+      </el-form>
     </el-row>
-    <el-row :gutter="20" style="margin-top: 30px;width: 100%">
+    <el-row :gutter="20" style="margin-top: 10px;width: 100%">
       <el-col :span="12">
-        <el-button  type="primary" @click="register">注册</el-button>
+        <el-button type="primary" @click="register">注册</el-button>
       </el-col>
       <el-col :span="12">
-        <el-button  type="success" @click="showLogin">返回登录</el-button>
+        <el-button type="success" @click="showLogin">返回登录</el-button>
       </el-col>
     </el-row>
   </div>
 </template>
 
 <script>
-import {registerApi} from "@/api/user";
+import {userRegisterService} from "@/api/user";
 
 export default {
   name: "register-model",
   methods: {
-    register(){
-      if(this.password === this.repassword){
-        registerApi(this.username,this.password).then(
-            res=>{
-              console.log(res)
+    async register() {
+      if (this.registerUserInfo.password === this.registerUserInfo.rePassword) {
+        userRegisterService(this.registerUserInfo.username, this.registerUserInfo.password).then(
+            res => {
+              this.$message.success(res.message ? res.message : '注册成功')
+            },
+            error => {
+              this.$message.error(error)
             }
         )
       }
     },
-    showLogin(){
-      this.$emit('show',true)
+    showLogin() {
+      this.$emit('show', true)
     }
   },
-  data(){
-    return{
-      username:'',
-      password:'',
-      repassword:''
+  data() {
+    return {
+      registerUserInfo: {
+        username: '',
+        password: '',
+        rePassword: ''
+      },
+      rules: {
+        username: [
+          {
+            required: true,
+            message: '请输入用户名',
+            trigger: 'blur'
+          },
+          {
+            pattern: /^\S{5,16}$/,
+            message: '用户名长度为5-16位',
+            trigger: 'blur'
+          }
+        ],
+        password: [
+          {
+            required: true,
+            message: '请输入密码',
+            trigger: 'blue'
+          },
+          {
+            pattern: /^\S{5,16}$/,
+            message: '密码长度为5-16位',
+            trigger: 'blur'
+          }
+        ],
+        rePassword: [
+          {
+            required: true,
+            message: '请输入重新输入密码',
+            trigger: 'blur'
+          },
+          {
+            validator: (rule, value, callback) => {
+              if (value !== this.registerUserInfo.password) {
+                callback(new Error('两次密码不一致'))
+              }
+            },
+            trigger: 'blur'
+          }
+        ]
+      }
     }
   },
   created() {
@@ -62,10 +109,10 @@ export default {
 }
 </script>
 
-<style scoped lang="css">
+<style lang="css" scoped>
 .register {
   width: 430px;
-  margin: 15% auto;
+  margin: 10% auto;
   border-radius: 20px;
   padding: 40px;
   height: 300px;
@@ -74,7 +121,6 @@ export default {
 }
 
 .el-input {
-  margin-top: 20px;
   display: flex;
   align-items: center;
 }
