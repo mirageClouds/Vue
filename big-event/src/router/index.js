@@ -1,5 +1,6 @@
 import VueRouter from 'vue-router'
 import store from "@/store";
+import {Message} from 'element-ui';
 
 const router = new VueRouter({
 	routes: [
@@ -23,13 +24,17 @@ const router = new VueRouter({
 					path: '/home',
 					name: 'home',
 					component: () => import('@/views/home/home.vue'),
+					meta: {
+						Authentication: true
+					}
 				},
 				{
 					path: '/article/category',
 					name: 'category',
 					component: () => import('@/views/article/category.vue'),
 					meta: {
-						title: '文章分类'
+						title: '文章分类',
+						Authentication: true
 					}
 				},
 				{
@@ -37,7 +42,8 @@ const router = new VueRouter({
 					name: 'manage',
 					component: () => import('@/views/article/manage.vue'),
 					meta: {
-						title: '文章管理'
+						title: '文章管理',
+						Authentication: true
 					}
 				},
 				{
@@ -45,7 +51,8 @@ const router = new VueRouter({
 					name: 'userInfo',
 					component: () => import('@/views/user/info.vue'),
 					meta: {
-						title: '基本资料'
+						title: '基本资料',
+						Authentication: true
 					}
 				},
 				{
@@ -53,7 +60,8 @@ const router = new VueRouter({
 					name: 'userAvatar',
 					component: () => import('@/views/user/avatar.vue'),
 					meta: {
-						title: '更换头像'
+						title: '更换头像',
+						Authentication: true
 					}
 				},
 				{
@@ -61,7 +69,8 @@ const router = new VueRouter({
 					name: 'userResetPassword',
 					component: () => import('@/views/user/resetPassword.vue'),
 					meta: {
-						title: '重置密码'
+						title: '重置密码',
+						Authentication: true
 					}
 				}
 			]
@@ -70,9 +79,18 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
-	let nav = to.matched
-	store.commit("setNav", nav);
-	next();
+	if (to.meta.Authentication) {
+		if (store.state.token) {
+			let nav = to.matched
+			store.commit("setNav", nav);
+			next();
+		} else {
+			next('/')
+			Message.error('登录已过期，请重新登录')
+		}
+	} else {
+		next()
+	}
 })
 
 
