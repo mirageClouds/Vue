@@ -1,13 +1,11 @@
 <template>
   <el-menu
+      :default-active="this.$route.path"
       active-text-color="#ffd04b"
       background-color="rgb(83,91,99)"
       class="el-menu-vertical-demo"
-      default-active="1-1"
       router
       text-color="#fff"
-      @close="handleClose"
-      @open="handleOpen"
   >
     <el-menu-item index="/index" style="height: 110px;padding: 20px ">
       <el-image :src="require('@/assets/logo.png')"></el-image>

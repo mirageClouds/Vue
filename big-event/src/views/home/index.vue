@@ -10,7 +10,24 @@
       </el-header>
 
       <el-main>
-        <router-view/>
+        <div>
+          <el-row>
+            <el-col :span="24">
+              <el-breadcrumb separator-class="el-icon-arrow-right">
+                <template v-for="(i,key) in this.$store.state.nav">
+                  <el-breadcrumb-item v-if="i.meta.title" :key="key"
+                                      :to="{name:i.name}">{{
+                      i.meta.title
+                    }}
+                  </el-breadcrumb-item>
+                </template>
+              </el-breadcrumb>
+            </el-col>
+          </el-row>
+          <el-row>
+            <router-view/>
+          </el-row>
+        </div>
       </el-main>
     </el-container>
   </el-container>
@@ -25,11 +42,15 @@ export default {
   components: {
     HomeHeader,
     HomeMenu,
-  }
+  },
 }
 </script>
 
 <style lang="css" scoped>
+.el-container {
+  background-image: url("@/assets/59440693_p0.jpg");
+}
+
 .el-header {
   background-color: #B3C0D1;
   color: #333;
@@ -39,4 +60,16 @@ export default {
 .el-aside {
   color: #333;
 }
+
+.el-main {
+  margin: 30px;
+  padding: 30px;
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+}
+
+.el-row {
+  margin-bottom: 20px;
+}
+
 </style>

@@ -5,12 +5,16 @@ import Vuex from 'vuex';
 Vue.use(Vuex);
 
 const store = {
-	token: ''
+	token: '',
+	nav: []
 }
 const actions = {}
 const mutations = {
 	setToken(state, token) {
 		state.token = token
+	},
+	setNav(state, nav) {
+		state.nav = nav
 	}
 }
 
