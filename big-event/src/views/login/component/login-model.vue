@@ -62,8 +62,9 @@ export default {
     clickLogin() {
       userLoginService(this.loginUserInfo.username, this.loginUserInfo.password).then(
           res => {
+            localStorage.setItem('token', res.data)
             this.$message.success(res.data.message ? res.data.message : '登录成功')
-            this.$store.commit('setToken', res.data.data)
+            this.$store.commit('setToken', res.data)
             this.$router.push('/index')
           },
           error => {
