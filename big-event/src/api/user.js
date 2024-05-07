@@ -33,3 +33,14 @@ export const userLoginService = (username, password) => {
 		}
 	})
 }
+
+export const userInfoService = (token) => {
+	return request({
+		method: "GET",
+		url: "/user/userInfo",
+		headers: {
+			token: token
+		}
+
+	})
+}
