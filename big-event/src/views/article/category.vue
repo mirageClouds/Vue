@@ -1,8 +1,9 @@
 <template>
   <div class="table-wrapper">
     <el-table
+        :cell-style="{color:'#FFFFFF'}"
         :data="articleCategoryList"
-        :header-cell-style="{color:'#606266'}"
+        :header-cell-style="{color:'#FF99CC'}"
         style="width: 100%">
       <el-table-column
           align="center"
@@ -19,18 +20,26 @@
       <el-table-column
           align="center"
           label="分类别名"
-          prop="categoryAlias">
+          prop="categoryAlias"
+      >
       </el-table-column>
       <el-table-column align="center" label="操作">
         <template slot-scope="scope">
           <el-button
+              icon="el-icon-edit"
+              round
               size="mini"
-              @click="handleEdit(scope.$index, scope.row)">编辑
+              type="primary"
+              @click="handleEdit(scope.$index, scope.row)"
+          >
           </el-button>
           <el-button
+              icon="el-icon-delete"
+              round
               size="mini"
               type="danger"
-              @click="handleDelete(scope.$index, scope.row)">删除
+              @click="handleDelete(scope.$index, scope.row)"
+          >
           </el-button>
         </template>
       </el-table-column>
@@ -50,7 +59,6 @@ export default {
     articleCategoryService(localStorage.getItem('token')).then(
         res => {
           this.articleCategoryList = res.data;
-          console.log(this.articleCategoryList)
         },
         error => {
           this.$message.error(error)
@@ -66,10 +74,12 @@ export default {
 </script>
 
 <style lang="css" scoped>
+/*设置外边框圆角*/
 .table-wrapper /deep/ .el-table {
   border-radius: 10px !important;
 }
 
+/*设置内边距*/
 .table-wrapper /deep/ .el-table--fit {
   padding: 20px !important;
   border: none !important;
@@ -80,9 +90,14 @@ export default {
   border: none !important;
 }
 
-.table-wrapper /deep/ .el-table tr, .table-wrapper /deep/ .el-table th, .table-wrapper /deep/ .el-table td {
+.table-wrapper /deep/ .el-table tr, .table-wrapper /deep/ .el-table th {
   background-color: transparent !important;
   border: none !important;
+}
+
+.table-wrapper /deep/ .el-table td {
+  border-bottom: 1px solid #CCFF66;
+
 }
 
 
@@ -97,8 +112,9 @@ export default {
 }
 
 /*table内的高亮*/
-.el-table tbody tr:hover > td {
-  background-color: rgb(79, 163, 213) !important
+.table-wrapper /deep/ .el-table tr:hover td {
+  background-color: #0582FF !important;
+  color: #FF99CC !important;
 }
 
 
