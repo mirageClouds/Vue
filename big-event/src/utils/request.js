@@ -20,7 +20,6 @@ instance.interceptors.response.use(
 		return Promise.reject(result.data);
 	},
 	error => {
-		alert('服务异常1')
 		return Promise.reject(error)
 	}
 )
