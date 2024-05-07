@@ -11,7 +11,7 @@ const store = {
 const actions = {}
 const mutations = {
 	setToken(state, token) {
-		state.token = token
+		state.token = token || localStorage.getItem('token');
 	},
 	setNav(state, nav) {
 		state.nav = nav
