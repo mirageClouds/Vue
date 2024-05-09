@@ -29,11 +29,11 @@
           基本资料
         </el-menu-item>
         <el-menu-item index="/user/avatar">
-          <i class="el-icon-picture-outline-round"></i>/
+          <i class="el-icon-picture-outline-round"></i>
           更换头像
         </el-menu-item>
         <el-menu-item index="/user/resetPassword">
-          <i class="el-icon-lock"></i>/
+          <i class="el-icon-lock"></i>
           重置密码
         </el-menu-item>
       </el-menu-item-group>
