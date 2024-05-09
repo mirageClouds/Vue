@@ -64,7 +64,7 @@ export default {
 .el-main {
   margin: 30px;
   padding: 30px;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(20px);
   border-radius: 15px;
 }
 
