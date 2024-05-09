@@ -1,5 +1,8 @@
 //基于axios封装
 import axios from "axios";
+import store from "@/store";
+import router from "@/router";
+import {Message} from "element-ui";
 
 
 //axios.create()创建一个带配置的自定义axios函数
@@ -20,6 +23,15 @@ instance.interceptors.response.use(
 		return Promise.reject(result.data);
 	},
 	error => {
+		// 判断状态码是否为401
+		if (error.response.status === 401) {
+			// 清空无效用户信息
+			// 跳转登录页
+			store.commit('setToken', '')
+			localStorage.removeItem('token')
+			Message.error('登录已过期,请重新登录')
+			router.push('/login')
+		}
 		return Promise.reject(error)
 	}
 )
