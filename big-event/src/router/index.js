@@ -80,7 +80,7 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
 	if (to.meta.Authentication) {
-		if (store.state.token) {
+		if (localStorage.getItem("token")) {
 			let nav = to.matched
 			store.commit("setNav", nav);
 			next();
