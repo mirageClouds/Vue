@@ -107,7 +107,7 @@ export default {
   mounted() {
     setTimeout(() => {
       this.myPic()
-    }, 200)
+    }, 500)
   }
 }
 </script>
