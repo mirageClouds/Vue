@@ -2666,73 +2666,78 @@ vm.$watch('isHot',function (){
 * .gitignore：git忽略文件，不需要上传git仓库的在这个文件里面写好
 
 * babel.config.js：babel的配置文件
+
   * babel：es6语法转es5语法
   * babel的中文文档：https://babel.nodejs.cn/docs
-  
+
 * package.json：包含了包名、常用短命令、包的版本
+
   * serve：在本地启动项目
   * build：生产版本，代码完成后执行的编译
   * lint：代码检查（不常用）
-  
+
 * package-lock.json：包含了包的版本信息、包的下载地址、包的node.js版本
+
   * version：包的版本
   * resolved：包的下载地址
   * integrity：用来验证资源的完整性，即是否是我期望加载的资源，而不是被别人篡改了内容
   * dependencies：当前包的生产依赖树
   * devDependencies：当前包的生产依赖
   * engines：node.js的版本
-  
+
 * readme.md：项目的介绍|教程
 
 * **src**：
+
   * main.js：项目的主入口文件，在这里创建Vue实例对象
-  
+
     * render函数：
-  
+
       * 在创建Vue实例的位置没有使用render函数+$mount进行挂着会导致报错
-  
+
         * ~~~
-           You are using the runtime-only build of Vue where the template compiler is not available. Either pre-compile the templates into render functions, or use the compiler-included build.
-           翻译为： 您使用的是 Vue 的仅运行时构建，在该构建中模板编译器不可用。要么将模板预编译为render函数，要么使用包含编译器的构建。
+          You are using the runtime-only build of Vue where the template compiler is not available. Either pre-compile the templates into render functions, or use the compiler-included build.
+          翻译为： 您使用的是 Vue 的仅运行时构建，在该构建中模板编译器不可用。要么将模板预编译为render函数，要么使用包含编译器的构建。
           ~~~
-  
+
         * 原因是导入的Vue.js不是完整版的Vue.js而是vue.runtime.esm
-  
+
         * 使用es6语法引入Vue的方式只是引用了Vue的文件，具体引用了哪个Vue是靠Vue文件架下面的package包中module的来控制，默认dist/vue.runtime.esm.js
-  
+
         * esm指的是在es6语法下默认的模块
-  
+
         * vue.runtime.esm.js默认没有模板解析器
-  
+
         * 完整版的VUE是vue目录下dist中的vue.js文件
-  
+
       * 只要render函数
-  
+
         * rander函数传参：
           * createElement：元素名、元素内容
         * rander必须要有返回值
         * rander简写：
           * render:函数名=>函数名(参数)
-  
+
       * vue版本区别：node_modules下vue文件下dist文件
-  
+
         * vue.js与vue.runtime.xxx.js的区别
           * vue.js是完整版本的Vue，包含：核心功能+模板解析器
           * vue.runtime.xxx.js是运行版的Vue，只包含核心功能，不包含模板解析器
         * 因为vue.runtime.xxx.js没有模板解析器，所以不能使用template配置项，需要使用render函数接收到的createElement函数去指定具体内容
         * 只有在main.js中才使用rander函数
-  
+
   * App.vue：所有组件的父组件
-  
+
   * components：存放子组件的位置
-  
+
   * assets：存放静态资源的位置
-  
+
 * **public**：
+
   * favicon.ico：网页的图标位置
-  
+
   * index.html：项目的主文件，项目最终会运行在这个文件上
-  
+
     * ```html
       <head>
           <meta charset="utf-8">
@@ -2781,7 +2786,7 @@ vm.$watch('isHot',function (){
         module.exports = defineConfig({
         })
         ```
-  
+
 * 参考代码:
 
   * main.js：
@@ -2903,17 +2908,19 @@ vm.$watch('isHot',function (){
 * 应用在html标签上获取的是真实DOM元素，应用在组件标签上是组件实例对象（vc）
 
 * 使用方法：
+
   * 标识：
+
     * ~~~
       <组件名字 ref="" />
       ~~~
-    
+
     * ~~~
       <h1 ref="xxx"></h1>
       ~~~
-    
+
   * 获取方式：this.$refs.xxx
-  
+
 * 参考代码：
 
   * App.vue：
@@ -3251,7 +3258,7 @@ vm.$watch('isHot',function (){
   * `xxxStorage.getItem('key')`：该方法接受一个键名为参数，返回键名对应的值
   * `xxxStorage.removeItem('key')`：该方法接受一个键名作为参数，并把键名从储存中删除
   * `xxxStorage.clear()`：该方法会清空存储中所有数据
-  
+
 * 备注：
 
   * SessionStorage存储的内容会随着浏览器窗口关闭而消失
@@ -3642,9 +3649,9 @@ vm.$watch('isHot',function (){
       ~~~
 
   * 作用域插槽：
-  
+
     * 理解：数据在组件自身，但根据生成的结构需要组件的使用者来决定。
-  
+
     * ~~~vue
       父组件中：
       	<test>
@@ -3673,7 +3680,7 @@ vm.$watch('isHot',function (){
             </div>
           </template>
       ~~~
-  
+
 ## Vuex
 
 * 搭建环境
@@ -3785,7 +3792,7 @@ vm.$watch('isHot',function (){
   * 组件中修改vuex的数据：`$store.dispatch('action中的方法名',数据)`或`$store.commit('mutations中的方法名',数据)`
 
   * 注意：若没有网络请求或其他业务逻辑，组件中也可以越过actions，即不写`dispatch`，直接写`commit`
-  
+
 * getter的使用
 
   * 概念：当state中的数据需要进行加工后再使用，可以使用getter进行加工
@@ -3834,9 +3841,9 @@ vm.$watch('isHot',function (){
           ...mapGetters(['bigsum'])
       }
       ~~~
-    
+
   * mapActions方法：帮助我们生产与`actions`对话的方法，即包含`$store.dispatch(xxx)`的函数
-  
+
     * ~~~js
       methods:{
       	//使用mapActions生成对应的方法，方法会调用dispatch去联系actions(对象写法)
@@ -3846,9 +3853,9 @@ vm.$watch('isHot',function (){
       
       }
       ~~~
-    
+
   * mapMutations方法：帮助我们生产与`mutations`对话的方法，即包含`$store.commit(xxx)`的函数
-  
+
     * ```js
       methods:{
           // 使用mapMutations生成对应的方法，方法会调用commit去联系mutations(对象写法)
@@ -3857,13 +3864,13 @@ vm.$watch('isHot',function (){
           ...mapMutations(["increment", 'decrement']),
       }
       ```
-  
+
   * 模块化+命名空间
-  
+
     * 目的：让代码更好维护，让多种数据分类更加明确
-  
+
     * 修改`store.js`
-  
+
       * ~~~	js
         // 分类模块化
         const testOption = {
@@ -3890,36 +3897,36 @@ vm.$watch('isHot',function (){
             }
         })
         ~~~
-  
+
     * 开启命名空间后，组件中读取state数据
-  
+
       * ~~~js
         //方式一：自己直接读取
         this.$store.testOption.list
         //方式二：借助mapState读取
         ...mapState('testOption',['sum'])
         ~~~
-  
+
     * 开启命名空间后，组件读取getters数据
-  
+
       * ~~~js
         //方式一：自己读取
         this.$store.getters['testOption/sum']
         //方式二：借助mapGeeters读取
         ...mapGetters('testOption',['sum'])
         ~~~
-  
+
     * 开启命名空间后，组件调用dispatch
-  
+
       * ~~~js
         //方式一：自己直接调用dispatch
         this.$store.dispatch('testOption/sum',person)
         //方式二：借助mapActions读取
         ...mapActions('testOption',{sum:'sum'})
         ~~~
-  
+
     * 开启命名空间后，组件调用commit
-  
+
       * ~~~js
         //方式一：自己直接commit
         this.$store.commit('testOption/sum',person)
@@ -3932,12 +3939,14 @@ vm.$watch('isHot',function (){
 * 理解:vue的一个插件库，专门实现spa应用
 
 * 对spa的理解：
+
   * 单页面Web应用(sing page web application,SPA)
   * 整个应用只有一个完整的页面
   * 点击页面中的导航链接不会刷新页面，只会做页面的局部更新
   * 数据需要通过ajax获取
-  
+
 * 路由的理解
+
   * 什么是路由
     * 一个路由就是一组映射关系(key-value)
     * key为路径，value可能是function或者component
@@ -3948,7 +3957,7 @@ vm.$watch('isHot',function (){
     * 前端路由
       * 理解：value就是component，用于展示页面内容
       * 工作过程：当浏览器路径发生改变时，对应的组件就会展示
-  
+
 * 基本使用
 
   * 安装vue-router：`npm i vue-router`
@@ -4176,7 +4185,7 @@ vm.$watch('isHot',function (){
   * 作用：控制路由跳转时操作浏览器历史记录的模式
   * 浏览器的历史记录有两种写入方式：分别为`push`和`replace`,`push`是追加历史记录，`replact`是替换当前历史记录，路由跳转跳转时候默认为`push`
   * 如何开启`replace`模式：`<reouter-link replace ……>news</reouter>`
-  
+
 * 编程式路由导航
 
   * 作用：不借助`<router-link>`实现路由跳转，让路由跳转更加灵活
@@ -4320,3 +4329,215 @@ vm.$watch('isHot',function (){
   * <a herf='https://element.eleme.cn'>Element UI</a>
   * <a herf='https://www.iviewui.com'>IView UI</a>
 
+# Vue3
+
+## 使用create-vue创建项目
+
+* 前提：node16.20以上
+* 创建一个vue应用：npm init vue@latest
+
+## setup
+
+* setup执行时机:beforeCreate构子前 自动执行
+* setup写代码的特点是什么:定义数据+函数 然后以对象形式返回
+* `<script setup>`解决了什么问题：经过语法糖的封装，更简单的使用组合式api
+* setup中的this还指向组件实例吗：指向undefined
+
+## ref和reactive
+
+* reactive和ref函数的共同作用是什么：用函数调用的方式生成响应式数据
+* reactive vs ref：
+  * reactive不能处理简单类型数据
+  * ref参数类型支持更好单是必须通过.value进行修改
+  * ref函数的内部实现依赖于reactive函数
+* 实际工作中推荐使用哪个：推荐使用ref函数，更加灵活统一
+
+## computed
+
+* 计算数据中不应该有'副作用'：比如异步请求/修改dom
+* 避免直接修改计算属性的值：计算属性应该是制只读的，如特殊写法可以配置get set
+
+## watch
+
+* 作为watch函数作为第一个参数，ref对象需要添加.value吗？
+  * 不需要，第一个参数就是传的ref对象
+* watch只能侦听单个数据吗？
+  * 可以侦听单个或者多个
+* 不开启deep，直接监视复杂类型，修改属性能触发回调吗？
+  * 不能，默认是浅层监听
+* 不开启deep，精确侦听对象的某个属性：可以把第一个参数写成函数的写法，返回要监听的具体属性，
+
+## 生命周期钩子
+
+* api
+
+  * | 选项式               | 组合式          |
+    | -------------------- | --------------- |
+    | befroeCreate\|create | setup           |
+    | beforeMount          | onBeforeMount   |
+    | mounted              | onMounted       |
+    | beforeUpdata         | onBeforeUpdata  |
+    | updataed             | onUpdataed      |
+    | beforeUnmount        | onBeforeUnmount |
+    | unmounted            | onUnmounted     |
+
+## 父传子和子传父
+
+* 父传子
+  * 父传子过程中通过什么方式接受props：`defineProps({属性名:类型})`
+  * setup语法糖中如何使用父组件传过来数据
+    * `const props = defineProps({属性名:类型})`
+    * `props.xxx`
+    * `<div>{{ xxx }}</div>`
+* 子传父
+  * 子传父的过程中通过什么方法得到emit方法:`defineEmit(['事件名称'])`
+  * 怎么样触发事件:`emit('自定义事件名称',参数)`
+
+## 模板引用和defineExpose
+
+* 获取模板引用的时间是什么：组件挂载完毕
+* defineExpose编译宏的作用是什么：显示暴露组件内部的属性和方法
+
+## 跨层级传递数据
+
+* 跨层级传递数据
+  * 顶层：`provide('名称',数据内容)`
+  * 底层：`const message = inject('名称')`
+* 跨层级传递响应式数据
+  * 顶层：`provide('名称',ref对象)`
+  * 底层：`const message = inject('名称')`
+* 跨层级传递方法
+  * 顶层:`provide('名称',()={})`
+  * 底层：`const message = inject('名称')`
+
+## Vue3.3新特性-defineOptions
+
+* 用来定义Options Api的选项吗，除了props，emits，expose，slots除外
+
+* 用法：
+
+  * ~~~js
+    defineOptions({
+    	name:'foo'
+    })
+    ~~~
+
+## defineModel
+
+* ~~~js
+  // 声明 "modelValue" prop，由父组件通过 v-model 使用
+  const model = defineModel()
+  // 或者：声明带选项的 "modelValue" prop
+  const model = defineModel({ type: String })
+  
+  // 在被修改时，触发 "update:modelValue" 事件
+  model.value = "hello"
+  
+  // 声明 "count" prop，由父组件通过 v-model:count 使用
+  const count = defineModel("count")
+  // 或者：声明带选项的 "count" prop
+  const count = defineModel("count", { type: Number, default: 0 })
+  
+  function inc() {
+    // 在被修改时，触发 "update:count" 事件
+    count.value++
+  }
+  ~~~
+
+## pinia
+
+* 文档：https://pinia.vuejs.org/zh/introduction.html
+
+* 安装pinia
+
+  * npm install pinia
+
+  * main.js
+
+    * ```js
+      import {createApp} from 'vue'
+      import {createPinia} from "pinia";
+      import App from './App.vue'
+      
+      const app = createApp(App)
+      const pinia = createPinia()
+      
+      app.use(pinia)
+      
+      app.mount('#app')
+      ```
+
+* 使用方式：
+
+  * 声明
+
+    * ```js
+      import {defineStore} from 'pinia'
+      import {computed, ref} from 'vue'
+      import axios from "axios";
+      
+      /*
+      * 定义store
+      * defineStore(仓库的唯一表示,()=>{})
+      * */
+      export const userCounterStore = defineStore('counter', () => {
+      //  声明数据state
+          const count = ref(0)
+      //  声明操作方法action
+          const addCount = () => count.value++
+          const sub = () => count.value--
+      //  声明基于数据派生的计算属性getters
+          const double = computed(() => count.value * 2)
+      
+          return {
+             count, addCount, sub, double
+          }
+      })
+      ```
+
+  * 使用
+
+    * ```vue
+      <script setup>
+      
+      import {userChannelStore, userCounterStore} from '@/store'
+      
+      const counterStore = userCounterStore()
+      const channelStore = userChannelStore()
+      </script>
+      
+      <template>
+        <div>根组件 -- {{ counterStore.count }}</div>
+        <div>{{ counterStore.double }}</div>
+        <hr>
+        <button @click="channelStore.getList()">获取频道数据</button>
+        <ul>
+          <li v-for="item in channelStore.channelList" :key="item.id">{{ item.name }}</li>
+        </ul>
+      
+      </template>
+      ```
+
+## 配置pinia持久化
+
+* 文档：https://prazdevs.github.io/pinia-plugin-persistedstate/zh/guide/
+
+* 安装：npm i pinia-plugin-persistedstate
+
+* 导入:
+
+  * ```js
+    import {createApp} from 'vue'
+    import {createPinia} from "pinia";
+    import App from './App.vue'
+    import persist from 'pinia-plugin-persistedstate'
+    
+    const app = createApp(App)
+    const pinia = createPinia()
+    
+    app.use(pinia.use(persist))
+    
+    app.mount('#app')
+    ```
+
+* 使用：` defineStore(仓库的唯一表示,()=>{},{persist:true})`
