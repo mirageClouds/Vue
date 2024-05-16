@@ -25,7 +25,7 @@ const getList = async () => {
         let arr = []
         for (let i in resList.value) {
           arr.push({name: i, value: resList.value[i].finalTotalAmount})
-          console.log(i)
+          console.log(resList)
         }
 
         let arr1 = arr.sort((a, b) => b.value - a.value)
