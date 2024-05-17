@@ -1,4 +1,5 @@
 <script setup>
+/*
 import * as echarts from 'echarts'
 import axios from "axios";
 import {onMounted, ref} from 'vue'
@@ -67,12 +68,16 @@ onMounted(() => {
     myEchat()
   }, 500)
 })
+*/
 
-
+// import Pie from '@/compoent/pie.vue'
+import Line from '@/compoent/line.vue'
 </script>
 
 <template>
-  <div id="tb" style="width: 1000px;height: 500px;"></div>
+<!--  <div id="tb" style="width: 1000px;height: 500px;"></div>-->
+<!--  <Pie></pie>-->
+  <Line></Line>
 </template>
 
 <style scoped>
