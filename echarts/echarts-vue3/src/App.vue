@@ -71,13 +71,15 @@ onMounted(() => {
 */
 
 // import Pie from '@/compoent/pie.vue'
-import Line from '@/compoent/line.vue'
+// import Line from '@/compoent/line.vue'
+import Bar from '@/compoent/bar.vue'
 </script>
 
 <template>
 <!--  <div id="tb" style="width: 1000px;height: 500px;"></div>-->
 <!--  <Pie></pie>-->
-  <Line></Line>
+<!--  <Line></Line>-->
+  <Bar></Bar>
 </template>
 
 <style scoped>
