@@ -72,14 +72,16 @@ onMounted(() => {
 
 // import Pie from '@/compoent/pie.vue'
 // import Line from '@/compoent/line.vue'
-import Bar from '@/compoent/bar.vue'
+// import Bar from '@/compoent/bar.vue'
+import Drill1 from "@/compoent/drill1.vue";
 </script>
 
 <template>
-<!--  <div id="tb" style="width: 1000px;height: 500px;"></div>-->
-<!--  <Pie></pie>-->
-<!--  <Line></Line>-->
-  <Bar></Bar>
+  <!--  <div id="tb" style="width: 1000px;height: 500px;"></div>-->
+  <!--  <Pie></pie>-->
+  <!--  <Line></Line>-->
+  <!--  <Bar></Bar>-->
+  <Drill1></Drill1>
 </template>
 
 <style scoped>

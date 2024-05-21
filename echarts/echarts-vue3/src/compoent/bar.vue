@@ -1,56 +1,100 @@
 <script setup>
-import {ref,onMounted} from 'vue'
 import axios from 'axios'
+import * as echarts from 'echarts'
+import {onMounted} from "vue";
 
 
 const listData = {}
 const reData = []
 
-const getList = ()=>{
+const getList = () => {
   axios.get('https://mock.mengxuegu.com/mock/6641ce0d37199f49537c36d0/example/test23').then(
-      res=>{
+      res => {
         let data = res.data.data.orders
-        data.forEach(item=>{
-          console.log(item)
-          if(listData[item.regionName]){
-            item.details.forEach(i=>{
-              if(listData[item.regionName][i.quantity]){
-                listData[item.regionName][i.quantity].price += i.price
-              }else {
-                listData[item.regionName][i.quantity].quantity = {price:i.price}
-              }
-            })
-            listData[item.regionName].finalTotalAmount += item.finalTotalAmount
-          }else {
-            listData[item.regionName] = {finalTotalAmount:item.finalTotalAmount}
-            item.details.forEach(i=>{
-              if(listData[item.regionName][i.quantity]){
-                listData[item.regionName][i.quantity].price += i.price
-              }else {
-                listData[item.regionName][i.quantity].quantity = {price:i.price}
-              }
-            })
+        data.forEach(item => {
+          const regionName = item.regionName
+          if (!listData[regionName]) {
+            listData[regionName] = {
+              finalTotalAmount: 0,
+              details: {}
+            }
           }
+          listData[regionName].finalTotalAmount += item.finalTotalAmount
+
+          item.details.forEach(i => {
+            const item = i.item
+            const quantity = i.quantity
+            const price = i.price
+
+            if (!listData[regionName].details[quantity]) {
+              listData[regionName].details[quantity] = {
+                item: item,
+                price: price
+              }
+            }
+          })
         })
 
-        for (let i in listData){
-
-          reData.push({name:i,value:listData[i].quantity,value1:listData[i].finalTotalAmount.toFixed(2)})
-          console.log(reData)
+        let arr = []
+        for (let i in listData) {
+          arr.push({
+            name: i,
+            finalTotalAmount: listData[i].finalTotalAmount.toFixed(2),
+            details: listData[i].details,
+          })
         }
 
+
+        arr = arr.sort((a, b) => b.finalTotalAmount - a.finalTotalAmount)
+
+        arr = arr.slice(0, 5)
+        let name = []
+        let finalTotalAmount = []
+        let details = []
+        for (let i in arr) {
+          reData.push({
+            name: arr[i].name,
+            value: arr[i].finalTotalAmount,
+          })
+          name.push(arr[i].name)
+          finalTotalAmount.push(arr[i].finalTotalAmount)
+          details.push(arr[i].details)
+        }
+
+        console.log('城市名称', name)
+        console.log('城市最大消费额', finalTotalAmount)
+        console.log('城市详情', details)
       }
   )
 }
 
+const MyEcharts = () => {
+  let myCharts = echarts.init(document.getElementById('tb'))
+  let option = {
+    series: {
+      type: 'pie',
+      data: reData,
+      roseType: 'area'
+    }
+  }
+  myCharts.setOption(option)
+}
+
+
 getList()
+
+onMounted(() => {
+  setTimeout(() => {
+    MyEcharts()
+  }, 500)
+})
 
 </script>
 
 <template>
-
+  <div id="tb" style="width: 1000px;height: 1000px;"></div>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 
 </style>
