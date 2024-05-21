@@ -62,7 +62,7 @@ const getList = () => {
         }
 
         console.log('城市名称', name)
-        console.log('城市最大消费额', finalTotalAmount)
+        console.log('城市最大消费额1', finalTotalAmount)
         console.log('城市详情', details)
       }
   )
